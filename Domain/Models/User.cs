@@ -33,4 +33,7 @@ public class User
     
     public bool availabilityOfProfile { get; set; }
 
+    public bool IdBanned { get; set; }
+    
+    public DateTime RegDate { get; set; }
 }
