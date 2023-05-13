@@ -11,7 +11,7 @@ using Persistence;
 namespace Persistence.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20230510100829_InitialCreate")]
+    [Migration("20230513075752_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -330,12 +330,18 @@ namespace Persistence.Migrations
                     b.Property<int>("Experience")
                         .HasColumnType("INTEGER");
 
+                    b.Property<bool>("IsBanned")
+                        .HasColumnType("INTEGER");
+
                     b.Property<string>("Login")
                         .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<bool>("OrgRights")
                         .HasColumnType("INTEGER");
+
+                    b.Property<DateTime>("RegDate")
+                        .HasColumnType("TEXT");
 
                     b.Property<bool>("availabilityOfProfile")
                         .HasColumnType("INTEGER");

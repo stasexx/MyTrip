@@ -66,7 +66,9 @@ namespace Persistence.Migrations
                     City = table.Column<string>(type: "TEXT", nullable: false),
                     Avatar = table.Column<string>(type: "TEXT", nullable: false),
                     availabilityOfTours = table.Column<bool>(type: "INTEGER", nullable: false),
-                    availabilityOfProfile = table.Column<bool>(type: "INTEGER", nullable: false)
+                    availabilityOfProfile = table.Column<bool>(type: "INTEGER", nullable: false),
+                    IsBanned = table.Column<bool>(type: "INTEGER", nullable: false),
+                    RegDate = table.Column<DateTime>(type: "TEXT", nullable: false)
                 },
                 constraints: table =>
                 {

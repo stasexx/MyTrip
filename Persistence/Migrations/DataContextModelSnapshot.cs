@@ -327,7 +327,7 @@ namespace Persistence.Migrations
                     b.Property<int>("Experience")
                         .HasColumnType("INTEGER");
 
-                    b.Property<bool>("IdBanned")
+                    b.Property<bool>("IsBanned")
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Login")
