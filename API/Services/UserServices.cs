@@ -26,17 +26,29 @@ public class UserServices:IUserService
         return await _context.Users.FindAsync(id);
     }
     
-    public async Task<List<User>> Registration(string email, string password)
+    public async Task<List<User>> Registration(string email, string password, string firstName, string lastName)
     {
         User user = new User()
         {
             Password = password,
             Email = email,
+            Login = "none",
+            OrgRights = true,
+            Agency = "none",
+            Experience = 120,
+            firstName = firstName,
+            lastName = lastName,
+            phoneNumber = 12345,
+            City = "none",
+            Avatar = "none",
+            availabilityOfProfile = true,
+            availabilityOfTours = true,
+            IsBanned = false,
             RegDate = DateTime.Today
         };
     
         _context.Users.Add(user);
-        await _context.SaveChangesAsync(); // Сохранение изменений в базе данных
+        await _context.SaveChangesAsync();
     
         return await _context.Users.ToListAsync();
     }

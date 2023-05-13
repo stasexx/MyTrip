@@ -23,7 +23,9 @@ public class Seed
                 City = "Kharkiv",
                 Avatar = "23rfregy43r32gw4g",
                 availabilityOfProfile = true,
-                availabilityOfTours = true
+                availabilityOfTours = true,
+                IsBanned = false,
+                RegDate = DateTime.Today
 
             },
 
@@ -41,10 +43,13 @@ public class Seed
                 City = "Kharkiv",
                 Avatar = "23rfregy43r32gw4g",
                 availabilityOfProfile = true,
-                availabilityOfTours = true
-
+                availabilityOfTours = true,
+                IsBanned = false,
+                RegDate = DateTime.Today
             }
         };
+        await contex.Users.AddRangeAsync(users);
+        await contex.SaveChangesAsync();
     }
     public static async Task SeedDataTours(DataContext contex)
     {

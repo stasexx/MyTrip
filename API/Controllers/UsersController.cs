@@ -28,9 +28,9 @@ public class UsersController : BaseApiController
     }
     
     [HttpPost("api/registration")]
-    public async Task<List<User>> Registration(string email, string password)
+    public async Task<List<User>> Registration(string email, string password, string firstName, string lastName)
     {
-        return await _userService.Registration(email, password);
+        return await _userService.Registration(email, password, firstName, lastName);
     }
     /*[HttpGet("~/find")]//api/byName
     public async Task<ActionResult<User>> FindForName(string name)
