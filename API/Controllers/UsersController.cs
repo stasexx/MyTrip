@@ -22,7 +22,7 @@ public class UsersController : BaseApiController
     }
 
     [HttpGet("{id}")]//api/users/fdsfdsf
-    public async Task<ActionResult<User>> GetUser(Guid id)
+    public async Task<ActionResult<User>> GetUser(int id)
     {
         return await _userService.GetUserAsync(id);
     }
