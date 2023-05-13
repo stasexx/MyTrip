@@ -21,12 +21,17 @@ public class UsersController : BaseApiController
         return await _userService.GetAllUsersAsync();
     }
 
-    /*[HttpGet("{id}")]//api/users/fdsfdsf
-    public async Task<ActionResult<User>> GetUser(Guid id)
+    [HttpGet("{id}")]//api/users/fdsfdsf
+    public async Task<ActionResult<User>> GetUser(int id)
     {
-        return await _context.Users.FindAsync(id);
-    }*/
+        return await _userService.GetUserAsync(id);
+    }
     
+    [HttpPost("api/registration")]
+    public async Task<List<User>> Registration(string email, string password, string firstName, string lastName)
+    {
+        return await _userService.Registration(email, password, firstName, lastName);
+    }
     /*[HttpGet("~/find")]//api/byName
     public async Task<ActionResult<User>> FindForName(string name)
     {

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "ZH/bbcWPhx2NG2goWjZVvOuI54wTtvlO/cYnhuePgwm6plP0W6nag6T5eAYZAzOLSeBPIZbtYLd7TClyMAbYKw==",
+  "dgSpecHash": "jx1op7hbg3Q8gsfLctHZAqxWC6MJruAP4tHgNQc6EZZqkF1BfvQ0C2PPdM8k2HA8rI7d8wUme1MeW3uCLT9nfw==",
   "success": true,
-  "projectFilePath": "D:\\Projects\\MyTrip\\Domain\\Domain.csproj",
+  "projectFilePath": "D:\\.NET\\MyTrip\\Domain\\Domain.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Admin\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\microsoft.entityframeworkcore\\7.0.0\\microsoft.entityframeworkcore.7.0.0.nupkg.sha512",

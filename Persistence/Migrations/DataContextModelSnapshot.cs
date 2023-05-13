@@ -337,6 +337,10 @@ namespace Persistence.Migrations
                     b.Property<bool>("OrgRights")
                         .HasColumnType("INTEGER");
 
+                    b.Property<string>("Password")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
                     b.Property<DateTime>("RegDate")
                         .HasColumnType("TEXT");
 

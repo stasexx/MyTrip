@@ -7,7 +7,7 @@ public class User
 {
     public int UserId { get; set; }
 
-    public string Password;
+    public string Password { get; set; }
 
     public string Login { get; set; }
     

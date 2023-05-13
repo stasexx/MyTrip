@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "eJ5TljRS+1rL9H+xeUnidIlLX/+ssKjlIV+MTmn5U/R+qwd17fggeO+XcB5klsiaqXGllbDtSx38Xq57K8R30Q==",
+  "dgSpecHash": "IpcUmEz4rwTcQXNcenxJ/+G7RQ48COja1nsQPGJxEaShmlFB40VU1UNQtuKhGGhOiQDtYNDhRs8xUYKcBh1x8g==",
   "success": true,
-  "projectFilePath": "D:\\Projects\\MyTrip\\Persistence\\Persistence.csproj",
+  "projectFilePath": "D:\\.NET\\MyTrip\\Persistence\\Persistence.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Admin\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\microsoft.data.sqlite.core\\8.0.0-preview.3.23174.2\\microsoft.data.sqlite.core.8.0.0-preview.3.23174.2.nupkg.sha512",
