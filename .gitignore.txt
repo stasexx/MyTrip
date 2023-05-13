@@ -1,0 +1,11 @@
+cat .gitignore
+
+API.AssemblyInfoInputs.cache
+logsdebug.log
+.cache
+objDebug
+..ApplicationobjDebug
+..DomainobjDebug
+..PersistenceobjDebug
+Release
+Debug.dll
