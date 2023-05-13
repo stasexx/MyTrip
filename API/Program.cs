@@ -9,6 +9,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
 builder.Services.AddTransient<IUserService, UserServices>();
+builder.Services.AddTransient<ITourService, TourServices>();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
@@ -39,7 +40,8 @@ try
 {
     var contex = services.GetRequiredService<DataContext>();
     await contex.Database.MigrateAsync();
-    await Seed.SeedData(contex);
+    await Seed.SeedDataUsers(contex);
+    await Seed.SeedDataTours(contex);
 }
 catch (Exception ex)
 {

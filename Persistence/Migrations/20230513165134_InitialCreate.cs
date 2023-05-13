@@ -55,19 +55,20 @@ namespace Persistence.Migrations
                 {
                     UserId = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
+                    Password = table.Column<string>(type: "TEXT", nullable: false),
                     Login = table.Column<string>(type: "TEXT", nullable: false),
                     Email = table.Column<string>(type: "TEXT", nullable: false),
-                    OrgRights = table.Column<bool>(type: "INTEGER", nullable: false),
+                    OrgRights = table.Column<bool>(type: "INTEGER", nullable: false, defaultValue:false),
                     Agency = table.Column<string>(type: "TEXT", nullable: false),
-                    Experience = table.Column<int>(type: "INTEGER", nullable: false),
+                    Experience = table.Column<int>(type: "INTEGER", nullable: false, defaultValue: 0),
                     firstName = table.Column<string>(type: "TEXT", nullable: false),
                     lastName = table.Column<string>(type: "TEXT", nullable: false),
                     phoneNumber = table.Column<int>(type: "INTEGER", nullable: false),
                     City = table.Column<string>(type: "TEXT", nullable: false),
                     Avatar = table.Column<string>(type: "TEXT", nullable: false),
-                    availabilityOfTours = table.Column<bool>(type: "INTEGER", nullable: false),
-                    availabilityOfProfile = table.Column<bool>(type: "INTEGER", nullable: false),
-                    IsBanned = table.Column<bool>(type: "INTEGER", nullable: false),
+                    availabilityOfTours = table.Column<bool>(type: "INTEGER", nullable: false, defaultValue:false),
+                    availabilityOfProfile = table.Column<bool>(type: "INTEGER", nullable: false, defaultValue:false),
+                    IsBanned = table.Column<bool>(type: "INTEGER", nullable: false, defaultValue:false),
                     RegDate = table.Column<DateTime>(type: "TEXT", nullable: false)
                 },
                 constraints: table =>
