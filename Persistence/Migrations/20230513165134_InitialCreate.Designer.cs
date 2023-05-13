@@ -11,7 +11,7 @@ using Persistence;
 namespace Persistence.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20230513075752_InitialCreate")]
+    [Migration("20230513165134_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -339,6 +339,10 @@ namespace Persistence.Migrations
 
                     b.Property<bool>("OrgRights")
                         .HasColumnType("INTEGER");
+
+                    b.Property<string>("Password")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
 
                     b.Property<DateTime>("RegDate")
                         .HasColumnType("TEXT");
