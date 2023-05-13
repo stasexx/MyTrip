@@ -1,0 +1,14 @@
+D:\Projects\MyTrip\Domain\bin\Debug\net7.0\Domain.deps.json
+D:\Projects\MyTrip\Domain\bin\Debug\net7.0\Domain.runtimeconfig.json
+D:\Projects\MyTrip\Domain\bin\Debug\net7.0\Domain.dll
+D:\Projects\MyTrip\Domain\bin\Debug\net7.0\Domain.pdb
+D:\Projects\MyTrip\Domain\obj\Debug\net7.0\Domain.csproj.AssemblyReference.cache
+D:\Projects\MyTrip\Domain\obj\Debug\net7.0\Domain.GeneratedMSBuildEditorConfig.editorconfig
+D:\Projects\MyTrip\Domain\obj\Debug\net7.0\Domain.AssemblyInfoInputs.cache
+D:\Projects\MyTrip\Domain\obj\Debug\net7.0\Domain.AssemblyInfo.cs
+D:\Projects\MyTrip\Domain\obj\Debug\net7.0\Domain.csproj.CoreCompileInputs.cache
+D:\Projects\MyTrip\Domain\obj\Debug\net7.0\Domain.dll
+D:\Projects\MyTrip\Domain\obj\Debug\net7.0\refint\Domain.dll
+D:\Projects\MyTrip\Domain\obj\Debug\net7.0\Domain.pdb
+D:\Projects\MyTrip\Domain\obj\Debug\net7.0\Domain.genruntimeconfig.cache
+D:\Projects\MyTrip\Domain\obj\Debug\net7.0\ref\Domain.dll
