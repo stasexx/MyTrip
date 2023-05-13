@@ -20,6 +20,7 @@ objDebug
 ..ApplicationobjDebug
 ..DomainobjDebug
 ..PersistenceobjDebug
+..APIobjDebug
 Release
 Debug.dll
 # User-specific files (MonoDevelop/Xamarin Studio)
