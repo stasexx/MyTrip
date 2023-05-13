@@ -4,7 +4,7 @@ namespace Persistence;
 
 public class Seed
 {
-    public static async Task SeedData(DataContext contex)
+    public static async Task SeedDataUsers(DataContext contex)
     {
         if (contex.Users.Any()) return;
         var users = new List<User>()
@@ -26,7 +26,7 @@ public class Seed
                 availabilityOfTours = true
 
             },
-            
+
             new User
             {
                 Password = "12345",
@@ -45,7 +45,46 @@ public class Seed
 
             }
         };
-        await contex.Users.AddRangeAsync(users);
+    }
+    public static async Task SeedDataTours(DataContext contex)
+    {
+        if (contex.Tours.Any()) return;
+        var tours = new List<Tour>()
+        {
+            new Tour()
+            {
+                Name = "Paris",
+                Description = "You can see beautiful country side in capital of France - Paris",
+                Rate = 5,
+                typeOfTour = "orh",
+                Category = "Romantic",
+                startDate = DateTime.Now,
+                endDate = DateTime.Today,
+                Destination = "Paris",
+                placeOfDeparture = "Odessa",
+                countOfUser = 6,
+                mainPhoto = "ergoierg;1",
+                allPhotos = "fdsfdsf",
+                Tags = "super; puper; class;"
+            },
+            new Tour()
+            {
+                Name = "London",
+                Description = "You can see beautiful country side in capital of France - Paris",
+                Rate = 5,
+                typeOfTour = "orh",
+                Category = "Romantic",
+                startDate = DateTime.Now,
+                endDate = DateTime.Today,
+                Destination = "Paris",
+                placeOfDeparture = "Odessa",
+                countOfUser = 6,
+                mainPhoto = "ergoierg;1",
+                allPhotos = "fdsfdsf",
+                Tags = "super; puper; class;"
+            }
+        };
+        await contex.Tours.AddRangeAsync(tours);
         await contex.SaveChangesAsync();
     }
     

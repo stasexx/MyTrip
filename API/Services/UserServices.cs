@@ -25,4 +25,20 @@ public class UserServices:IUserService
     {
         return await _context.Users.FindAsync(id);
     }
+    
+    public async Task<List<User>> Registration(string email, string password)
+    {
+        User user = new User()
+        {
+            Password = password,
+            Email = email,
+            RegDate = DateTime.Today
+        };
+    
+        _context.Users.Add(user);
+        await _context.SaveChangesAsync(); // Сохранение изменений в базе данных
+    
+        return await _context.Users.ToListAsync();
+    }
+    
 }

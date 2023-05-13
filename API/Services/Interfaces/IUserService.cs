@@ -8,4 +8,6 @@ public interface IUserService
     Task<List<User>> GetAllUsersAsync();
     
     Task<ActionResult<User>> GetUserAsync(int id);
+
+    Task<List<User>> Registration(string email, string password);
 }
