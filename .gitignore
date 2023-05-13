@@ -10,6 +10,18 @@
 *.userosscache
 *.sln.docstates
 
+
+cat .gitignore
+
+API.AssemblyInfoInputs.cache
+logsdebug.log
+.cache
+objDebug
+..ApplicationobjDebug
+..DomainobjDebug
+..PersistenceobjDebug
+Release
+Debug.dll
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
 
