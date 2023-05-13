@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "8XptS54cCG8fHs0yvGNVn4XXzGtldtt88J9pe8bMs5+VRDQcWGCnv/kDvKpi6YFVlE88tRd1fGoXR5jYtzwD0A==",
+  "dgSpecHash": "f8ZYSKEX/6Gk8YQAMaj5Hlxy+famcE5Hrbqwy1+lnlXPx49A4aSK9A3u8iNZ4kmZq1CVmDUtsqFjK6liGrTIaA==",
   "success": true,
-  "projectFilePath": "D:\\.NET\\MyTrip\\Application\\Application.csproj",
+  "projectFilePath": "D:\\MyTrip\\Application\\Application.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Admin\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\microsoft.data.sqlite.core\\8.0.0-preview.3.23174.2\\microsoft.data.sqlite.core.8.0.0-preview.3.23174.2.nupkg.sha512",
