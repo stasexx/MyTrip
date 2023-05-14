@@ -114,7 +114,15 @@ body {
 	margin-right: auto;
 }
 
-
+.icon_header{
+	padding: 0px 7px;
+}
+.nav-list__link:hover .icon_header{
+	background-color: white;
+fill: white;
+	color: rgb(255, 255, 255);
+	transition: opacity 0.2s ease-in;
+}
 .nav-list {
 	display: flex;
 	flex-wrap: wrap;
@@ -131,10 +139,28 @@ body {
 	transition: opacity 0.2s ease-in;
 }
 
-.nav-list__link:hover {
-	opacity: 0.8;
+.nav-list_sign {
+	background-color: #FF9635;
+	padding: 8px 15px;
+	border-radius: 25px;
+	color: rgb(255, 255, 255);
+	transition: opacity 0.2s ease-in;
 }
 
+.nav-list__link:hover {
+	background-color: #000000;
+	padding: 8px 15px;
+	border-radius: 25px;
+	color: rgb(255, 255, 255);
+	transition: opacity 0.2s ease-in;
+}
+.nav-list_sign:hover {
+	background-color: #000000;
+	padding: 8px 15px;
+	border-radius: 25px;
+	color: rgb(255, 255, 255);
+	transition: opacity 0.2s ease-in;
+}
 .nav-list__link--active {
 	position: relative;
 }

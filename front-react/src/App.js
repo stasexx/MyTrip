@@ -14,10 +14,10 @@ function App() {
             <div className="nav-row">
                 <a href="./index.html" className="logo"><img src={logo} alt="Link"/></a>
                     <ul className="nav-list">
-                        <li className="nav-list__item"><a href="./index.html" className="nav-list__link"><img src={about_us} alt="Link"/>About us</a></li>
-                        <li className="nav-list__item"><a href="./projects.html" className="nav-list__link"><img src={tours} alt="Link"/>Tours</a></li>
-                        <li className="nav-list__item"><a href="./projects.html" className="nav-list__link"><img src={sign_in} alt="Link"/>Sign in</a></li>
-                        <li className="nav-list__item"><a href="./contacts.html" className="nav-list__link"><img src={wish_list} alt="Link"/>Wish list</a></li>
+                        <li className="nav-list__item"><a href="./index.html" className="nav-list__link"><img className="icon_header" src={about_us} alt="Link"/>About us</a></li>
+                        <li className="nav-list__item"><a href="./projects.html" className="nav-list__link"><img className="icon_header" src={tours} alt="Link"/>Tours</a></li>
+                        <li className="nav-list__item"><a href="./projects.html" className="nav-list_sign"><img className="icon_header" src={sign_in} alt="Link"/>Sign in</a></li>
+                        <li className="nav-list__item"><a href="./contacts.html" className="nav-list__link"><img className="icon_header" src={wish_list}  alt="Link" />Wish list</a></li>
                     </ul>
             </div>
         </div>
