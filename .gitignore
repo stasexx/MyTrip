@@ -18,8 +18,11 @@ logsdebug.log
 .cache
 objDebug
 ..ApplicationobjDebug
+..Applicationobj
 ..DomainobjDebug
+..Domainobj
 ..PersistenceobjDebug
+..Persistenceobj
 ..APIobjDebug
 Release
 Debug.dll
