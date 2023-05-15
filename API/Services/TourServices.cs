@@ -29,4 +29,11 @@ public class TourServices:ITourService
     {
         return await _context.Tours.FindAsync(id);
     }
+
+    public async Task<List<Tour>> SearchToursAsync(string searchQuery)
+    {
+        return await _context.Tours
+            .Where(tour => tour.Name.StartsWith(searchQuery))
+            .ToListAsync();
+    }
 }

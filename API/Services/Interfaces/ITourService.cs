@@ -10,4 +10,6 @@ public interface ITourService
     Task<List<Tour>> GetToursBySortRateAsync();
     
     Task<ActionResult<Tour>> GetTourByIdAsync(int id);
+    
+    Task<List<Tour>> SearchToursAsync(string searchQuery);
 }
