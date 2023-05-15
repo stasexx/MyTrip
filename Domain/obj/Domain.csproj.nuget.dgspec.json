@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "D:\\MyTrip\\Domain\\Domain.csproj": {}
+    "D:\\Ptojects\\MyTrip\\Domain\\Domain.csproj": {}
   },
   "projects": {
-    "D:\\MyTrip\\Domain\\Domain.csproj": {
+    "D:\\Ptojects\\MyTrip\\Domain\\Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\MyTrip\\Domain\\Domain.csproj",
+        "projectUniqueName": "D:\\Ptojects\\MyTrip\\Domain\\Domain.csproj",
         "projectName": "Domain",
-        "projectPath": "D:\\MyTrip\\Domain\\Domain.csproj",
-        "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-        "outputPath": "D:\\MyTrip\\Domain\\obj\\",
+        "projectPath": "D:\\Ptojects\\MyTrip\\Domain\\Domain.csproj",
+        "packagesPath": "C:\\Users\\Acer\\.nuget\\packages\\",
+        "outputPath": "D:\\Ptojects\\MyTrip\\Domain\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Acer\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],

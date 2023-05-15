@@ -1,7 +1,11 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\Mobile",
+    "\\Mobile\\Mobile",
+    "\\Mobile\\Mobile.Android",
+    "\\Mobile\\Mobile\\Views"
   ],
-  "SelectedNode": "\\API",
+  "SelectedNode": "\\Mobile\\Mobile\\Views",
   "PreviewInSolutionExplorer": false
 }
