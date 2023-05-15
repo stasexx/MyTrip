@@ -14,16 +14,22 @@ public class ToursController : BaseApiController
     {
         _tourService = tourService;
     }
-
-    [HttpGet]//api/tours
-    public async Task<ActionResult<List<Tour>>> GetUsers()
+    
+    [HttpGet("all")]//api/tours
+    public async Task<ActionResult<List<Tour>>> GetTours()
     {
         return await _tourService.GetAllToursAsync();
     }
 
     [HttpGet("{id}")]//api/tours/id
-    public async Task<ActionResult<Tour>> GetUser(int id)
+    public async Task<ActionResult<Tour>> GetTour(int id)
     {
         return await _tourService.GetTourByIdAsync(id);
+    }
+    
+    [HttpGet("sortByRating")]//api/toursSortByRating
+    public async Task<ActionResult<List<Tour>>> GetToursBySortRate()
+    {
+        return await _tourService.GetToursBySortRateAsync();
     }
 }

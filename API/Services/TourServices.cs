@@ -19,6 +19,11 @@ public class TourServices:ITourService
     {
         return await _context.Tours.ToListAsync();
     }
+
+    public async Task<List<Tour>> GetToursBySortRateAsync()
+    {
+        return await _context.Tours.OrderByDescending(t => t.Rate).ToListAsync();
+    }
     
     public async Task<ActionResult<Tour>> GetTourByIdAsync(int id)
     {

@@ -7,5 +7,7 @@ public interface ITourService
 { 
     Task<List<Tour>> GetAllToursAsync();
     
+    Task<List<Tour>> GetToursBySortRateAsync();
+    
     Task<ActionResult<Tour>> GetTourByIdAsync(int id);
 }
