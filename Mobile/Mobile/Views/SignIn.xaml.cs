@@ -7,20 +7,18 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-
 namespace Mobile.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class GetStarted : ContentPage
+    public partial class SignIn : ContentPage
     {
-        public GetStarted()
+        public SignIn()
         {
             InitializeComponent();
         }
-
-        private async void Button_Clicked(object sender, EventArgs e)
+        private void SignUpLabel_Tapped(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new SignIn());
+            Navigation.PushAsync(new Register());
         }
     }
 }

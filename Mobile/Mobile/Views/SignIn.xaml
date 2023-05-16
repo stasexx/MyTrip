@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:Mobile.Views"
+             x:Class="Mobile.Views.SignIn">
+    
+    <ContentPage.Content>
+        <StackLayout BackgroundColor="#EEEEEE"
+                     VerticalOptions="FillAndExpand"
+                     HorizontalOptions="FillAndExpand"
+                     Padding="20"
+                     >
+
+            
+            
+            
+            <Label Text="Welcome Back!"
+                   FontFamily="Trebuchet MS"
+                   FontSize="28"
+                   TextColor="Black"
+                   HorizontalOptions="Center"
+                   VerticalOptions="EndAndExpand"
+                   HorizontalTextAlignment="Center"
+                   Margin="0,0,0,150" />
+
+
+
+
+            <StackLayout Spacing="10" HorizontalOptions="FillAndExpand">
+                <Frame BackgroundColor="White" CornerRadius="25" Padding="5" Margin="0,0,0,10" HeightRequest="40">
+                    <Entry Placeholder="   Enter your email" PlaceholderColor="#808080" FontSize="15"/>
+                </Frame>
+                <Frame BackgroundColor="White" CornerRadius="25" Padding="5" Margin="0,0,0,20" HeightRequest="40">
+                    <Entry Placeholder="   Enter your password" PlaceholderColor="#808080" FontSize="15" />
+                </Frame>
+            </StackLayout>
+
+
+
+
+            <StackLayout Orientation="Horizontal"
+             HorizontalOptions="CenterAndExpand"
+             Margin="0,0,0,10">
+                
+                
+                <BoxView BackgroundColor="#949494"
+             HeightRequest="1"
+             WidthRequest="90"
+             HorizontalOptions="FillAndExpand" />
+                
+                
+                <Label Text="or"
+           FontFamily="Trebuchet MS"
+           FontSize="14"
+           HorizontalOptions="Center"
+           VerticalOptions="Center"
+                      TextColor="#949494"
+           Margin="10,0" />
+                
+                
+                <BoxView BackgroundColor="#949494"
+             HeightRequest="1"
+             WidthRequest="90"
+             HorizontalOptions="FillAndExpand" />
+            </StackLayout>
+
+            
+            
+            <Button Text="Continue with Google"
+                    BackgroundColor="#EEEBE4"
+                    TextColor="Black"
+                    HorizontalOptions="FillAndExpand"
+                    Margin="0,0,0,0"
+                    CornerRadius="25"
+                    TextTransform="None"/>
+
+
+
+
+            <StackLayout VerticalOptions="EndAndExpand" Spacing="10">
+                <Label Text="Forget password?" TextColor="#F5B129" FontSize="14" HorizontalOptions="Center" TextDecorations="Underline"/>
+                <Button Text="Login" BackgroundColor="#F5B129" TextColor="White" CornerRadius="25" TextTransform="None" FontSize="22"/>
+            </StackLayout>
+
+            <StackLayout Orientation="Horizontal"
+                         HorizontalOptions="Center"
+                         VerticalOptions="End">
+                <Label Text="Don’t have an account?"
+                       FontFamily="Trebuchet MS"
+                       FontSize="14"
+                       HorizontalOptions="End"
+                       VerticalOptions="Center" 
+                       TextColor="Black"/>
+
+                <Label Text="Register" TextColor="#F5B129" FontSize="14" HorizontalOptions="Center" TextDecorations="Underline">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="SignUpLabel_Tapped" />
+                    </Label.GestureRecognizers>
+                </Label>
+
+            </StackLayout>
+
+        </StackLayout>
+    </ContentPage.Content>
+
+</ContentPage>
