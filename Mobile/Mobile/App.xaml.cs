@@ -1,6 +1,7 @@
 ﻿using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using Mobile.Views;
 
 namespace Mobile
 {
@@ -11,6 +12,8 @@ namespace Mobile
             InitializeComponent();
 
             MainPage = new MainPage();
+
+            //MainPage = new NavigationPage(new Views.GetStarted());
         }
 
         protected override void OnStart()
