@@ -1,7 +1,15 @@
+using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
+using API.Controllers;
 using API.Services;
 using API.Services.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using Persistence;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,6 +18,9 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 builder.Services.AddTransient<IUserService, UserServices>();
 builder.Services.AddTransient<ITourService, TourServices>();
+builder.Services.AddTransient<IGoogleOAuthService, GoogleOAuthService>();
+builder.Services.AddDistributedMemoryCache();
+builder.Services.AddSession();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
@@ -30,6 +41,8 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
+
+app.UseSession();
 
 app.MapControllers();
 
