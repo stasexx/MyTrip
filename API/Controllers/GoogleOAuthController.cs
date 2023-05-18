@@ -17,16 +17,18 @@ public class GoogleOAuthController : BaseApiController
 {
     private readonly IGoogleOAuthService _googleOAuth;
     
+    private readonly IGoogleService _google;
     
-    public GoogleOAuthController(IGoogleOAuthService googleOAuth)
+    public GoogleOAuthController(IGoogleOAuthService googleOAuth, IGoogleService google)
     {
         _googleOAuth = googleOAuth;
+        _google = google;
     }
     
     [HttpPost("api/oauth")]
     public IActionResult RedirectOnOAuthServer()
     {
-        var scope = "https://www.googleapis.com/auth/userinfo.email";
+        var scope = "https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile";
         var redirectUrl = "http://localhost:5000/GoogleOAuth/api/oauth/code";
 
         var codeVerifier = Guid.NewGuid().ToString();
@@ -44,7 +46,7 @@ public class GoogleOAuthController : BaseApiController
 
         
         var tokenResult= await _googleOAuth.ExchangeCodeOnToken(code, codeVerifier, redirectUrl);
-
+        var userInfo = await _google.GetGmailUserInfo(tokenResult.AccessToken);
 
         return Ok();
     }

@@ -2,5 +2,5 @@
 
 public interface IGoogleService
 {
-    public Task<string> GetEmail(string accessToken);
+    public Task<GmailUserInfo> GetGmailUserInfo(string accessToken);
 }
