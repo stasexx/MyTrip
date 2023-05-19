@@ -48,6 +48,7 @@ public class GoogleOAuthController : BaseApiController
         var tokenResult= await _googleOAuth.ExchangeCodeOnToken(code, codeVerifier, redirectUrl);
         var userInfo = await _google.GetGmailUserInfo(tokenResult.AccessToken);
 
+
         return Ok();
     }
 
