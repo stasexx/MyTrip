@@ -17,7 +17,7 @@ const Footer = () => {
                         <li className="social__item"><a><img  className="img_footer" src={footer_email} />trip_my@gmail.com</a></li>
                         <li className="social__item"><a ><img className="img_footer" src={footer_map}/>Ukraine, Lviv, 79035147 Zelena Street</a></li>
                         <li className="social__item"><a><img className="img_footer" src={footer_phone}/>+380-50-373-5343</a></li>
-                        <li className="social__item"><a><img className="img_footer" src={footer_tg_bot} alt="Link"/>Telegram bot support</a></li>
+                        <li className="social__item"><a href="http://t.me/MyTrip_support_bot"><img className="img_footer" src={footer_tg_bot}/>Telegram bot support</a></li>
                 </ul>
                     <div className="copyright">
                         <p>© 2022 Teamprogerov</p>
