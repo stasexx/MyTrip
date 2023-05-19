@@ -1,10 +1,10 @@
-import Tour from "../Components/tour/Tour";
-import news from "./../img/icon/news.png";
-import foto_create_tour from "./../img/icon/foto_create_tour.png";
-import extreme from "./../img/icon/extreme.png";
-import entertain from "./../img/icon/entertain.png";
-import shopping from "./../img/icon/shopping.png";
-
+import Tour from "../../Components/tour/Tour";
+import news from "./../../img/icon/news.png";
+import foto_create_tour from "./../../img/icon/foto_create_tour.png";
+import extreme from "./../../img/icon/extreme.png";
+import entertain from "./../../img/icon/entertain.png";
+import shopping from "./../../img/icon/shopping.png";
+import "./style.css"; 
 import React, {useEffect, useState} from "react";
 import axios from 'axios';
 const src="http://localhost:5000/Tours";
