@@ -12,13 +12,15 @@ namespace Mobile
             InitializeComponent();
 
             //MainPage = new MainPage();
-            MainPage = new MainFlyout();
+            //MainPage = new MainFlyout();
 
             //MainPage = new NavigationPage(new Views.GetStarted());
 
             //MainPage = new NavigationPage(new Views.SignIn());
 
             //MainPage = new NavigationPage(new Views.Register());
+
+            MainPage = new NavigationPage(new Views.Profile());
         }
 
         protected override void OnStart()
