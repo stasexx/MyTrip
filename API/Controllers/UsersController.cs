@@ -32,9 +32,10 @@ public class UsersController : BaseApiController
     {
         return await _userService.Registration(email, password, firstName, lastName);
     }
-    /*[HttpGet("~/find")]//api/byName
-    public async Task<ActionResult<User>> FindForName(string name)
+    
+    [HttpGet("~/checkForEmail")]
+    public async Task<ActionResult<User>> FindForName(string email)
     {
-        return await _context.Users.FindAsync(_context.Users.Where(u =>u.Id==name).ToList());
-    }*/
+        return await _userService.GetUserByEmailAsync(email);
+    }
 }

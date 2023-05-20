@@ -10,4 +10,6 @@ public interface IUserService
     Task<ActionResult<User>> GetUserAsync(int id);
 
     Task<List<User>> Registration(string email, string password, string firstName, string lastName);
+    
+    Task<ActionResult<User>> GetUserByEmailAsync(string email);
 }

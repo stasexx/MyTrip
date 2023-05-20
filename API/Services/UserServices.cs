@@ -52,5 +52,10 @@ public class UserServices:IUserService
     
         return await _context.Users.ToListAsync();
     }
+
+    public async Task<ActionResult<User>> GetUserByEmailAsync(string email)
+    {
+        return await _context.Users.FirstOrDefaultAsync(u => u.Email == email);
+    }
     
 }
