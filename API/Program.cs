@@ -13,15 +13,24 @@ using Persistence;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+builder.Services.AddCors(options =>
+{
+    options.AddDefaultPolicy(builder =>
+    {
+        builder.WithOrigins("http://localhost:5000")
+            .AllowAnyHeader()
+            .AllowAnyMethod();
+    });
+});
 
+// Add services to the container.
+builder.Services.AddSession();
 builder.Services.AddControllers();
 builder.Services.AddTransient<IUserService, UserServices>();
 builder.Services.AddTransient<ITourService, TourServices>();
 builder.Services.AddTransient<IGoogleOAuthService, GoogleOAuthService>();
 builder.Services.AddTransient<IGoogleService, GoogleService>();
 builder.Services.AddDistributedMemoryCache();
-builder.Services.AddSession();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
@@ -46,6 +55,8 @@ if (app.Environment.IsDevelopment())
 }
 app.UseCors("CorsPolicy");
 
+
+app.UseRouting();
 
 app.UseHttpsRedirection();
 

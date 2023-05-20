@@ -1,5 +1,6 @@
 ﻿using Domain.Models;
 using API.Services.Interfaces;
+using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Persistence;
@@ -15,13 +16,13 @@ public class UsersController : BaseApiController
         _userService = userService;
     }
 
-    [HttpGet]//api/users 
+    [HttpGet("api/getUsers")]
     public async Task<ActionResult<List<User>>> GetUsers()
     {
         return await _userService.GetAllUsersAsync();
     }
 
-    [HttpGet("{id}")]//api/users/fdsfdsf
+    [HttpGet("api/getUserById")]
     public async Task<ActionResult<User>> GetUser(int id)
     {
         return await _userService.GetUserAsync(id);
@@ -33,9 +34,30 @@ public class UsersController : BaseApiController
         return await _userService.Registration(email, password, firstName, lastName);
     }
     
-    [HttpGet("~/checkForEmail")]
-    public async Task<ActionResult<User>> FindForName(string email)
+    
+    [HttpGet("api/checkForEmail")]
+    public async Task<ActionResult<User>> FindForEmail(string email)
     {
         return await _userService.GetUserByEmailAsync(email);
+    }
+    
+    [HttpPost("api/changePassword")]
+    public async Task<ActionResult> ChangePassword(string email, string oldPassword, string newPassword)
+    {
+        if (await _userService.ChangePassword(email,oldPassword, newPassword))
+        {
+            return Ok();
+        }
+        return NotFound();
+    }
+    
+    [HttpPost("api/changeLogin")]
+    public async Task<ActionResult> ChangeLogin(string email, string newLogin)
+    {
+        if (await _userService.ChangeLogin(email, newLogin))
+        {
+            return Ok();
+        }
+        return NotFound();
     }
 }

@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.WebUtilities;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Domain.Models;
 
 namespace API.Services.Interfaces;
 

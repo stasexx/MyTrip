@@ -1,5 +1,6 @@
 ﻿using System.Net.Http.Headers;
 using Newtonsoft.Json;
+using API.Services.Interfaces;
 
 namespace API.Services;
 
@@ -17,12 +18,16 @@ public class GoogleService : IGoogleService
                 throw new Exception("Failed to retrieve user information from Google OAuth.");
             }
 
+            
             var json = await response.Content.ReadAsStringAsync();
             var userInfo = JsonConvert.DeserializeObject<GmailUserInfo>(json);
-
+            
+            
             return userInfo;
         }
     }
+    
+    
 }
 
 public class GmailUserInfo
@@ -30,6 +35,7 @@ public class GmailUserInfo
     public string Id { get; set; }
     public string Email { get; set; }
     public string Name { get; set; }
-    public string GivenName { get; set; }
-    public string FamilyName { get; set; }
+    public string given_name { get; set; }
+    public string family_name { get; set; }
+    public string picture { get; set; }
 }
