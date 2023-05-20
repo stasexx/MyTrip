@@ -49,9 +49,11 @@ public class GoogleOAuthController : BaseApiController
         
         var tokenResult= await _googleOAuth.ExchangeCodeOnToken(code, codeVerifier, redirectUrl);
         var dateForReg = _google.GetGmailUserInfo(tokenResult.AccessToken);
-        _userService.RegistrationWithOAut(dateForReg.Result.Email, dateForReg.Result.picture,
+        _userService.AuthorizationWithOAut(dateForReg.Result.Email, dateForReg.Result.picture,
             dateForReg.Result.Name.Split(" ")[0], dateForReg.Result.Name.Split(" ")[1]);
         return Ok();
     }
+    
+    
 
 }
