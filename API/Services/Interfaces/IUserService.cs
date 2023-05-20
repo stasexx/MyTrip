@@ -25,4 +25,16 @@ public interface IUserService
     
     Task<bool> ChangeOrgRights(string email, bool newOrgRights);
     
+    Task<bool> ChangeFirstName(string email, string newFirstName);
+    
+    Task<bool> ChangeLastName(string email, string newLastName);
+    
+    Task<bool> ChangeEmail(string email, string password, string newOrgRights);
+    
+    Task<bool> ChangeAvailabilityOfProfile(string email, bool availabilityOfProfile);
+    
+    Task<bool> ChangeAvailabilityOfTours(string email, bool availabilityOfTours);
+    
+    Task<bool> ChangeBannedStatus(string email, bool isBanned);
+    
 }

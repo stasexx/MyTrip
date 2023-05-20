@@ -29,28 +29,29 @@ public class UserServices : IUserService
     
     public async Task<List<User>> Registration(string email, string password, string firstName, string lastName)
     {
-        User user = new User()
+        if (!_context.Users.Any(u => u.Email.Contains(email)))
         {
-            Password = password,
-            Email = email,
-            Login = "none",
-            OrgRights = true,
-            Agency = "none",
-            Experience = 0,
-            firstName = firstName,
-            lastName = lastName,
-            phoneNumber = "0",
-            City = "none",
-            Avatar = "none",
-            availabilityOfProfile = true,
-            availabilityOfTours = true,
-            IsBanned = false,
-            RegDate = DateTime.Today
-        };
-    
-        _context.Users.Add(user);
-        await _context.SaveChangesAsync();
-    
+            User user = new User()
+            {
+                Password = password,
+                Email = email,
+                Login = "none",
+                OrgRights = true,
+                Agency = "none",
+                Experience = 0,
+                firstName = firstName,
+                lastName = lastName,
+                phoneNumber = "0",
+                City = "none",
+                Avatar = "none",
+                availabilityOfProfile = true,
+                availabilityOfTours = true,
+                IsBanned = false,
+                RegDate = DateTime.Today
+            };
+            _context.Users.Add(user);
+            await _context.SaveChangesAsync();
+        }
         return await _context.Users.ToListAsync();
     }
     
@@ -149,6 +150,78 @@ public class UserServices : IUserService
         if (user != null)
         {
             user.OrgRights = newOrgRights;
+            await _context.SaveChangesAsync();
+            return true;
+        }
+        return false;
+    }
+    
+    public async Task<bool> ChangeEmail(string email, string password, string newEmail)
+    {
+        var user = _context.Users.FirstOrDefault(u => u.Email == email && u.Password == password);
+        if (user != null)
+        {
+            user.Email = newEmail;
+            await _context.SaveChangesAsync();
+            return true;
+        }
+        return false;
+    }
+    
+    public async Task<bool> ChangeFirstName(string email, string firstName)
+    {
+        var user = _context.Users.FirstOrDefault(u => u.Email == email);
+        if (user != null)
+        {
+            user.firstName = firstName;
+            await _context.SaveChangesAsync();
+            return true;
+        }
+        return false;
+    }
+    
+    public async Task<bool> ChangeLastName(string email, string lastName)
+    {
+        var user = _context.Users.FirstOrDefault(u => u.Email == email);
+        if (user != null)
+        {
+            user.lastName = lastName;
+            await _context.SaveChangesAsync();
+            return true;
+        }
+        return false;
+    }
+    
+    public async Task<bool> ChangeAvailabilityOfProfile(string email, bool availabilityOfProfile)
+    {
+        var user = _context.Users.FirstOrDefault(u => u.Email == email);
+        if (user != null)
+        {
+            user.availabilityOfProfile = availabilityOfProfile;
+            await _context.SaveChangesAsync();
+            return true;
+        }
+        return false;
+    }
+    
+    public async Task<bool> ChangeAvailabilityOfTours(string email, bool availabilityOfTours)
+    {
+        var user = _context.Users.FirstOrDefault(u => u.Email == email);
+        if (user != null)
+        {
+            user.availabilityOfTours = availabilityOfTours;
+            await _context.SaveChangesAsync();
+            return true;
+        }
+        return false;
+    }
+    
+    public async Task<bool> ChangeBannedStatus(string email, bool isBanned)
+    {
+        var user = _context.Users.FirstOrDefault(u => u.Email == email);
+        if (user != null)
+        {
+            user.IsBanned = isBanned;
             await _context.SaveChangesAsync();
             return true;
         }
