@@ -52,6 +52,35 @@ public class UserServices:IUserService
     
         return await _context.Users.ToListAsync();
     }
+    
+    
+    public async Task<List<User>> RegistrationWithOAut(string email, string avatar, string firstName, string lastName)
+    {
+        User user = new User()
+        {
+            Password = "none",
+            Email = email,
+            Login = "none",
+            OrgRights = true,
+            Agency = "none",
+            Experience = 0,
+            firstName = firstName,
+            lastName = lastName,
+            phoneNumber = 0,
+            City = "none",
+            Avatar = avatar,
+            availabilityOfProfile = true,
+            availabilityOfTours = true,
+            IsBanned = false,
+            RegDate = DateTime.Today
+        };
+    
+        _context.Users.Add(user);
+        await _context.SaveChangesAsync();
+    
+        return await _context.Users.ToListAsync();
+    }
+    
 
     public async Task<ActionResult<User>> GetUserByEmailAsync(string email)
     {

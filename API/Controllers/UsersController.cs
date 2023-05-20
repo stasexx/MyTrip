@@ -33,6 +33,12 @@ public class UsersController : BaseApiController
         return await _userService.Registration(email, password, firstName, lastName);
     }
     
+    [HttpPost("api/registration/{email}/{password}/{firstName}/{lastName}")]
+    public async Task<List<User>> RegistrationWithOAuth(string email, string password, string firstName, string lastName)
+    {
+        return await _userService.Registration(email, password, firstName, lastName);
+    }
+    
     [HttpGet("api/checkForEmail")]
     public async Task<ActionResult<User>> FindForName(string email)
     {
