@@ -15,7 +15,7 @@ public class ToursController : BaseApiController
         _tourService = tourService;
     }
 
-    [HttpGet]//api/tours
+    [HttpGet("api/get/allTours")]//api/tours
     public async Task<ActionResult<List<Tour>>> GetAllTours()
     {
         return await _tourService.GetAllToursAsync();
