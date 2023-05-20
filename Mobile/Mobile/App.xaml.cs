@@ -11,7 +11,8 @@ namespace Mobile
         {
             InitializeComponent();
 
-            MainPage = new MainPage();
+            //MainPage = new MainPage();
+            MainPage = new MainFlyout();
 
             //MainPage = new NavigationPage(new Views.GetStarted());
 
