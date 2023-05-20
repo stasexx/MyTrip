@@ -7,7 +7,11 @@ import shopping from "./../../img/icon/shopping.png";
 import "./style.css"; 
 import React, {useEffect, useState} from "react";
 import axios from 'axios';
+import NavBar from "../../Components/navbar/NavBar";
+import Footer from "../../Components/footer/Footer"
+
 const src="http://localhost:5000/Tours";
+
 
 const  MainPge = () => {
 
@@ -28,7 +32,9 @@ const  MainPge = () => {
  
     return ( 
         
+
         <main className="section">
+            <NavBar/>
                 <div className="container">
                     <img className="news" src={news} alt="Link"/>
                     <h2 class="text-header">Popular Tour</h2>
@@ -92,12 +98,7 @@ const  MainPge = () => {
                         </li>
                     </ul>
                 </div>
-
-                
-
-
-
-
+                <Footer/>
         </main>
         
 );
