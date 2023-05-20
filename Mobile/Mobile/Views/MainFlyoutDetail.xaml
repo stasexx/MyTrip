@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Mobile.Views.MainFlyoutDetail"
+             Title="Detail"
+             NavigationPage.HasNavigationBar="False"
+             BackgroundColor="#EEEEEE">
+    <StackLayout Padding="22,17,22,0">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="36"></RowDefinition>
+                <RowDefinition Height="1"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0" >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="36" ></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="36"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <ImageButton Clicked="ShowFlyoutMenu" Source="Menu.png" Grid.Row="0" Grid.Column="0"></ImageButton>
+                <ImageButton BackgroundColor="#EEEEEE" Source="Loop.png" Grid.Row="0" Grid.Column="2"></ImageButton>
+                <Grid Grid.Column="1" HorizontalOptions="CenterAndExpand">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"></RowDefinition>
+                        <RowDefinition Height="15"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Label Text="Current location" Grid.Row="0" FontSize="12"></Label>
+                    <StackLayout Grid.Row="1" Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                        <ImageButton BackgroundColor="#EEEEEE" Source="LocationMark"></ImageButton>
+                        <Label Text="Kyiv" FontSize="13" ></Label>
+                    </StackLayout>
+                </Grid>
+            </Grid>
+            <BoxView Grid.Row="1" Color="#A7A7A7"></BoxView>
+        </Grid>
+      
+  </StackLayout>
+</ContentPage>
