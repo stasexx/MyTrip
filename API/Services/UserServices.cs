@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace API.Services;
 
-public class UserServices:IUserService
+public class UserServices : IUserService
 {
     private readonly DataContext _context;
     
@@ -39,7 +39,7 @@ public class UserServices:IUserService
             Experience = 0,
             firstName = firstName,
             lastName = lastName,
-            phoneNumber = 0,
+            phoneNumber = "0",
             City = "none",
             Avatar = "none",
             availabilityOfProfile = true,
@@ -69,7 +69,7 @@ public class UserServices:IUserService
                 Experience = 0,
                 firstName = firstName,
                 lastName = lastName,
-                phoneNumber = 0,
+                phoneNumber = "0",
                 City = "none",
                 Avatar = avatar,
                 availabilityOfProfile = true,
@@ -114,6 +114,44 @@ public class UserServices:IUserService
             return true;
         }
 
+        return false;
+    }
+    
+    public async Task<bool> ChangeCity(string email, string newCity)
+    {
+        var user = _context.Users.FirstOrDefault(u => u.Email == email);
+        if (user != null)
+        {
+            user.City = newCity;
+            await _context.SaveChangesAsync();
+            return true;
+        }
+
+        return false;
+    }
+    
+    public async Task<bool> ChangePhoneNumber(string email, string newPhoneNumber)
+    {
+        var user = _context.Users.FirstOrDefault(u => u.Email == email);
+        if (user != null)
+        {
+            user.phoneNumber = newPhoneNumber;
+            await _context.SaveChangesAsync();
+            return true;
+        }
+
+        return false;
+    }
+    
+    public async Task<bool> ChangeOrgRights(string email, bool newOrgRights)
+    {
+        var user = _context.Users.FirstOrDefault(u => u.Email == email);
+        if (user != null)
+        {
+            user.OrgRights = newOrgRights;
+            await _context.SaveChangesAsync();
+            return true;
+        }
         return false;
     }
 

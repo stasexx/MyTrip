@@ -19,4 +19,10 @@ public interface IUserService
     
     Task<bool> ChangeLogin(string email, string newLogin);
     
+    Task<bool> ChangeCity(string email, string newCity);
+    
+    Task<bool> ChangePhoneNumber(string email, string newPhoneNumber);
+    
+    Task<bool> ChangeOrgRights(string email, bool newOrgRights);
+    
 }
