@@ -15,13 +15,13 @@ public class UsersController : BaseApiController
         _userService = userService;
     }
 
-    [HttpGet]//api/users 
+    [HttpGet("api/getUsers")]//api/users 
     public async Task<ActionResult<List<User>>> GetUsers()
     {
         return await _userService.GetAllUsersAsync();
     }
 
-    [HttpGet("{id}")]//api/users/fdsfdsf
+    [HttpGet("api/getUserById")]//api/users/fdsfdsf
     public async Task<ActionResult<User>> GetUser(int id)
     {
         return await _userService.GetUserAsync(id);
@@ -33,7 +33,13 @@ public class UsersController : BaseApiController
         return await _userService.Registration(email, password, firstName, lastName);
     }
     
-    [HttpGet("~/checkForEmail")]
+    [HttpPost("api/registration/{email}/{password}/{firstName}/{lastName}")]
+    public async Task<List<User>> RegistrationWithOAuth(string email, string password, string firstName, string lastName)
+    {
+        return await _userService.Registration(email, password, firstName, lastName);
+    }
+    
+    [HttpGet("api/checkForEmail")]
     public async Task<ActionResult<User>> FindForName(string email)
     {
         return await _userService.GetUserByEmailAsync(email);
