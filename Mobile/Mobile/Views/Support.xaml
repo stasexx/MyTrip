@@ -1,12 +1,31 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Mobile.Views.Support">
-    <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
-    </ContentPage.Content>
+             x:Class="Mobile.Views.Support"
+             BackgroundColor="#EEEEEE">
+    <StackLayout>
+        <Grid>
+            <BoxView Color="#FFA800" HeightRequest="90" />
+            <Label Text="Support" FontSize="24" FontFamily="Trebuchet MS" HorizontalOptions="Center" VerticalOptions="Center" TextColor="Black" />
+        </Grid>
+
+        <Frame Padding="10" BackgroundColor="#EEE" HasShadow="False"
+                   CornerRadius="5" Margin="10">
+            <StackLayout>
+
+                <Label Text="Q: Can I book a tour through the mobile app?" FontSize="20" FontFamily="Trebuchet MS" TextColor="Black"/>
+                <Label Text="A: Yes, you can browse and book various tours and activities through the mobile app." FontSize="20" FontFamily="Trebuchet MS" TextColor="Black"/>
+                <BoxView HeightRequest="1" BackgroundColor="Gray" HorizontalOptions="FillAndExpand" />
+
+                <Label Text="Q: How do I create a tour on the mobile app?" FontSize="20" FontFamily="Trebuchet MS" TextColor="Black"/>
+                <Label Text="A: If you are a tour operator, you can create a tour on the website by signing up for a premium subscription." FontSize="20" FontFamily="Trebuchet MS" TextColor="Black"/>
+                <BoxView HeightRequest="1" BackgroundColor="Gray" HorizontalOptions="FillAndExpand" />
+
+                <Label Text="Q: How do I search for tours on the mobile app?" FontSize="20" FontFamily="Trebuchet MS" TextColor="Black"/>
+                <Label Text="A: You can search for tours by using the search bar or by browsing through the different categories and destinations available on the app." FontSize="20" FontFamily="Trebuchet MS" TextColor="Black"/>
+                <BoxView HeightRequest="1" BackgroundColor="Gray" HorizontalOptions="FillAndExpand" />
+
+            </StackLayout>
+        </Frame>
+    </StackLayout>
 </ContentPage>

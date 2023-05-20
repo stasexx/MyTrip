@@ -1,12 +1,41 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Mobile.Views.Social">
-    <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
-    </ContentPage.Content>
+             x:Class="Mobile.Views.Social"
+             BackgroundColor="#EEE">
+    <StackLayout>
+        <Grid>
+            <BoxView Color="#FFA800" HeightRequest="240" />
+            <Label Text="Your Tour" FontSize="48" FontFamily="Trebuchet MS" HorizontalOptions="Center" VerticalOptions="Center" TextColor="White" />
+        </Grid>
+        <ListView ItemsSource="{Binding Chats}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid WidthRequest="330" HeightRequest="75" BackgroundColor="#EFEFEF" Padding="10">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="46" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+
+                            <Frame WidthRequest="46" HeightRequest="46" CornerRadius="23" HasShadow="False">
+                                <Image Source="{Binding ChatPhoto}" Aspect="AspectFill" />
+                            </Frame>
+
+                            <StackLayout Grid.Column="1" Spacing="2" VerticalOptions="Center">
+                                <Label Text="{Binding ChatName}" FontSize="20"  FontFamily="Trebuchet MS"/>
+                                <Label Text="{Binding StartDate, StringFormat='{}{0:dd.MM.yyyy}'}" FontSize="14" FontFamily="Trebuchet MS"/>
+                                <Label Text="-" FontSize="14" />
+                                <Label Text="{Binding EndDate, StringFormat='{}{0:dd.MM.yyyy}'}" FontSize="14" FontFamily="Trebuchet MS"/>
+                            </StackLayout>
+
+                            <Image Source="arrow.png" WidthRequest="20" HeightRequest="20" Aspect="AspectFit"
+                               HorizontalOptions="End" VerticalOptions="Center" Grid.Column="2" />
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
 </ContentPage>
