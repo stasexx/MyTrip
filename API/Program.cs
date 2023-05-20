@@ -13,15 +13,24 @@ using Persistence;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+builder.Services.AddCors(options =>
+{
+    options.AddDefaultPolicy(builder =>
+    {
+        builder.WithOrigins("http://localhost:5000")
+            .AllowAnyHeader()
+            .AllowAnyMethod();
+    });
+});
 
+// Add services to the container.
+builder.Services.AddSession();
 builder.Services.AddControllers();
 builder.Services.AddTransient<IUserService, UserServices>();
 builder.Services.AddTransient<ITourService, TourServices>();
 builder.Services.AddTransient<IGoogleOAuthService, GoogleOAuthService>();
 builder.Services.AddTransient<IGoogleService, GoogleService>();
 builder.Services.AddDistributedMemoryCache();
-builder.Services.AddSession();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
@@ -29,7 +38,13 @@ builder.Services.AddDbContext<DataContext>(opt =>
 {
     opt.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection"));
 });
-
+builder.Services.AddCors(opt =>
+{
+    opt.AddPolicy("CorsPolicy", policy =>
+    {
+        policy.AllowAnyMethod().AllowAnyHeader().WithOrigins("http://localhost:3000");
+    });
+});
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -38,8 +53,13 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+app.UseCors("CorsPolicy");
+
+
+app.UseRouting();
 
 app.UseHttpsRedirection();
+
 
 app.UseAuthorization();
 
