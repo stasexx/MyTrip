@@ -14,7 +14,7 @@ const  NavBar= () => {
     <nav className="nav">
         <div className="container">
             <div className="nav-row">
-                <a href="./index.html" className="logo"><img src={logo} alt="Link"/></a>
+                <a href="./" className="logo"><img src={logo} alt="Link"/></a>
                 <div class ="search-box">
                      <a class="search-btn" href="#"><img className="icon_header" src={search_glass} alt="Link"/></a>
                     <input class="search-tour" type ="text" name="" placeholder="Search tours"></input>
@@ -23,7 +23,7 @@ const  NavBar= () => {
                         <li className="nav-list__item"><a href="./index.html" className="nav-list__link"><img className="icon_header" src={about_us} alt="Link"/>About us</a></li>
                         <li className="nav-list__item"><a href="./projects.html" className="nav-list__link"><img className="icon_header" src={tours} alt="Link"/>Tours</a></li>
                         <li className="nav-list__item"><a href="./contacts.html" className="nav-list__link"><img className="icon_header" src={wish_list}  alt="Link"/>Wish list</a></li>
-                        <li className="nav-list__item"><a href="./projects.html" className="nav-list_sign"><img className="icon_header" src={sign_in} alt="Link"/>Sign in</a></li>
+                        <li className="nav-list__item"><a href="./login" className="nav-list_sign"><img className="icon_header" src={sign_in} alt="Link"/>Sign in</a></li>
                     </ul>
             </div>
         </div>

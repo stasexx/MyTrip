@@ -1,8 +1,8 @@
 import "./styles/main.css"; 
 import NavBar from "./Components/navbar/NavBar"
 import MainPge from "./pages/MainPage/MainPage"
+import Login from "./pages/Login/Login"
 import Cabinet from "./pages/Cabinet/Cabinet"
-import Footer from "./Components/footer/Footer"
 import {BrowserRouter as Router,Routes,Route} from "react-router-dom"
 function App() {
 
@@ -10,15 +10,11 @@ function App() {
     
     <div className="App">
       <Router>
-
-        <NavBar/>
-          <Routes>
+             <Routes>
+              <Route path="/login" element={<Login/>}/>
               <Route path="/" element={<MainPge/>}/>
               <Route path="/cabinet" element={<Cabinet/>}/>
           </Routes>
-
-        <Footer/>
-
       </Router>
     </div>
   );
