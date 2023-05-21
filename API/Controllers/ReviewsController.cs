@@ -18,4 +18,10 @@ public class ReviewsController:BaseApiController
     {
         return await _reviewService.GetAllReviewsAsync();
     }
+    
+    [HttpGet("get/reviews/tourId={id}")]
+    public async Task<ActionResult<List<Review>>> GetAllReviewsByTourIdAsync(int id)
+    {
+        return await _reviewService.GetAllReviewsByTourIdAsync(id);
+    }
 }
