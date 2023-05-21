@@ -11,7 +11,7 @@ public interface IUserService
 
     Task<List<User>> Registration(string email, string password, string firstName, string lastName);
     
-    Task<List<User>> AuthorizationWithOAut(string email, string avatar, string firstName, string lastName);
+    Task<ActionResult<User>> AuthorizationWithOAut(string email, string avatar, string firstName, string lastName);
     
     Task<ActionResult<User>> GetUserByEmailAsync(string email);
     
