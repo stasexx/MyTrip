@@ -1,0 +1,128 @@
+@import '../../styles/main.css';
+.section {
+	padding: 70px 0;
+}
+.news{
+  display: block;
+  margin: 0 auto;
+
+}
+.text-header{
+	text-align: center;
+	font-size: 120px;
+	color: #F5B129;
+}
+.link_pop_tour{
+	position: relative;
+	left: 535px;
+	border: 0.5px solid rgb(100, 100, 100);
+	width: 250px;
+	height: 60px;
+	text-align: center;
+	display: block;
+	font-size: 30px;
+	line-height: 50px;
+	color: black;
+	overflow: hidden;
+	margin-bottom: 30px;
+}
+.link_pop_tour::before{
+
+	position: absolute;
+	content: '';
+	width: 100%;
+	height: 100%;
+	background-color: #F5B129;
+	bottom: -100%;
+	left: 0%;
+	z-index: -1;
+	transition: .6s;
+}
+
+.link_pop_tour:hover{
+	color:black
+}
+.link_pop_tour:hover:before{
+	bottom: 0;
+}
+.create__tour{
+	position: relative;
+	background-color: #fad894;
+    margin: 0 auto;
+	padding: 50px 0px;
+}
+.foto_create_tour{
+	
+	left: 40px;
+	position: relative;
+	display: block;
+	justify-content: center;
+}
+.text_create_tour{
+	position: absolute;
+	display: block;
+	left: 1100px;
+	top: 80px ;
+	justify-content: center;
+	width: 450px;
+	text-align: center;
+	font-size: 35px;
+}
+
+.link_create_tour{
+	position: relative;
+	top:10px;
+	left: 90px;
+	border: 0.5px solid rgb(100, 100, 100);
+	width: 250px;
+	height: 60px;
+	background-color: black;
+	text-align: center;
+	display: block;
+	font-size: 30px;
+	line-height: 50px;
+	color: white;
+	overflow: hidden;
+	z-index: 1;
+	margin-bottom: 30px;
+}
+.link_create_tour::before{
+
+	position: absolute;
+	content: '';
+	width: 100%;
+	height: 100%;
+	background-color: white;
+	color: white;
+	bottom: -100%;
+	left: 0%;
+	z-index: -1;
+	transition: .8s;
+}
+
+.link_create_tour:hover{
+	color:black
+}
+.link_create_tour:hover:before{
+	bottom: 0;
+}
+.text__categories{
+	padding-top: 40px ;
+	padding-bottom: 40px ;
+	text-align: center;
+	font-size: 50px;
+	color: black;
+}
+.tour_categories{
+	width: 400px;
+	background-color: white;
+	box-shadow: 0px 5px 35px rgba(0, 0, 0, 0.25);
+	border-radius: 10px;
+	height: 295px;
+}
+.categories__title{
+	font-size: 40px;
+	color: white;
+	text-align: center;
+	background-color: #F5B129;
+}

@@ -1,0 +1,29 @@
+.footer{
+    margin: 0 auto;
+    background-color: #FBC354;
+}
+.footer_img{
+    float: right;
+}
+
+.footer__wrapper > ul > li > a {
+    color: black;
+}
+.social__item{
+    text-decoration: none;
+    padding-top: 25px;
+    display: flex;
+	justify-content: space-between;
+	align-items: center;
+    font-size: 19px;
+}
+.img_footer{
+    vertical-align:middle;
+    display:inline-block;
+    padding-right: 20px;
+}
+.copyright{
+    padding-left: 60px;
+    padding-top: 20px; 
+    padding-bottom: 20px; 
+}
