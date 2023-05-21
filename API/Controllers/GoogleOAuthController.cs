@@ -32,7 +32,7 @@ public class GoogleOAuthController : BaseApiController
     public IActionResult RedirectOnOAuthServer()
     {
         var scope = "https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile";
-        var redirectUrl = "https://localhost:5000/api/GoogleOAuth/oauth/authorization/code";
+        var redirectUrl = "http://localhost:5000/api/GoogleOAuth/oauth/authorization/code";
 
         var codeVerifier = Guid.NewGuid().ToString();
         HttpContext.Session.SetString("codeVerifier", codeVerifier);
@@ -42,16 +42,16 @@ public class GoogleOAuthController : BaseApiController
     }
     
     [HttpGet("oauth/authorization/code")]
-    public async Task<IActionResult> Code(string code)
+    public async Task<ActionResult<User>> Code(string code)
     {
         string codeVerifier = HttpContext.Session.GetString("codeVerifier");
-        var redirectUrl = "https://localhost:5000/api/GoogleOAuth/oauth/authorization/code";
+        var redirectUrl = "http://localhost:5000/api/GoogleOAuth/oauth/authorization/code";
         
         var tokenResult= await _googleOAuth.ExchangeCodeOnToken(code, codeVerifier, redirectUrl);
         var dateForReg = _google.GetGmailUserInfo(tokenResult.AccessToken);
-        _userService.AuthorizationWithOAut(dateForReg.Result.Email, dateForReg.Result.picture,
+        var newUser = _userService.AuthorizationWithOAut(dateForReg.Result.Email, dateForReg.Result.picture,
             dateForReg.Result.Name.Split(" ")[0], dateForReg.Result.Name.Split(" ")[1]);
-        return Ok();
+        return await _userService.GetUserByEmailAsync(dateForReg.Result.Email);
     }
     
     
