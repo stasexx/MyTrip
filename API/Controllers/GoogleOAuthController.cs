@@ -28,11 +28,11 @@ public class GoogleOAuthController : BaseApiController
         _userService = userService;
     }
     
-    [HttpGet("api/oauth")]
+    [HttpGet("oauth/authorization")]
     public IActionResult RedirectOnOAuthServer()
     {
         var scope = "https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile";
-        var redirectUrl = "http://localhost:5000/GoogleOAuth/api/oauth/code";
+        var redirectUrl = "http://localhost:5000/api/GoogleOAuth/oauth/authorization/code";
 
         var codeVerifier = Guid.NewGuid().ToString();
         HttpContext.Session.SetString("codeVerifier", codeVerifier);
@@ -41,11 +41,11 @@ public class GoogleOAuthController : BaseApiController
         return Content(url);
     }
     
-    [HttpGet("api/oauth/code")]
+    [HttpGet("oauth/authorization/code")]
     public async Task<IActionResult> Code(string code)
     {
         string codeVerifier = HttpContext.Session.GetString("codeVerifier");
-        var redirectUrl = "http://localhost:5000/GoogleOAuth/api/oauth/code";
+        var redirectUrl = "http://localhost:5000/api/GoogleOAuth/oauth/authorization/code";
         
         var tokenResult= await _googleOAuth.ExchangeCodeOnToken(code, codeVerifier, redirectUrl);
         var dateForReg = _google.GetGmailUserInfo(tokenResult.AccessToken);
