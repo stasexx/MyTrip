@@ -24,7 +24,7 @@ const Tour = ({name, main_photo, rate,tourId}) => {
     return ( 
     <>
         <li id="dfg"className="tour">
-            <a href="`{tourId}`">
+            <a href={`./tour/${tourId}`}>
                 <img src={main_photo} alt="Project img" className="tour__img"/>
                 <h3 className="tour__title">{name}</h3>
                 <div className="tour__rating"><StRating rate={rate}/></div>

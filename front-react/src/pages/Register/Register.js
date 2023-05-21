@@ -5,7 +5,7 @@ import login_photo_right from "./../../img/icon/login_photo_right.png";
 import logo from "./../../img/icon/logo.png"; 
 import google from "./../../img/icon/google.png"; 
 import {useNavigate} from 'react-router-dom';
-const src_google="https://localhost:5000/api/GoogleOAuth/oauth/authorization";
+const src_google="http://localhost:5000/api/GoogleOAuth/oauth/authorization";
 
 const  Login = () => { 
     const navigate = useNavigate();

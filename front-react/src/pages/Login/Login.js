@@ -6,8 +6,8 @@ import logo from "./../../img/icon/logo.png";
 import google from "./../../img/icon/google.png"; 
 import {useNavigate} from 'react-router-dom';
 import styles from './Stules.module.css';
-const src="https://localhost:5000/api/Users/get/userByEmail=";
-const src_google="https://localhost:5000/api/GoogleOAuth/oauth/authorization";
+const src="http://localhost:5000/api/Users/get/userByEmail=";
+const src_google="http://localhost:5000/api/GoogleOAuth/oauth/authorization";
 
 const  Login = () => {
     const[user,setUsers] = useState([]);    
@@ -31,10 +31,7 @@ const  Login = () => {
         }
     }
     function Google_login(){
-            var gol;
-            axios.get(src_google)
-            .then(data => {console.log(data);console.log(data.data);
-        })
+        window.location.href = src_google;
  
     }
     
