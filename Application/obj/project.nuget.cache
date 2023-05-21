@@ -1,10 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "l1woLmU5YW8Bgb4tygNWA6HkYvCpIGw/fF2LGL46ZGVaMkX7gJhn3eAya0RSulfJCbmeNISa68YBfD+Sm7ee1Q==",
+  "dgSpecHash": "AfCPe5MvOJXtpuBQ0iT2jD9BsnZ7a51Ew+vYhjL61XoXZHKQ4ZYaNGnTv7s1TUdQQ4UsJ+CB7d5WtIiYXVfyYg==",
   "success": true,
   "projectFilePath": "C:\\Users\\Taras\\Documents\\VS code Git\\MyTrip\\Application\\Application.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Taras\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
+    "C:\\Users\\Taras\\.nuget\\packages\\identitymodel\\6.1.0\\identitymodel.6.1.0.nupkg.sha512",
     "C:\\Users\\Taras\\.nuget\\packages\\microsoft.data.sqlite.core\\8.0.0-preview.3.23174.2\\microsoft.data.sqlite.core.8.0.0-preview.3.23174.2.nupkg.sha512",
     "C:\\Users\\Taras\\.nuget\\packages\\microsoft.entityframeworkcore\\8.0.0-preview.3.23174.2\\microsoft.entityframeworkcore.8.0.0-preview.3.23174.2.nupkg.sha512",
     "C:\\Users\\Taras\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\8.0.0-preview.3.23174.2\\microsoft.entityframeworkcore.abstractions.8.0.0-preview.3.23174.2.nupkg.sha512",

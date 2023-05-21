@@ -5,8 +5,8 @@ import login_photo_right from "./../../img/icon/login_photo_right.png";
 import logo from "./../../img/icon/logo.png"; 
 import google from "./../../img/icon/google.png"; 
 import {useNavigate} from 'react-router-dom';
-const src="http://localhost:5000/Users/api/checkForEmail";
-const src_google="http://localhost:5000/GoogleOAuth/api/oauth";
+const src="http://localhost:5000/api/Users/get/userByEmail";
+const src_google="http://localhost:5000/api/GoogleOAuth/oauth/authorization";
 
 const  Login = () => {
     const[user,setUsers] = useState([]);    

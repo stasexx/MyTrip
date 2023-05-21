@@ -10,7 +10,7 @@ import axios from 'axios';
 import NavBar from "../../Components/navbar/NavBar";
 import Footer from "../../Components/footer/Footer"
 
-const src="http://localhost:5000/Tours/api/get/allTours";
+const src="http://localhost:5000/api/Tours/get/allTours";
 
 
 const  MainPge = () => {
