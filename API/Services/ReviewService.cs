@@ -17,4 +17,9 @@ public class ReviewService : IReviewService
     {
         return await _context.Reviews.ToListAsync();
     }
+
+    public async Task<List<Review>> GetAllReviewsByTourIdAsync(int id)
+    {
+        return await _context.Reviews.Where(r => r.Order.OrgTour.Tour.TourId == id).ToListAsync();
+    }
 }
