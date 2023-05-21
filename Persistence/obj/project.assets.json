@@ -15,6 +15,19 @@
           }
         }
       },
+      "IdentityModel/6.1.0": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/IdentityModel.dll": {
+            "related": ".pdb;.xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/IdentityModel.dll": {
+            "related": ".pdb;.xml"
+          }
+        }
+      },
       "Microsoft.Data.Sqlite.Core/8.0.0-preview.3.23174.2": {
         "type": "package",
         "dependencies": {
@@ -567,6 +580,9 @@
       "Domain/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v7.0",
+        "dependencies": {
+          "IdentityModel": "6.1.0"
+        },
         "compile": {
           "bin/placeholder/Domain.dll": {}
         },
@@ -593,6 +609,30 @@
         "lib/netstandard2.0/Humanizer.dll",
         "lib/netstandard2.0/Humanizer.xml",
         "logo.png"
+      ]
+    },
+    "IdentityModel/6.1.0": {
+      "sha512": "W9A6U26se5Jeo+QoczLfXW5LgBDXL0bBfnb2DWWZMivv9L52ls/85WtEGZQ8kSgOUecuBUlQZdpu02Uni8n1tg==",
+      "type": "package",
+      "path": "identitymodel/6.1.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "icon.jpg",
+        "identitymodel.6.1.0.nupkg.sha512",
+        "identitymodel.nuspec",
+        "lib/net461/IdentityModel.dll",
+        "lib/net461/IdentityModel.pdb",
+        "lib/net461/IdentityModel.xml",
+        "lib/net472/IdentityModel.dll",
+        "lib/net472/IdentityModel.pdb",
+        "lib/net472/IdentityModel.xml",
+        "lib/net6.0/IdentityModel.dll",
+        "lib/net6.0/IdentityModel.pdb",
+        "lib/net6.0/IdentityModel.xml",
+        "lib/netstandard2.0/IdentityModel.dll",
+        "lib/netstandard2.0/IdentityModel.pdb",
+        "lib/netstandard2.0/IdentityModel.xml"
       ]
     },
     "Microsoft.Data.Sqlite.Core/8.0.0-preview.3.23174.2": {
@@ -1340,6 +1380,7 @@
   "projectFileDependencyGroups": {
     "net7.0": [
       "Domain >= 1.0.0",
+      "IdentityModel >= 6.1.0",
       "Microsoft.EntityFrameworkCore.Sqlite >= 8.0.0-preview.3.23174.2",
       "Microsoft.EntityFrameworkCore.Tools >= 7.0.0"
     ]
@@ -1393,6 +1434,10 @@
       "net7.0": {
         "targetAlias": "net7.0",
         "dependencies": {
+          "IdentityModel": {
+            "target": "Package",
+            "version": "[6.1.0, )"
+          },
           "Microsoft.EntityFrameworkCore.Sqlite": {
             "target": "Package",
             "version": "[8.0.0-preview.3.23174.2, )"

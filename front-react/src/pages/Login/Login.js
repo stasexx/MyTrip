@@ -33,9 +33,12 @@ const  Login = () => {
         }
     }
     function Google_login(){
-
+            var gol;
             axios.get(src_google)
-            .then(res => console.log(res.data))
+            .then(res => {gol=res.data
+            console.log(gol);
+            navigate(gol);
+        })
  
     }
     
