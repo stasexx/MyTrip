@@ -17,9 +17,9 @@ builder.Services.AddCors(options =>
 {
     options.AddDefaultPolicy(builder =>
     {
-        builder.WithOrigins("http://localhost:5000")
-            .AllowAnyHeader()
-            .AllowAnyMethod();
+        builder.AllowAnyOrigin()
+                .AllowAnyMethod()
+                .AllowAnyHeader();
     });
 });
 
@@ -58,12 +58,13 @@ if (app.Environment.IsDevelopment())
 app.UseCors("CorsPolicy");
 
 
+app.UseCors();
+
 app.UseHttpsRedirection();
 
 app.UseRouting();
 
 app.UseHttpsRedirection();
-
 
 app.UseAuthorization();
 
