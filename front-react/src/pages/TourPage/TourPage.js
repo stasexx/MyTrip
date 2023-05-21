@@ -4,7 +4,7 @@ import NavBar from "../../Components/navbar/NavBar";
 import Footer from "../../Components/footer/Footer"
 import styles from './Stules.module.css';
 import { useParams } from "react-router-dom";
-const src="http://localhost:5000/api/Tours/get/allTours";
+const src="https://localhost:5000/api/Tours/get/allTours";
 
 const  TourPage = () => {
 const {id}=useParams();
