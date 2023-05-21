@@ -5,6 +5,7 @@ import Login from "./pages/Login/Login"
 import Cabinet from "./pages/Cabinet/Cabinet"
 import Register from "./pages/Register/Register"
 import {BrowserRouter as Router,Routes,Route} from "react-router-dom";
+import TourPage from "./pages/TourPage/TourPage";
 
 function App() {
 
@@ -18,6 +19,7 @@ function App() {
              <Routes>
               <Route path="/register" element={<Register/>}/>
               <Route path="/login" element={<Login/>}/>
+              <Route path="/tour/:id" element={<TourPage/>}/>
               <Route path="/" element={<MainPge/>}/>
               <Route path="/cabinet" element={<Cabinet/>}/>
           </Routes>
