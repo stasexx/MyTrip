@@ -1,0 +1,102 @@
+
+.font_right{
+    position: absolute;
+    float: left;
+}
+.font_left{
+    float: right;
+    transform: scaleX(-1);
+
+}
+.log_cont{
+    position: relative;
+    left: 325px;
+}
+
+.login{
+    padding-top:250px ;
+    text-align: center;
+    width: 670px;
+    height:670px;
+
+}
+
+.quest{
+    font-size: 20px;
+}
+.quest a{
+    padding-left: 10px;
+    text-decoration:underline;
+    font-size: 25px;
+    color:#FF8515;
+}
+.hello{
+    font-size: 50px;
+    font-weight:300;
+    white-space: nowrap;
+}
+.logo{
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.or_line{
+    font-size: 35px;
+    color: #919191;
+}
+.text_or{
+    position: relative;
+    bottom: 20px;
+}
+.line1{
+    position: absolute;
+    display: flex;
+    width: 265px;
+    height: 0px;
+    border: 1px solid #808080;
+    transform: rotate(180deg);
+}
+.line2{
+    position: absolute;
+    display: flex;
+    width: 265px;
+    height: 0px;
+    left: 400px;
+    top: 722px;
+    border: 1px solid #808080;
+    transform: rotate(180deg);
+}
+.log{
+    line-height: 50px;
+    font-size: 35px;
+    margin-bottom: 5px;
+    width: 500px;
+    color: #ffffff;
+    border-radius: 40px;
+    background-color: #F5B129;
+}
+.google_acc{
+    line-height: 50px;
+    font-size: 20px;
+    border: 1px solid rgb(165, 165, 165);
+
+    margin-bottom: 20px;
+    width: 300px;
+    color: #000;
+    border-radius: 40px;
+    background-color: #f7db9a;
+}
+.foto_google{
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-right: 10px;
+}
+.box{
+
+    line-height: 45px;
+    font-size: 25px;
+    padding-left: 50px;
+    margin-bottom: 16px;
+    border: 2px solid rgb(165, 165, 165);
+    border-radius: 20px;
+    width: 600px;
+}
