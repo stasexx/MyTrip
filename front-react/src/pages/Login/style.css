@@ -24,7 +24,7 @@
 .quest{
     font-size: 20px;
 }
-.signup{
+.quest a{
     padding-left: 10px;
     text-decoration:underline;
     font-size: 25px;
