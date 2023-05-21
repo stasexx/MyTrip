@@ -56,7 +56,7 @@ public class UserServices : IUserService
     }
     
     
-    public async Task<List<User>> AuthorizationWithOAut(string email, string avatar, string firstName, string lastName)
+    public async Task<ActionResult<User>> AuthorizationWithOAut(string email, string avatar, string firstName, string lastName)
     {
         if (!_context.Users.Any(u => u.Email.Contains(email)))
         {
@@ -83,7 +83,7 @@ public class UserServices : IUserService
         
         await _context.SaveChangesAsync();
     
-        return await _context.Users.ToListAsync();
+        return await _context.Users.FirstOrDefaultAsync(u=>u.Email==email);
     }
     
 
