@@ -28,7 +28,7 @@ public class UsersController : BaseApiController
         return await _userService.GetUserAsync(id);
     }
     
-    [HttpPost("api/registration")]
+    [HttpPost("api/registration/email={email}/password={password}/firstname={firstName}/lastname={lastName}")]
     public async Task<List<User>> Registration(string email, string password, string firstName, string lastName)
     {
         return await _userService.Registration(email, password, firstName, lastName);
