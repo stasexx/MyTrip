@@ -580,9 +580,6 @@
       "Domain/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v7.0",
-        "dependencies": {
-          "IdentityModel": "6.1.0"
-        },
         "compile": {
           "bin/placeholder/Domain.dll": {}
         },

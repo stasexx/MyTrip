@@ -429,9 +429,6 @@
         }
       },
       "Domain/1.0.0": {
-        "dependencies": {
-          "IdentityModel": "6.1.0"
-        },
         "runtime": {
           "Domain.dll": {}
         }
