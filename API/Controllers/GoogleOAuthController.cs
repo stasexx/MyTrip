@@ -38,7 +38,7 @@ public class GoogleOAuthController : BaseApiController
         HttpContext.Session.SetString("codeVerifier", codeVerifier);
         var codeChallenge = Sha256Helper.ComputeHash(codeVerifier);
         var url = _googleOAuth.GenerateOAuthRequestUrl(scope, redirectUrl, codeChallenge);
-        return Redirect(url);
+        return Content(url);
     }
     
     [HttpGet("api/oauth/code")]
