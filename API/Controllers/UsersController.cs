@@ -16,32 +16,32 @@ public class UsersController : BaseApiController
         _userService = userService;
     }
 
-    [HttpGet("api/get/Users")]
+    [HttpGet("get/Users")]
     public async Task<ActionResult<List<User>>> GetUsers()
     {
         return await _userService.GetAllUsersAsync();
     }
 
-    [HttpGet("api/get/UserById")]
+    [HttpGet("get/userById={id}")]
     public async Task<ActionResult<User>> GetUser(int id)
     {
         return await _userService.GetUserAsync(id);
     }
     
-    [HttpPost("api/registration/email={email}/password={password}/firstname={firstName}/lastname={lastName}")]
+    [HttpPost("registration/email={email}/password={password}/firstname={firstName}/lastname={lastName}")]
     public async Task<List<User>> Registration(string email, string password, string firstName, string lastName)
     {
         return await _userService.Registration(email, password, firstName, lastName);
     }
     
     
-    [HttpGet("api/get/userByEmail")]
+    [HttpGet("get/userByEmail={email}")]
     public async Task<ActionResult<User>> FindForEmail(string email)
     {
         return await _userService.GetUserByEmailAsync(email);
     }
     
-    [HttpPost("api/change/Password")]
+    [HttpPost("change/oldPassword={oldPassword}/newPassword={newPassword}/email={email}")]
     public async Task<ActionResult> ChangePassword(string email, string oldPassword, string newPassword)
     {
         if (await _userService.ChangePassword(email,oldPassword, newPassword))
@@ -51,7 +51,7 @@ public class UsersController : BaseApiController
         return NotFound();
     }
     
-    [HttpPost("api/change/Login")]
+    [HttpPost("change/newLogin={newLogin}/email={email}")]
     public async Task<ActionResult> ChangeLogin(string email, string newLogin)
     {
         if (await _userService.ChangeLogin(email, newLogin))
@@ -61,7 +61,7 @@ public class UsersController : BaseApiController
         return NotFound();
     }
     
-    [HttpPost("api/change/City")]
+    [HttpPost("change/newCity={newCity}/email={email}")]
     public async Task<ActionResult> ChangeCity(string email, string newCity)
     {
         if (await _userService.ChangeCity(email, newCity))
@@ -71,7 +71,7 @@ public class UsersController : BaseApiController
         return NotFound();
     }
     
-    [HttpPost("api/change/PhoneNumber")]
+    [HttpPost("change/newPhoneNumber={newPhoneNumber}/email={email}")]
     public async Task<ActionResult> ChangePhoneNumber(string email, string newPhoneNumber)
     {
         if (await _userService.ChangePhoneNumber(email, newPhoneNumber))
@@ -81,7 +81,7 @@ public class UsersController : BaseApiController
         return NotFound();
     }
     
-    [HttpPost("api/change/OrgRights")]
+    [HttpPost("change/newOrgRights={newOrgRights}/email={email}")]
     public async Task<ActionResult> ChangeOrgRights(string email, bool newOrgRights)
     {
         if (await _userService.ChangeOrgRights(email, newOrgRights))
@@ -91,7 +91,7 @@ public class UsersController : BaseApiController
         return NotFound();
     }
     
-    [HttpPost("api/change/Email")]
+    [HttpPost("change/email={email}/password={password}/newEmail={newEmail}")]
     public async Task<ActionResult> ChangeEmail(string email, string password, string newEmail)
     {
         if (await _userService.ChangeEmail(email, password, newEmail))
@@ -101,7 +101,7 @@ public class UsersController : BaseApiController
         return NotFound();
     }
     
-    [HttpPost("api/change/FirstName")]
+    [HttpPost("change/firstName={firstName}/email={email}")]
     public async Task<ActionResult> ChangeFirstName(string email, string firstName)
     {
         if (await _userService.ChangeFirstName(email, firstName))
@@ -111,7 +111,7 @@ public class UsersController : BaseApiController
         return NotFound();
     }
     
-    [HttpPost("api/change/LastName")]
+    [HttpPost("change/lastName={lastName}/email={email}")]
     public async Task<ActionResult> ChangeLastName(string email, string lastName)
     {
         if (await _userService.ChangeLastName(email, lastName))
@@ -121,7 +121,7 @@ public class UsersController : BaseApiController
         return NotFound();
     }
     
-    [HttpPost("api/change/IsBanned")]
+    [HttpPost("change/isBanned={isBanned}/email={email}")]
     public async Task<ActionResult> ChangeBannedStatus(string email, bool isBanned)
     {
         if (await _userService.ChangeBannedStatus(email, isBanned))
@@ -131,7 +131,7 @@ public class UsersController : BaseApiController
         return NotFound();
     }
     
-    [HttpPost("api/change/AvailabilityOfTours")]
+    [HttpPost("change/availabilityOfTours={availabilityOfTours}/email={email}")]
     public async Task<ActionResult> ChangeAvailabilityOfTours(string email, bool availabilityOfTours)
     {
         if (await _userService.ChangeAvailabilityOfTours(email, availabilityOfTours))
@@ -141,7 +141,7 @@ public class UsersController : BaseApiController
         return NotFound();
     }
     
-    [HttpPost("api/change/AvailabilityOfProfile")]
+    [HttpPost("change/availabilityOfProfile={availabilityOfProfile}/email={email}")]
     public async Task<ActionResult> ChangeAvailabilityOfProfile(string email, bool availabilityOfProfile)
     {
         if (await _userService.ChangeAvailabilityOfProfile(email, availabilityOfProfile))

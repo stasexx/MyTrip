@@ -13,13 +13,13 @@ public class WishListController : BaseApiController
         _wishListService = wishListService;
     }
     
-    [HttpGet("api/get/wishList/{email}")]
+    [HttpGet("get/wishList/email={email}")]
     public async Task<ActionResult<List<Favourite>>> GetAllTours(string email)
     {
         return await _wishListService.GetAllWshListForUser(email);
     }
     
-    [HttpPost("api/create/newFavourite")]
+    [HttpPost("create/newFavourite/tourId={tourId}")]
     public async Task<ActionResult> AddNewFavourite(string email, int tourId)
     {
         if (await _wishListService.AddNewTourToWshList(email, tourId))
@@ -29,7 +29,7 @@ public class WishListController : BaseApiController
         return NotFound();
     }
     
-    [HttpPost("api/delete/favourite")]
+    [HttpPost("delete/favourite/id={id}")]
     public async Task<ActionResult> DeleteTourFromWshList(int id)
     {
         if (await _wishListService.DeleteTourFromWshList(id))
