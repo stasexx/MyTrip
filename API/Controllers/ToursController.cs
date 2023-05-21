@@ -15,13 +15,13 @@ public class ToursController : BaseApiController
         _tourService = tourService;
     }
 
-    [HttpGet("api/get/allTours")]//api/tours
+    [HttpGet("get/allTours")]
     public async Task<ActionResult<List<Tour>>> GetAllTours()
     {
         return await _tourService.GetAllToursAsync();
     }
 
-    [HttpGet("{id}")]//api/tours/id
+    [HttpGet("get/toursById={id}")]
     public async Task<ActionResult<Tour>> GetTourById(int id)
     {
         return await _tourService.GetTourByIdAsync(id);

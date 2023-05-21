@@ -13,7 +13,7 @@ public class ReviewsController:BaseApiController
         _reviewService = reviewService;
     }
     
-    [HttpGet("api/getAllReviews")]//api/users 
+    [HttpGet("getAllReviews")]
     public async Task<ActionResult<List<Review>>> GetReviews()
     {
         return await _reviewService.GetAllReviewsAsync();
