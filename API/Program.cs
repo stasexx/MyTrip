@@ -32,6 +32,9 @@ builder.Services.AddTransient<IGoogleOAuthService, GoogleOAuthService>();
 builder.Services.AddTransient<IGoogleService, GoogleService>();
 builder.Services.AddTransient<IWishListService, WishListService>();
 builder.Services.AddTransient<IReviewService, ReviewService>();
+builder.Services.AddTransient<IHandTourService, HandTourService>();
+builder.Services.AddTransient<IOrgTourService, OrgTourService>();
+builder.Services.AddTransient<IChatService, ChatService>();
 builder.Services.AddDistributedMemoryCache();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();

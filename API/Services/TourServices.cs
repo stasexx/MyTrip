@@ -24,4 +24,29 @@ public class TourServices:ITourService
     {
         return await _context.Tours.FindAsync(id);
     }
+
+    public async Task<Tour> CreateTour(string name, string description, float rate, string typeOfTour, string Category,
+        DateTime startDate, DateTime endDate, string destination, string placeOfDeparture, int countOfUser, string mainPhoto,
+        string allPhotos, string tags)
+    {
+        Tour tour = new Tour()
+        {
+            Name = name,
+            Description = description,
+            Rate = rate,
+            typeOfTour = typeOfTour,
+            Category = Category,
+            startDate = startDate,
+            endDate = endDate,
+            Destination = description,
+            placeOfDeparture = placeOfDeparture,
+            countOfUser = countOfUser,
+            mainPhoto = mainPhoto,
+            allPhotos = allPhotos,
+            Tags = tags
+        };
+        await _context.Tours.AddAsync(tour);
+        await _context.SaveChangesAsync();
+        return tour;
+    }
 }
