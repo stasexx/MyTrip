@@ -8,7 +8,7 @@ public class Tour
 
     public string Description { get; set; }
     
-    public float Rate { get; set; }
+    public double Rate { get; set; }
     
     public string typeOfTour { get; set; }
     

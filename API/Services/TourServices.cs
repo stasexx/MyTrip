@@ -25,7 +25,7 @@ public class TourServices:ITourService
         return await _context.Tours.FindAsync(id);
     }
 
-    public async Task<Tour> CreateTour(string name, string description, float rate, string typeOfTour, string Category,
+    public async Task<Tour> CreateTour(string name, string description, float rate, string typeOfTour, string category,
         DateTime startDate, DateTime endDate, string destination, string placeOfDeparture, int countOfUser, string mainPhoto,
         string allPhotos, string tags)
     {
@@ -35,7 +35,7 @@ public class TourServices:ITourService
             Description = description,
             Rate = rate,
             typeOfTour = typeOfTour,
-            Category = Category,
+            Category = category,
             startDate = startDate,
             endDate = endDate,
             Destination = description,
@@ -49,4 +49,58 @@ public class TourServices:ITourService
         await _context.SaveChangesAsync();
         return tour;
     }
+
+    public async Task<Tour> ChangeName(int id, string newName)
+    {
+        var tour = _context.Tours.FirstOrDefault(t => t.TourId == id);
+        try
+        {
+            if (tour!=null && newName !="")
+            {
+                tour.Name = newName;
+            }
+
+            await _context.SaveChangesAsync();
+            return tour;
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            throw;
+        }
+    }
+    
+    public async Task<Tour> ChangeDescription(int id, string description)
+    {
+        var tour = _context.Tours.FirstOrDefault(t => t.TourId == id);
+        try
+        {
+            if (tour!=null && description !="")
+            {
+                tour.Description = description;
+            }
+
+            await _context.SaveChangesAsync();
+            return tour;
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            throw;
+        }
+    }
+
+    /*public async Task<Tour> ChangeRate(int id, List<Review> reviews)
+    {
+        double sum = 0;
+        int countOfReview = reviews.Count;
+        foreach (var review in reviews)
+        {
+            sum += review.Rate;
+        }
+        
+        
+    }*/
+    
+
 }
