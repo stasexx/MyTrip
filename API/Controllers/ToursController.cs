@@ -47,7 +47,7 @@ public class ToursController : BaseApiController
         return await _tourService.ChangeName(id, newName);
     }
     
-    [HttpPost("change/tourId={id}")]
+    [HttpPost("change/rate/tourId={id}")]
     public async Task<Tour> ChangeTourRate(int id)
     {
         var reviews = _reviewService.GetAllReviewsByTourIdAsync(id);
