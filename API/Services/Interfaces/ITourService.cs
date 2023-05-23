@@ -18,7 +18,7 @@ public interface ITourService
 
     Task<Tour> ChangeDescription(int id, string newDescription);
     
-    /*Task<Tour> ChangeRate(int id, List<Review> reviews);
+    Task<Tour> ChangeRate(int id, Task<List<Review>> reviews);
     
     Task<Tour> ChangeTypeOfTour(int id, string newTypeOfTour);
     
@@ -34,5 +34,6 @@ public interface ITourService
     
     Task<Tour> ChangeAllPhotos(int id, string newAllPhotos);
     
-    Task<Tour> ChangeTags(int id, string newTags);*/
+    Task<Tour> ChangeTags(int id, string newTags);
+    
 }

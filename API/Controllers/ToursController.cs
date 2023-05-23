@@ -9,10 +9,12 @@ namespace API.Controllers;
 public class ToursController : BaseApiController
 {
     private readonly ITourService _tourService;
+    private readonly IReviewService _reviewService;
     
-    public ToursController(ITourService tourService)
+    public ToursController(ITourService tourService, IReviewService reviewService)
     {
         _tourService = tourService;
+        _reviewService = reviewService;
     }
 
     [HttpGet("get/allTours")]
@@ -43,5 +45,54 @@ public class ToursController : BaseApiController
     public async Task<Tour> ChangeTourName(int id, string newName)
     {
         return await _tourService.ChangeName(id, newName);
+    }
+    
+    [HttpPost("change/tourId={id}")]
+    public async Task<Tour> ChangeTourRate(int id)
+    {
+        var reviews = _reviewService.GetAllReviewsByTourIdAsync(id);
+        return await _tourService.ChangeRate(id, reviews);
+    }
+    
+    [HttpPost("change/newCategory={newCategory}/tourId={id}")]
+    public async Task<Tour> ChangeTourCategory(int id, string newCategory)
+    {
+        return await _tourService.ChangeCategory(id, newCategory);
+    }
+    
+    [HttpPost("change/newDestination={newDestination}/tourId={id}")]
+    public async Task<Tour> ChangeTourDestination(int id, string newDestination)
+    {
+        return await _tourService.ChangeDestination(id, newDestination);
+    }
+    
+    [HttpPost("change/newPlaceOfDeparture={newPlaceOfDeparture}/tourId={id}")]
+    public async Task<Tour> ChangePlaceOfDeparture(int id, string newPlaceOfDeparture)
+    {
+        return await _tourService.ChangePlaceOfDeparture(id, newPlaceOfDeparture);
+    }
+    
+    [HttpPost("change/newCountOfUser={newCountOfUser}/tourId={id}")]
+    public async Task<Tour> ChangeCountOfUser(int id, string newCountOfUser)
+    {
+        return await _tourService.ChangeCountOfUser(id, newCountOfUser);
+    }
+    
+    [HttpPost("change/newMainPhoto={newMainPhoto}/tourId={id}")]
+    public async Task<Tour> ChangeMainPhoto(int id, string newMainPhoto)
+    {
+        return await _tourService.ChangeMainPhoto(id, newMainPhoto);
+    }
+    
+    [HttpPost("change/newAllPhotos={newAllPhotos}/tourId={id}")]
+    public async Task<Tour> ChangeAllPhotos(int id, string newAllPhotos)
+    {
+        return await _tourService.ChangeAllPhotos(id, newAllPhotos);
+    }
+    
+    [HttpPost("change/newTags={newTags}/tourId={id}")]
+    public async Task<Tour> ChangeTags(int id, string newTags)
+    {
+        return await _tourService.ChangeTags(id, newTags);
     }
 }
