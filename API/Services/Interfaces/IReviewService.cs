@@ -5,4 +5,6 @@ namespace API.Services.Interfaces;
 public interface IReviewService
 {
     Task<List<Review>> GetAllReviewsAsync();
+    
+    Task<List<Review>> GetAllReviewsByTourIdAsync(int id);
 }
