@@ -5,7 +5,7 @@ import wish_button_black from "./../../img/icon/wish_button_black.png";
 
 
 
-const Tour = ({name, main_photo, rate}) => {
+const Tour = ({name, main_photo, rate,tourId}) => {
 
 
     function show(e) {
@@ -22,9 +22,9 @@ const Tour = ({name, main_photo, rate}) => {
     }
 
     return ( 
-    <>
+
         <li id="dfg"className="tour">
-            <a href="./project-page.html">
+            <a href={`./tour/${tourId}`}>
                 <img src={main_photo} alt="Project img" className="tour__img"/>
                 <h3 className="tour__title">{name}</h3>
                 <div className="tour__rating"><StRating rate={rate}/></div>
@@ -33,8 +33,6 @@ const Tour = ({name, main_photo, rate}) => {
                 <img src={wish_button} alt="" className="like__img"/>
             </a>
         </li>
-
-    </> 
     );
 }
  

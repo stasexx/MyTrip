@@ -1,24 +1,24 @@
-import "./style.css"; 
+
 import React, {useEffect, useState} from "react";
 import axios from 'axios';
 import login_photo_right from "./../../img/icon/login_photo_right.png";
 import logo from "./../../img/icon/logo.png"; 
 import google from "./../../img/icon/google.png"; 
 import {useNavigate} from 'react-router-dom';
-const src="http://localhost:5000/Users/api/checkForEmail";
-const src_google="http://localhost:5000/GoogleOAuth/api/oauth";
+import styles from './Stules.module.css';
+const src="http://localhost:5000/api/Users/get/userByEmail=";
+const src_google="http://localhost:5000/api/GoogleOAuth/oauth/authorization";
 
 const  Login = () => {
     const[user,setUsers] = useState([]);    
-    const navigate = useNavigate();
-
+    const navigate  = useNavigate ();
 
     function Check_login(){
         var email=document.getElementById("email").value
         var password=document.getElementById("password").value
         if(email.length>0){
 
-            axios.get(src,{ params: { email: email } })
+            axios.get(src+email)
             .then(function (data) {
                 setUsers(data.data);
                 console.log(data.data)
@@ -26,16 +26,13 @@ const  Login = () => {
             if(user.userId){
                 if(user.password==password){
                     alert("ви успішно аторизовані");
-                          navigate('/');
-                } 
-            }
+                }}
             console.log(user.userId)
         }
     }
     function Google_login(){
-
-            axios.get(src_google)
-            .then(res => console.log(res.data))
+        
+        window.location.href = src_google;
  
     }
     
@@ -43,32 +40,32 @@ const  Login = () => {
             
             <main>
                     <div className="container">
-                    <div className="font_right"><img src={login_photo_right} alt="Link" /> </div>
-                    <div className="font_left"><img src={login_photo_right} alt="Link" /></div>
-                    <div className="log_cont" >
-                        <div className="login" >
-                            <h3 className="hello">Welcome Back!</h3>
-                            <div className="logo"><img src={logo} alt="Link" /></div>
+                    <div className={styles.font_right}><img src={login_photo_right} alt="Link" /> </div>
+                    <div className={styles.font_left}><img src={login_photo_right} alt="Link" /></div>
+                    <div className={styles.log_cont} >
+                        <div className={styles.login}>
+                            <h3 className={styles.hello}>Welcome Back!</h3>
+                            <div className={styles.logo}><img src={logo} alt="Link" /></div>
                             
 
-                                 <input type ="text"  className="box" id="email" placeholder="Enter your email"></input>
+                                 <input type ="text"  className={styles.box}id="email" placeholder="Enter your email"></input>
 
 
 
-                                <input  type ="text" className="box" id="password" placeholder="Enter your password"></input>
+                                <input  type ="text" className={styles.box} id="password" placeholder="Enter your password"></input>
 
 
-                            <div className="or_line"> 
-                                <div className="line1"></div><div className="text_or">or</div><div className="line2"></div>
+                            <div className={styles.or_line}> 
+                                <div className={styles.line1}></div><div className={styles.text_or}>or</div><div className={styles.line2}></div>
                             </div>
 
 
 
-                            <div className="login_button">
-                                <button href="./" onClick={Google_login} className="google_acc"><img className="foto_google" src={google} alt="Link" />Continue with Google</button>
-                                <div className="forget"><a href="./register" >Forget Password</a></div>
+                            <div className={styles.login_button}>
+                                <button onClick={Google_login} className={styles.google_acc}><img className={styles.foto_google} src={google} alt="Link" />Continue with Google</button>
+                                <div className={styles.forget}><a href={styles.register} >Forget Password</a></div>
                                 <button href="./" onClick={Check_login} className="log">Login</button>
-                                <div className="quest">Don`t have an account?<a href="./register" className="signup">Sign up</a></div>
+                                <div className={styles.quest}>Don`t have an account?<a href="./register" target="_self" className={styles.signup}>Sign up</a></div>
                             </div>
                          </div>
                     </div>

@@ -10,7 +10,7 @@ import axios from 'axios';
 import NavBar from "../../Components/navbar/NavBar";
 import Footer from "../../Components/footer/Footer"
 
-const src="http://localhost:5000/Tours";
+const src="http://localhost:5000/api/Tours/get/allTours";
 
 
 const  MainPge = () => {
@@ -41,7 +41,7 @@ const  MainPge = () => {
                     <ul class="tours">    
                         {
                             tour_pop.map(item =>{
-                            return<Tour name={item.name} main_photo={item.mainPhoto} rate={item.rate}/>;
+                            return<Tour name={item.name} main_photo={item.mainPhoto} rate={item.rate} tourId={item.tourId}/>;
                              })
                         }
 
@@ -54,7 +54,7 @@ const  MainPge = () => {
                             tour_hand.map(item1 =>{
                                 if(item1.typeOfTour=="hdm"){
 
-                                    return<Tour name={item1.name} main_photo={item1.mainPhoto} rate={item1.rate}/>;
+                                    return<Tour name={item1.name} main_photo={item1.mainPhoto} rate={item1.rate} tourId={item1.tourId}/>;
                             
                                 }
                             })

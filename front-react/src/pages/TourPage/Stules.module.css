@@ -1,0 +1,76 @@
+
+body {
+	
+	font-family: 'Montserrat';
+}
+.container {
+
+	position: relative;
+	margin: 0 auto;
+	max-width: 1920px;
+	padding: 0 300px;
+}
+
+.name_tour{
+    font-size: 64px;
+}
+.info_orh{
+    font-size: 25px;
+        text-align: center;
+}
+
+.star1 {
+	cursor: pointer;
+	height: 25px;
+	width: 25px;
+	margin: 2px;
+	float: left;
+	background-color: rgb(20, 214, 36);
+	clip-path: polygon(50% 0%, 63% 38%, 100% 38%, 69% 59%, 82%  100%, 50% 75%, 18% 100%, 31% 59%, 0% 38%, 37% 38%);
+	
+}
+.star.selected1 {
+
+	background-color: #db1d1d;
+}
+.raiting1 {
+		width: 90px;
+		margin: 5px;
+		float: none;
+}
+/* wishlist*/
+
+.wishlist{
+	background-color: white;
+	height: 60px;
+	width: 60px;
+	border-radius: 50px;
+	float: right;
+	right: 10px;
+	bottom: 310px;
+	position: relative;
+
+}
+.wishlist:hover img{
+	transform: scale(1.4);
+}
+.like__img{
+	position: relative;
+	left: 20%;
+	top: 30%;
+	display: block;
+
+	transition: transform 0.25s;
+}
+.wishlist:active img{
+	-webkit-filter: grayscale(100) invert(9);
+	filter: grayscale(100) invert(9);
+}
+.wish img{
+	-webkit-filter: grayscale(100) invert(9);
+	filter: grayscale(100) invert(9);
+}
+.wish_not img{
+	-webkit-filter: grayscale(100) invert(9);
+	filter: grayscale(100) invert(9);
+}
