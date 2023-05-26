@@ -5,7 +5,7 @@ import login_photo_right from "./../../img/icon/login_photo_right.png";
 import logo from "./../../img/icon/logo.png"; 
 import google from "./../../img/icon/google.png"; 
 import {useNavigate} from 'react-router-dom';
-const src_google="http://localhost:5000/GoogleOAuth/api/oauth";
+const src_google="http://localhost:5000/api/GoogleOAuth/oauth/authorization";
 const src="http://localhost:5000/Users/api/registration";
 
 const  Login = () => { 
@@ -41,11 +41,16 @@ const  Login = () => {
             alert("Ви не заповнили всі поля")
         }
     }
-    function Google_login(){
+      function Google_login(){
 
-            axios.get(src_google)
+        try {
+             axios.get(src_google)
             .then(res => console.log(res.data))
- 
+
+          } catch (error) {
+            console.log('Помилка запиту:', error);
+          }
+
     }
     
         return ( 

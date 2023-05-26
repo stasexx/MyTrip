@@ -52,7 +52,7 @@
     display: flex;
     width: 265px;
     height: 0px;
-    border: 1px solid #808080;
+    border: 1px solid #808080e3;
     transform: rotate(180deg);
 }
 .line2{
@@ -61,7 +61,7 @@
     width: 265px;
     height: 0px;
     left: 400px;
-    bottom: 20px;
+    top: 645px;
     border: 1px solid #808080;
     transform: rotate(180deg);
 }
