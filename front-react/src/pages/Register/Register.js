@@ -6,6 +6,7 @@ import logo from "./../../img/icon/logo.png";
 import google from "./../../img/icon/google.png"; 
 import {useNavigate} from 'react-router-dom';
 const src_google="http://localhost:5000/api/GoogleOAuth/oauth/authorization";
+const src="http://localhost:5000/Users/api/registration";
 
 const  Login = () => { 
     const navigate = useNavigate();
@@ -20,9 +21,14 @@ const  Login = () => {
 
         if(email.length>0 ||firstname.length>0||password.length>0||password_confirm.length>0||lastname.length>0){
 
-
             if(password==password_confirm){
-                axios.post(`http://localhost:5000/api/Users/registration/email=${email}/password=${password}/firstname=${firstname}/lastname=${lastname}`)
+                
+                axios.post(src,{ params: {
+                    'email':email,
+                    'password':password,
+                    'firstName':firstname,
+                    'lastName':lastname
+                }})
                 .then((respons) => alert(respons)
                 )
                 .catch((error) => alert(error));
@@ -35,11 +41,16 @@ const  Login = () => {
             alert("Ви не заповнили всі поля")
         }
     }
-    function Google_login(){
+      function Google_login(){
 
-            axios.get(src_google)
+        try {
+             axios.get(src_google)
             .then(res => console.log(res.data))
- 
+
+          } catch (error) {
+            console.log('Помилка запиту:', error);
+          }
+
     }
     
         return ( 

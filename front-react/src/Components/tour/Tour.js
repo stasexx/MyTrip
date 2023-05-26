@@ -22,7 +22,7 @@ const Tour = ({name, main_photo, rate,tourId}) => {
     }
 
     return ( 
-    <>
+
         <li id="dfg"className="tour">
             <a href={`./tour/${tourId}`}>
                 <img src={main_photo} alt="Project img" className="tour__img"/>
@@ -33,8 +33,6 @@ const Tour = ({name, main_photo, rate,tourId}) => {
                 <img src={wish_button} alt="" className="like__img"/>
             </a>
         </li>
-
-    </> 
     );
 }
  

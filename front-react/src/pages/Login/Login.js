@@ -31,6 +31,7 @@ const  Login = () => {
         }
     }
     function Google_login(){
+        
         window.location.href = src_google;
  
     }
