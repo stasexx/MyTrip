@@ -264,4 +264,16 @@ public class TourServices:ITourService
             throw;
         }
     }
+    
+    public async Task<Tour> DeleteTour(int id)
+    {
+        var tour = _context.Tours.FirstOrDefault(t => t.TourId == id);
+        if (tour!=null)
+        {
+            _context.Tours.Remove(tour);
+            await _context.SaveChangesAsync();
+        }
+
+        return tour;
+    }
 }
