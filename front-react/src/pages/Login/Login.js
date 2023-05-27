@@ -1,10 +1,10 @@
 
-import React, {useEffect, useState} from "react";
+import React, {useState} from "react";
 import axios from 'axios';
 import login_photo_right from "./../../img/icon/login_photo_right.png";
 import logo from "./../../img/icon/logo.png"; 
 import google from "./../../img/icon/google.png"; 
-import {useNavigate} from 'react-router-dom';
+import { useNavigate  } from "react-router-dom";
 import styles from './Stules.module.css';
 const src="http://localhost:5000/api/Users/get/userByEmail=";
 const src_google="http://localhost:5000/api/GoogleOAuth/oauth/authorization";
@@ -24,15 +24,20 @@ const  Login = () => {
                 console.log(data.data)
             });
             if(user.userId){
-                if(user.password==password){
-                    alert("ви успішно аторизовані");
+                if(user.password===password){
+                    navigate('/');
                 }}
             console.log(user.userId)
         }
     }
     function Google_login(){
-        
-        window.location.href = src_google;
+
+        axios
+        .post('hhttp://localhost:5000/api/GoogleOAuth/oauth/authorization')
+        .then(response => {
+          window.location.assign(response.data.authorizationUrl);
+        })
+        .catch(e => console.error(e));
  
     }
     
