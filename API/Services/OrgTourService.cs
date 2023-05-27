@@ -16,7 +16,7 @@ public class OrgTourService:IOrgTourService
     
     public Task<List<OrgTour>> GetAllOrgTour()
     {
-        return _context.OrgTours.ToListAsync();
+        return _context.OrgTours.Include(t=>t.Tour).ToListAsync();
     }
 
     public Task<OrgTour> GetOrgTourById(int id)

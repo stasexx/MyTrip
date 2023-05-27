@@ -53,7 +53,4 @@ public class GoogleOAuthController : BaseApiController
             dateForReg.Result.Name.Split(" ")[0], dateForReg.Result.Name.Split(" ")[1]);
         return await _userService.GetUserByEmailAsync(dateForReg.Result.Email);
     }
-    
-    
-
 }
