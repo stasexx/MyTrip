@@ -2,7 +2,7 @@
 
 namespace API.Services.Interfaces;
 
-public interface ITourPhotos
+public interface ITourPhotosService
 {
     Task<List<TourPhoto>> GetTourPhotosByTourId(int id);
 }

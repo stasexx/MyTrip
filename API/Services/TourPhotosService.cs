@@ -5,11 +5,11 @@ using Persistence;
 
 namespace API.Services;
 
-public class TourPhotos:ITourPhotos
+public class TourPhotosService:ITourPhotosService
 {
     private readonly DataContext _context;
     
-    public TourPhotos(DataContext context)
+    public TourPhotosService(DataContext context)
     {
         _context = context;
     }

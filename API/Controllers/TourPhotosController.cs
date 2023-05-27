@@ -7,9 +7,9 @@ namespace API.Controllers;
 
 public class TourPhotosController:BaseApiController
 {
-    private readonly ITourPhotos _tourPhotos;
+    private readonly ITourPhotosService _tourPhotos;
 
-    public TourPhotosController(ITourPhotos tourPhotos)
+    public TourPhotosController(ITourPhotosService tourPhotos)
     {
         _tourPhotos = tourPhotos;
     }
