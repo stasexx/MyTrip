@@ -37,10 +37,10 @@ public class HandTourController:BaseApiController
         return await _handTourService.GetAllHandTourWithTourAndUserInfo();
     }
     
-    [HttpPost("get/getAllHandToursWithTourAndUserInfo/name={name}/description={description}/rate={rate}/" +
+    [HttpPost("create/createHandTour/name={name}/description={description}/rate={rate}/" +
              "typeOfTour={typeOfTour}/category={category}/startDate={startDate}/endDate={endDate}/destination={destination}/" +
              "placeOfDeparture={placeOfDeparture}/countOfUser={countOfUser}/mainPhoto={mainPhoto}/allPhotos={allPhotos}/" +
-             "tags={tags}/budget={budget}")]
+             "tags={tags}/budget={budget}/email={email}")]
     public async Task<HandTour> CreateHandTour(string name, string description, float rate, string typeOfTour, string category,
         DateTime startDate, DateTime endDate, string destination, string placeOfDeparture, int countOfUser, string mainPhoto,
         string allPhotos, string tags, int budget, string email)

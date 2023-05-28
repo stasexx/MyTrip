@@ -9,4 +9,6 @@ public interface IOrgTourService
     Task<OrgTour> GetOrgTourById(int id);
     
     Task<List<OrgTour>> GetAllOrgTourWithTourInfo();
+
+    Task<OrgTour> CreateOrgTour(Tour tour, User user, int experience, int price, string promocode);
 }
