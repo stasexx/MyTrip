@@ -14,19 +14,25 @@ public class OrgTourService:IOrgTourService
         _context = context;
     }
     
-    public Task<List<OrgTour>> GetAllOrgTour()
+    public async Task<List<OrgTour>> GetAllOrgTour()
     {
-        return _context.OrgTours.Include(t=>t.Tour).ToListAsync();
+        return await _context.OrgTours
+            .Include(t=>t.Tour)
+            .Include(u=>u.User)
+            .ToListAsync();
     }
 
-    public Task<OrgTour> GetOrgTourById(int id)
+    public async Task<OrgTour> GetOrgTourById(int id)
     {
-        return _context.OrgTours.FirstOrDefaultAsync(h => h.Id == id);
+        return await _context.OrgTours
+            .Include(t=>t.Tour)
+            .Include(u=>u.User)
+            .FirstOrDefaultAsync(h => h.Id == id);
     }
     
-    public Task<List<OrgTour>> GetAllOrgTourWithTourInfo()
+    public async Task<List<OrgTour>> GetAllOrgTourWithTourInfo()
     {
-        return _context.OrgTours
+        return await _context.OrgTours
             .Include(t => t.Tour).ToListAsync();
     }
     
