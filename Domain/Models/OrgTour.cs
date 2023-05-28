@@ -13,6 +13,9 @@ public class OrgTour
     public string Promocode { get; set; }
     
     [Required]
+    public User User { get; set; }
+    
+    [Required]
     public Tour Tour { get; set; }
     
 }
