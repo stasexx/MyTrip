@@ -7,10 +7,14 @@ namespace API.Controllers;
 public class OrgTourController:BaseApiController
 {
     private readonly IOrgTourService _orgTourService;
-
-    public OrgTourController(IOrgTourService orgTourService)
+    private readonly IUserService _userService;
+    private readonly ITourService _tourService;
+    
+    public OrgTourController(IOrgTourService orgTourService, IUserService userService, ITourService tourService)
     {
         _orgTourService = orgTourService;
+        _userService = userService;
+        _tourService = tourService;
     }
     
     [HttpGet("get/getAllOrgTours")]
@@ -29,5 +33,21 @@ public class OrgTourController:BaseApiController
     public async Task<ActionResult<List<OrgTour>>> GetAllOrgTourWithTourInfo()
     {
         return await _orgTourService.GetAllOrgTourWithTourInfo();
+    }
+
+    [HttpPost("create/createOrgTour/name={name}/description={description}/rate={rate}/" +
+              "typeOfTour={typeOfTour}/category={category}/startDate={startDate}/endDate={endDate}/destination={destination}/" +
+              "placeOfDeparture={placeOfDeparture}/countOfUser={countOfUser}/mainPhoto={mainPhoto}/allPhotos={allPhotos}/" +
+              "tags={tags}/experience={experience}/price={price}/promocode={promocode}/email={email}")]
+    public async Task<OrgTour> CreateOrgTour(string name, string description, float rate, string typeOfTour,
+        string category,
+        DateTime startDate, DateTime endDate, string destination, string placeOfDeparture, int countOfUser,
+        string mainPhoto,
+        string allPhotos, string tags, int experience, int price, string promocode, string email)
+    {
+        var user = await _userService.GetUserByEmailAsync(email);
+        var tour = await _tourService.CreateTour(name, description, rate, typeOfTour, category, startDate, endDate,
+            destination, placeOfDeparture, countOfUser, mainPhoto, allPhotos, tags);
+        return await _orgTourService.CreateOrgTour(tour, user.Value, experience, price, promocode);
     }
 }

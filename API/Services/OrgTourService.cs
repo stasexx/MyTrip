@@ -36,4 +36,19 @@ public class OrgTourService:IOrgTourService
             .Include(t => t.Tour).ToListAsync();
     }
     
+    public async Task<OrgTour> CreateOrgTour(Tour tour, User user, int experience, int price, string promocode)
+    {
+        OrgTour orgTour= new OrgTour()
+        {
+            Experience = experience,
+            Price = price,
+            Promocode = promocode,
+            Tour = tour,
+            User = user
+        };
+        _context.AddAsync(orgTour);
+        _context.SaveChangesAsync();
+        return await _context.OrgTours.FirstOrDefaultAsync(o=>o.Id == orgTour.Id);
+    }
+    
 }
