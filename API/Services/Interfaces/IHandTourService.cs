@@ -7,6 +7,7 @@ public interface IHandTourService
     Task<List<HandTour>> GetAllHandTour();
 
     Task<HandTour> GetHandTourById(int id);
+    Task<HandTour> GetHandTourByTourId(int id);
     
     Task<List<HandTour>> GetAllHandTourWithTourAndUserInfo();
 
