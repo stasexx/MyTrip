@@ -276,4 +276,14 @@ public class TourServices:ITourService
 
         return tour;
     }
+    
+    public async Task<List<Tour>> FilterForTourByCountry(string country)
+    {
+        return await _context.Tours.Where(t => t.Destination == country).ToListAsync();
+    }
+    
+    public async Task<List<Tour>> FilterForTourByCategory(string category)
+    {
+        return await _context.Tours.Where(t => t.Category == category).ToListAsync();
+    }
 }

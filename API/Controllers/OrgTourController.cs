@@ -40,6 +40,18 @@ public class OrgTourController:BaseApiController
     {
         return await _orgTourService.GetAllOrgTourWithTourInfo();
     }
+    
+    [HttpGet("get/tourFilter/orgTour/country={country}")]
+    public async Task<List<OrgTour>> FilterForHandTourByCountry(string country)
+    {
+        return await _orgTourService.FilterForOrgTourByCountry(country);
+    }
+    
+    [HttpGet("get/tourFilter/orgTour/category={country}")]
+    public async Task<List<OrgTour>> FilterForHandTourByCategory(string category)
+    {
+        return await _orgTourService.FilterForOrgTourByCategory(category);
+    }
 
     [HttpPost("create/createOrgTour/name={name}/description={description}/rate={rate}/" +
               "typeOfTour={typeOfTour}/category={category}/startDate={startDate}/endDate={endDate}/destination={destination}/" +
@@ -56,4 +68,37 @@ public class OrgTourController:BaseApiController
             destination, placeOfDeparture, countOfUser, mainPhoto, allPhotos, tags);
         return await _orgTourService.CreateOrgTour(tour, user.Value, experience, price, promocode);
     }
+    
+    
+    [HttpPost("change/newExperience={newExperience}/orgTourId={orgTourId}")]
+    public async Task<ActionResult> ChangeExperience(int orgTourId, int newExperience)
+    {
+        if (await _orgTourService.ChangeExperience(orgTourId, newExperience))
+        {
+            return Ok();
+        }
+        return NotFound();
+    }
+    
+    
+    [HttpPost("change/newPrice={newPrice}/orgTourId={orgTourId}")]
+    public async Task<ActionResult> ChangePrice(int orgTourId, int newPrice)
+    {
+        if (await _orgTourService.ChangePrice(orgTourId, newPrice))
+        {
+            return Ok();
+        }
+        return NotFound();
+    }
+    
+    [HttpPost("change/newPromocode={newPromocode}/orgTourId={orgTourId}")]
+    public async Task<ActionResult> ChangePromocode(int orgTourId, string newPromocode)
+    {
+        if (await _orgTourService.ChangePromocode(orgTourId, newPromocode))
+        {
+            return Ok();
+        }
+        return NotFound();
+    }
+    
 }

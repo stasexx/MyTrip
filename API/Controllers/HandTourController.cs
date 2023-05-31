@@ -43,10 +43,24 @@ public class HandTourController:BaseApiController
         return await _handTourService.GetAllHandTourWithTourAndUserInfo();
     }
     
+    [HttpGet("get/tourFilter/handTour/country={country}")]
+    public async Task<List<HandTour>> FilterForHandTourByCountry(string country)
+    {
+        return await _handTourService.FilterForHandTourByCountry(country);
+    }
+    
+    [HttpGet("get/tourFilter/handTour/category={country}")]
+    public async Task<List<HandTour>> FilterForHandTourByCategory(string category)
+    {
+        return await _handTourService.FilterForHandTourByCategory(category);
+    }
+
+
+
     [HttpPost("create/createHandTour/name={name}/description={description}/rate={rate}/" +
-             "typeOfTour={typeOfTour}/category={category}/startDate={startDate}/endDate={endDate}/destination={destination}/" +
-             "placeOfDeparture={placeOfDeparture}/countOfUser={countOfUser}/mainPhoto={mainPhoto}/allPhotos={allPhotos}/" +
-             "tags={tags}/budget={budget}/email={email}")]
+              "typeOfTour={typeOfTour}/category={category}/startDate={startDate}/endDate={endDate}/destination={destination}/" +
+              "placeOfDeparture={placeOfDeparture}/countOfUser={countOfUser}/mainPhoto={mainPhoto}/allPhotos={allPhotos}/" +
+              "tags={tags}/budget={budget}/email={email}")]
     public async Task<HandTour> CreateHandTour(string name, string description, float rate, string typeOfTour, string category,
         DateTime startDate, DateTime endDate, string destination, string placeOfDeparture, int countOfUser, string mainPhoto,
         string allPhotos, string tags, int budget, string email)

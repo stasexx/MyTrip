@@ -35,5 +35,8 @@ public interface ITourService
     Task<Tour> ChangeAllPhotos(int id, string newAllPhotos);
     
     Task<Tour> ChangeTags(int id, string newTags);
+
+    Task<List<Tour>> FilterForTourByCategory(string category);
     
+    Task<List<Tour>> FilterForTourByCountry(string country);
 }

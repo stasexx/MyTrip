@@ -38,6 +38,16 @@ public class OrgTourService:IOrgTourService
             .FirstOrDefaultAsync(h => h.Tour.TourId == id);
     }
     
+    public async Task<List<OrgTour>> FilterForOrgTourByCountry(string country)
+    {
+        return await _context.OrgTours.Where(t => t.Tour.Destination == country).ToListAsync();
+    }
+    
+    public async Task<List<OrgTour>> FilterForOrgTourByCategory(string category)
+    {
+        return await _context.OrgTours.Where(t => t.Tour.Category == category).ToListAsync();
+    }
+    
     public async Task<List<OrgTour>> GetAllOrgTourWithTourInfo()
     {
         return await _context.OrgTours
@@ -57,6 +67,42 @@ public class OrgTourService:IOrgTourService
         _context.AddAsync(orgTour);
         _context.SaveChangesAsync();
         return await _context.OrgTours.FirstOrDefaultAsync(o=>o.Id == orgTour.Id);
+    }
+    
+    public async Task<bool> ChangeExperience(int id, int newExperience)
+    {
+        var orgTour = await _context.OrgTours.FirstOrDefaultAsync(o => o.Id == id);
+        if (orgTour != null)
+        {
+            orgTour.Experience=newExperience;
+            await _context.SaveChangesAsync();
+            return true;
+        }
+        return false;
+    }
+    
+    public async Task<bool> ChangePrice(int id, int newPrice)
+    {
+        var orgTour = await _context.OrgTours.FirstOrDefaultAsync(o => o.Id == id);
+        if (orgTour != null)
+        {
+            orgTour.Price=newPrice;
+            await _context.SaveChangesAsync();
+            return true;
+        }
+        return false;
+    }
+    
+    public async Task<bool> ChangePromocode(int id, string newPromocode)
+    {
+        var orgTour = await _context.OrgTours.FirstOrDefaultAsync(o => o.Id == id);
+        if (orgTour != null)
+        {
+            orgTour.Promocode=newPromocode;
+            await _context.SaveChangesAsync();
+            return true;
+        }
+        return false;
     }
     
 }

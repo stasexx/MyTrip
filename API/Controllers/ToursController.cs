@@ -28,6 +28,18 @@ public class ToursController : BaseApiController
     {
         return await _tourService.GetTourByIdAsync(id);
     }
+    
+    [HttpGet("get/tourFilter/country={country}")]
+    public async Task<List<Tour>> FilterForTourByCountry(string country)
+    {
+        return await _tourService.FilterForTourByCountry(country);
+    }
+    
+    [HttpGet("get/tourFilter/category={country}")]
+    public async Task<List<Tour>> FilterForTourByCategory(string category)
+    {
+        return await _tourService.FilterForTourByCategory(category);
+    }
 
     [HttpPost("create/tour/name={name}/description={description}/rate={rate}/" +
               "typeOfTour={typeOfTour}/category={category}/startDate={startDate}/endDate={endDate}/destination={destination}/" +
