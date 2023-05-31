@@ -38,6 +38,16 @@ public class OrgTourService:IOrgTourService
             .FirstOrDefaultAsync(h => h.Tour.TourId == id);
     }
     
+    public async Task<List<OrgTour>> FilterForOrgTourByCountry(string country)
+    {
+        return await _context.OrgTours.Where(t => t.Tour.Destination == country).ToListAsync();
+    }
+    
+    public async Task<List<OrgTour>> FilterForOrgTourByCategory(string category)
+    {
+        return await _context.OrgTours.Where(t => t.Tour.Category == category).ToListAsync();
+    }
+    
     public async Task<List<OrgTour>> GetAllOrgTourWithTourInfo()
     {
         return await _context.OrgTours

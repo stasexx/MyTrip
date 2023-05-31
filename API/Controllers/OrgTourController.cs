@@ -40,6 +40,18 @@ public class OrgTourController:BaseApiController
     {
         return await _orgTourService.GetAllOrgTourWithTourInfo();
     }
+    
+    [HttpGet("get/tourFilter/orgTour/country={country}")]
+    public async Task<List<OrgTour>> FilterForHandTourByCountry(string country)
+    {
+        return await _orgTourService.FilterForOrgTourByCountry(country);
+    }
+    
+    [HttpGet("get/tourFilter/orgTour/category={country}")]
+    public async Task<List<OrgTour>> FilterForHandTourByCategory(string category)
+    {
+        return await _orgTourService.FilterForOrgTourByCategory(category);
+    }
 
     [HttpPost("create/createOrgTour/name={name}/description={description}/rate={rate}/" +
               "typeOfTour={typeOfTour}/category={category}/startDate={startDate}/endDate={endDate}/destination={destination}/" +
