@@ -23,10 +23,16 @@ public class OrgTourController:BaseApiController
         return await _orgTourService.GetAllOrgTour();
     }
     
-    [HttpGet("get/orgTour/orgTourId={id}")]
+    [HttpGet("get/orgTourById/orgTourId={id}")]
     public async Task<ActionResult<OrgTour>> GetOrgTourById(int id)
     {
         return await _orgTourService.GetOrgTourById(id);
+    }
+    
+    [HttpGet("get/orgTourByTourId/tourId={id}")]
+    public async Task<ActionResult<OrgTour>> GetOrgTourByTourId(int id)
+    {
+        return await _orgTourService.GetOrgTourByTourId(id);
     }
     
     [HttpGet("get/getAllOrgToursWithTourInfo")]

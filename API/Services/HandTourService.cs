@@ -24,12 +24,20 @@ public class HandTourService:IHandTourService
         return await _context.HandTours.FirstOrDefaultAsync(h => h.Id == id);
     }
     
+    public async Task<HandTour> GetHandTourByTourId(int id)
+    {
+        return await _context.HandTours.Include(t=>t.Tour)
+            .Include(u=>u.User)
+            .FirstOrDefaultAsync(h => h.Tour.TourId == id);
+    }
+    
     public async Task<List<HandTour>>GetAllHandTourWithTourAndUserInfo()
     {
         return await _context.HandTours.Include(t => t.Tour)
             .Include(u=>u.User)
             .ToListAsync();
     }
+    
     
     public async Task<HandTour> CreateHandTour(Tour tour, Chat chat, User user)
     {

@@ -31,6 +31,12 @@ public class HandTourController:BaseApiController
         return await _handTourService.GetHandTourById(id);
     }
     
+    [HttpGet("get/handTourByTour/tourId={id}")]
+    public async Task<ActionResult<HandTour>> GetHandTourByTourId(int id)
+    {
+        return await _handTourService.GetHandTourByTourId(id);
+    }
+    
     [HttpGet("get/getAllHandToursWithTourAndUserInfo")]
     public async Task<ActionResult<List<HandTour>>> GetAllHandTourWithTourAndUserInfo()
     {

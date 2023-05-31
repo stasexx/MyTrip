@@ -30,6 +30,14 @@ public class OrgTourService:IOrgTourService
             .FirstOrDefaultAsync(h => h.Id == id);
     }
     
+    public async Task<OrgTour> GetOrgTourByTourId(int id)
+    {
+        return await _context.OrgTours
+            .Include(t=>t.Tour)
+            .Include(u=>u.User)
+            .FirstOrDefaultAsync(h => h.Tour.TourId == id);
+    }
+    
     public async Task<List<OrgTour>> GetAllOrgTourWithTourInfo()
     {
         return await _context.OrgTours
