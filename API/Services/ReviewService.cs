@@ -23,7 +23,7 @@ public class ReviewService : IReviewService
         return await _context.Reviews.Include(o=>o.Order)
             .Include(o=>o.Order.OrgTour)
             .Include(o=>o.Order.OrgTour.Tour)
-            .Include(o=>o.Order.OrgTour.User)
+            .Include(o=>o.Order.User)
             .Where(r => r.Order.OrgTour.Tour.TourId == id).ToListAsync();
     }
 }
