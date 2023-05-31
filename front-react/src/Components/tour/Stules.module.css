@@ -1,3 +1,16 @@
+body {
+	
+	font-family: 'Montserrat';
+}
+.container {
+
+	position: relative;
+	margin: 0 auto;
+	max-width: 1920px;
+	padding: 0 300px;
+}
+
+
 .tour {
 	width: 399px;
 	background-color: white;
@@ -52,11 +65,7 @@
 
 	background-color: #F5B129;
 }
-.raiting {
-		width: 90px;
-		margin: 5px;
-		float: none;
-}
+
 /* wishlist*/
 
 .wishlist{
