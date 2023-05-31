@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "C71VrfHU1cqVR9r6e7AhABtcVFXPl/nUrhHbpQDzSeY0oqRebMTe1z3yL14vxmgNIz2S+8PtBhIsxX9VP5hWnw==",
+  "dgSpecHash": "s71qiVTZfJmohNdwss7irx74fFr1TlWvd7GGDkxQGScsx1n2/ouHwKYtwk7XuCFPXf+lqqjADfEpzpr4MiEmKw==",
   "success": true,
   "projectFilePath": "C:\\Users\\Taras\\Documents\\VS code Git\\MyTrip\\Persistence\\Persistence.csproj",
   "expectedPackageFiles": [
@@ -14,11 +14,11 @@
     "C:\\Users\\Taras\\.nuget\\packages\\microsoft.entityframeworkcore\\8.0.0-preview.4.23259.3\\microsoft.entityframeworkcore.8.0.0-preview.4.23259.3.nupkg.sha512",
     "C:\\Users\\Taras\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\8.0.0-preview.4.23259.3\\microsoft.entityframeworkcore.abstractions.8.0.0-preview.4.23259.3.nupkg.sha512",
     "C:\\Users\\Taras\\.nuget\\packages\\microsoft.entityframeworkcore.analyzers\\8.0.0-preview.4.23259.3\\microsoft.entityframeworkcore.analyzers.8.0.0-preview.4.23259.3.nupkg.sha512",
-    "C:\\Users\\Taras\\.nuget\\packages\\microsoft.entityframeworkcore.design\\7.0.0\\microsoft.entityframeworkcore.design.7.0.0.nupkg.sha512",
+    "C:\\Users\\Taras\\.nuget\\packages\\microsoft.entityframeworkcore.design\\8.0.0-preview.4.23259.3\\microsoft.entityframeworkcore.design.8.0.0-preview.4.23259.3.nupkg.sha512",
     "C:\\Users\\Taras\\.nuget\\packages\\microsoft.entityframeworkcore.relational\\8.0.0-preview.4.23259.3\\microsoft.entityframeworkcore.relational.8.0.0-preview.4.23259.3.nupkg.sha512",
     "C:\\Users\\Taras\\.nuget\\packages\\microsoft.entityframeworkcore.sqlite\\8.0.0-preview.4.23259.3\\microsoft.entityframeworkcore.sqlite.8.0.0-preview.4.23259.3.nupkg.sha512",
     "C:\\Users\\Taras\\.nuget\\packages\\microsoft.entityframeworkcore.sqlite.core\\8.0.0-preview.4.23259.3\\microsoft.entityframeworkcore.sqlite.core.8.0.0-preview.4.23259.3.nupkg.sha512",
-    "C:\\Users\\Taras\\.nuget\\packages\\microsoft.entityframeworkcore.tools\\7.0.0\\microsoft.entityframeworkcore.tools.7.0.0.nupkg.sha512",
+    "C:\\Users\\Taras\\.nuget\\packages\\microsoft.entityframeworkcore.tools\\8.0.0-preview.4.23259.3\\microsoft.entityframeworkcore.tools.8.0.0-preview.4.23259.3.nupkg.sha512",
     "C:\\Users\\Taras\\.nuget\\packages\\microsoft.extensions.caching.abstractions\\8.0.0-preview.4.23259.5\\microsoft.extensions.caching.abstractions.8.0.0-preview.4.23259.5.nupkg.sha512",
     "C:\\Users\\Taras\\.nuget\\packages\\microsoft.extensions.caching.memory\\8.0.0-preview.4.23259.5\\microsoft.extensions.caching.memory.8.0.0-preview.4.23259.5.nupkg.sha512",
     "C:\\Users\\Taras\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\8.0.0-preview.4.23259.5\\microsoft.extensions.configuration.abstractions.8.0.0-preview.4.23259.5.nupkg.sha512",

@@ -6,7 +6,7 @@ import logo from "./../../img/icon/logo.png";
 import google from "./../../img/icon/google.png"; 
 import {useNavigate} from 'react-router-dom';
 const src_google="http://localhost:5000/api/GoogleOAuth/oauth/authorization";
-const src="http://localhost:5000/Users/api/registration";
+
 
 const  Login = () => { 
     const navigate = useNavigate();
@@ -21,16 +21,10 @@ const  Login = () => {
 
         if(email.length>0 ||firstname.length>0||password.length>0||password_confirm.length>0||lastname.length>0){
 
-            if(password==password_confirm){
+            if(password===password_confirm){
                 
-                axios.post(src,{ params: {
-                    'email':email,
-                    'password':password,
-                    'firstName':firstname,
-                    'lastName':lastname
-                }})
-                .then((respons) => alert(respons)
-                )
+                axios.post(`http://localhost:5000/api/Users/registration/email=${email}/password=${password}/firstname=${firstname}/lastname=${lastname}`)
+                .then( navigate('/login'))
                 .catch((error) => alert(error));
             }
             else{
