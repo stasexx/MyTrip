@@ -27,13 +27,18 @@ const src="http://localhost:5000/api/Tours/get/allTours";
 
 
 const  TourPage = () => {
+
+
+
+    
     const {id}=useParams();
     var MyTour;
     var startDatefinal;
     var endDatefinal;
-
+    var count_review
     const[tour,setTours] = useState([]);
     const[photo,setPhoto] = useState([]);
+    const[review,setReview] = useState([]);
 
     useEffect(()=>{
         axios.get(src)
@@ -48,6 +53,18 @@ const  TourPage = () => {
         setPhoto(data.data);
         })
         },[]);
+    useEffect(()=>{
+        axios.get(`http://localhost:5000/api/Reviews/get/reviews/tourId=${id}`)
+        .then(data =>{
+        setReview(data.data);
+        })
+        },[]);
+
+        if (review.length > 0) {
+            count_review = review.length;
+        } else {
+            count_review = 0;
+        }
 
 
         if(tour[0]){
@@ -103,7 +120,7 @@ const  TourPage = () => {
                     <div className={styles.name_tour}>{MyTour.name}</div>
                     
                     <div className={styles.info_orh}>
-                        <div className={styles.name_org} >TrapStar</div><div className={styles.delimiter}>●</div><StRating rate={MyTour.rate}/><div className={styles.delimiter}>●</div> 978 reviews<div className={styles.delimiter}>●</div>+25 Exp <div className={styles.delimiter}>●</div> mail@mail.com
+                        <div className={styles.name_org} >TrapStar</div><div className={styles.delimiter}>●</div><StRating rate={MyTour.rate}/><div className={styles.delimiter}>●</div>{count_review} reviews<div className={styles.delimiter}>●</div>+25 Exp <div className={styles.delimiter}>●</div> mail@mail.com
                     </div>    
             </div>
             <div className={styles.infoo__tour}>
@@ -176,7 +193,12 @@ const  TourPage = () => {
 
 
             <div className={styles.reviews_cont}>Reviews</div>
+            <div className={styles.container}>
 
+                    <div className={styles.reviews}>
+                        <div className={styles.name_org} ></div><StRating rate={MyTour.rate}/><div className={styles.delimiter}>●</div>{count_review} reviews
+                    </div>    
+            </div>
 
 
             <Footer/>
