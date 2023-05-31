@@ -39,7 +39,9 @@ const  TourPage = () => {
     const[tour,setTours] = useState([]);
     const[photo,setPhoto] = useState([]);
     const[review,setReview] = useState([]);
+    const[org,setOrg] = useState([]);
     const[review_to_print,setReview_to_print] = useState([]);
+
     useEffect(()=>{
         axios.get(src)
         .then(data =>{
@@ -59,13 +61,15 @@ const  TourPage = () => {
             axios.get(`http://localhost:5000/api/OrgTour/get/orgTourByTourId/tourId=${id}`)
 
             .then(function(response){
-                setReview_to_print(response.data)
+                setOrg(response.data)
             })
             .catch(function(error) {
                 console.log(error)
             })
         },[]);
-        var us=review_to_print.user;
+
+
+        var us=org.user;
         if(us){
             var agency=us.agency;
             var email=us.email;
@@ -73,6 +77,74 @@ const  TourPage = () => {
         }
 
 
+    useEffect(()=>{
+
+        axios.get(`http://localhost:5000/api/Reviews/get/reviews/tourId=${id}`)
+
+        .then(function(response){
+            setReview_to_print(response.data)
+        })
+        .catch(function(error) {
+            console.log(error)
+        })
+    },[]);
+
+        var rew = review_to_print[0];
+        var rew1 = review_to_print[1];
+        if(review_to_print[0]){
+
+            let startDat = review_to_print[0].reviewDate;
+            let start = new Date(startDat);
+            let day = start.getDate();
+            let month = start.getMonth() + 1;
+            let year = start.getFullYear();
+            var date_rew=`${day < 10 ? '0' + day : day}.${month < 10 ? '0' + month : month}.${year}`;
+            var text_rew=review_to_print[0].text
+            var rate_rew=review_to_print[0].rate
+
+            let startDat1 = review_to_print[1].reviewDate;
+            let start1 = new Date(startDat1);
+            let day1 = start1.getDate();
+            let month1 = start1.getMonth() + 1;
+            let year1 = start1.getFullYear();
+            var date_rew1=`${day1 < 10 ? '0' + day1 : day1}.${month1 < 10 ? '0' + month1 : month1}.${year1}`;
+            var text_rew1=review_to_print[1].text
+            var rate_rew1=review_to_print[1].rate
+
+        }
+
+        if(rew1){
+            var rew_21 = rew1.order
+            console.log(rew_21)
+            if(rew_21){
+                var rew_31 = rew_21.user
+
+                if(rew_31){
+                    
+                    var firstName1=rew_31.firstName;
+                    var lastName1=rew_31.lastName;
+                    var photo_user1=rew_31.avatar;
+                }
+
+            }
+            
+        }
+
+        
+
+        if(rew){
+            var rew_2 = rew.order
+            if(rew_2){
+                var rew_3 = rew_2.user
+                if(rew_3){
+                    var firstName=rew_3.firstName;
+                    var lastName=rew_3.lastName;
+                    var photo_user=rew_3.avatar;
+                }
+
+            }
+            
+        }
 
     useEffect(()=>{
         axios.get(`http://localhost:5000/api/Reviews/get/reviews/tourId=${id}`)
@@ -138,7 +210,7 @@ const  TourPage = () => {
                     <div className={styles.name_tour}>{MyTour.name}</div>
                     
                     <div className={styles.info_orh}>
-                        <div className={styles.name_org} >{agency}</div><div className={styles.delimiter}>●</div><StRating rate={MyTour.rate}/><div className={styles.delimiter}>●</div>{count_review} reviews<div className={styles.delimiter}>●</div>+{review_to_print.experience} Exp <div className={styles.delimiter}>●</div> {email}
+                        <div className={styles.name_org} >{agency}</div><div className={styles.delimiter}>●</div><StRating rate={MyTour.rate}/><div className={styles.delimiter}>●</div>{count_review} reviews<div className={styles.delimiter}>●</div>+{org.experience} Exp <div className={styles.delimiter}>●</div> {email}
                     </div>    
             </div>
             <div className={styles.infoo__tour}>
@@ -150,7 +222,7 @@ const  TourPage = () => {
                             <div>Begin: {startDatefinal}</div>
                             <div>End: {endDatefinal}</div>
                             <div>Category: {MyTour.category}</div>
-                            <div className={styles.price}>{review_to_print.price}$</div>
+                            <div className={styles.price}>{org.price}$</div>
                             <label href="#" className={styles.link_tour}>Purchase</label>
                         </div>
                     </div> 
@@ -217,6 +289,26 @@ const  TourPage = () => {
                         <div className={styles.name_org} ></div><StRating rate={MyTour.rate}/><div className={styles.delimiter}>●</div>{count_review} reviews
                     </div>    
                     
+
+                    <div className={styles.reviews_list}>       
+                        <img className={styles.rew_photo_user} src={photo_user} alt="slide_image" />
+                        <div className={styles.name_org} >
+                            <div className={styles.name_user}>{firstName} {lastName} <label>{date_rew}</label></div>
+                            <div><StRating  rate={rate_rew}/></div>
+                            <div className={styles.errf}></div>
+                            <div className={styles.text_rew} >{text_rew}</div>
+                        </div>    
+                    </div> 
+
+                    <div className={styles.reviews_list}>       
+                        <img className={styles.rew_photo_user} src={photo_user1} alt="slide_image" />
+                        <div className={styles.name_org} >
+                            <div className={styles.name_user}>{firstName1} {lastName1} <label>{date_rew1}</label></div>
+                            <div><StRating  rate={rate_rew1}/></div>
+                            <div className={styles.errf}></div>
+                            <div className={styles.text_rew} >{text_rew1}</div>
+                        </div>    
+                    </div> 
             </div>
 
 

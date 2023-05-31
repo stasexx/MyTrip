@@ -177,3 +177,32 @@ body {
 	align-items: center;
 	white-space: nowrap;
 }
+.rew_photo_user{
+	float: left;
+	width: 60px;
+	height: 60px;
+	border-radius: 50%;
+	margin-right: 30px;
+}
+.reviews_list{
+margin-left: 220px;
+margin-top: 40px;
+
+}
+.name_user{
+	font-size: 24px;
+}
+.name_user label{
+	color: #888888;
+	font-size: 20px;
+	
+	
+}
+.text_rew{
+	margin-left: 90px;
+	font-size: 30px;
+	
+}
+.errf{
+	display: inline-block;
+}
