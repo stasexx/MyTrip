@@ -25,6 +25,7 @@ const  Login = () => {
             });
             if(user.userId){
                 if(user.password===password){
+                    localStorage.setItem("login", user.userId);
                     navigate('/');
                 }}
             console.log(user.userId)
