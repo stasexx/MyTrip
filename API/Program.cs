@@ -36,6 +36,8 @@ builder.Services.AddTransient<IHandTourService, HandTourService>();
 builder.Services.AddTransient<IOrgTourService, OrgTourService>();
 builder.Services.AddTransient<IChatService, ChatService>();
 builder.Services.AddTransient<ITourPhotosService, TourPhotosService>();
+builder.Services.AddTransient<IFriendsService, FriendsService>();
+builder.Services.AddTransient<IOrderService, OrderService>();
 builder.Services.AddDistributedMemoryCache();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
