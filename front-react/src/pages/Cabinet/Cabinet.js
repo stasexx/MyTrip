@@ -1,4 +1,4 @@
-import photo from "./../../img/icon/avatar.png"
+
 import edit from "./../../img/icon/edit_icon.png"
 import exit from "./../../img/icon/exit_icon.png"
 import basket from "./../../img/icon/basket.png"
@@ -7,42 +7,50 @@ import my_tour from "./../../img/icon/my-tour.png"
 import tour_photo from "../../img/icon/extreme.png"
 import "./style.css"; 
 import React, {useEffect, useState} from "react";
+import NavBar from "../../Components/navbar/NavBar";
+import Footer from "../../Components/footer/Footer"
 import axios from 'axios';
-const src="http://localhost:5000/Users";
+
 
 const Cabinet = () => {
+
+    var user_id = localStorage.getItem("login");
 
     const[users,setUsers] = useState([]);
   
         useEffect(()=>{
-        axios.get(src)
+            if(user_id){
+        axios.get(`http://localhost:5000/api/Users/get/userById=${user_id}`)
         .then(data =>{
         setUsers(data.data);
         })
+        }
         },[]);
-        if (!users[0]) {
+        if (!users) {
             return <h1>...Loading</h1>
-        } else{
-            console.log(users[0].firstName)
+        } 
+
+        function exit_function() {
+            localStorage.removeItem("login");
         }
 
     return ( 
         <>
-        
+        <NavBar/>
         <div className="container">
             <div className="cabinet">
-                <img className="profile-photo" src={photo} alt="Profile" />
+                <img className="profile-photo" src={users.avatar} alt="Profile" />
                 <div>
                     <div className="profile-info">
                         <div className="name">
-                            <h1 className="h1-name">{users[0].firstName}</h1>
+                            <h1 className="h1-name">{users.firstName}</h1>
                         
-                            <h1 className="h1-name">{users[0].lastName}</h1>
+                            <h1 className="h1-name">{users.lastName}</h1>
                         </div>
                     
                         <div className="level">
-                            <h1 className="level__label">Level {Math.floor(users[0].experience/100)}</h1>
-                            <progress className="level__bar" max={100} value={100/*users[0].experience%100*/}/>
+                            <h1 className="level__label">Level {Math.floor(users.experience/100)+1}</h1>
+                            <progress className="level__bar" max={100} value={users.experience%100}/>
                         </div>
                     </div>
                 </div>
@@ -60,12 +68,12 @@ const Cabinet = () => {
                     <h3 className="info">3</h3>
 
                     <h2>City</h2>
-                    <h3 className="info">Obruch</h3>
+                    <h3 className="info">{users.city}</h3>
                 </div>
 
                 <div className="btns">
                     <div className="edit"><a href="./index.html"><img src={edit} alt="edit"/></a></div>
-                    <div className="exit"><a href="./index.html"><img src={exit} alt="exit"/></a></div>
+                    <div onClick={exit_function}  className="exit"><a href="/"><img src={exit} alt="exit"/></a></div>
                 </div>
             </div>
         </div>
@@ -74,7 +82,7 @@ const Cabinet = () => {
             <ul className="btn-list">
                 <li className="btn-list__item"><a href="./index.html" className="btn-list__link"><img src={basket} className="icon_btn" alt=""/>My orders</a></li>
                 <li className="btn-list__item"><a href="./index.html" className="btn-list__link"><img src={wishlist} className="icon_btn" alt=""/>Wish list</a></li>
-                <li className="btn-list__item"><a href="./index.html" className="btn-list__link"><img src={my_tour} className="icon_btn_my_tour" alt=""/>My tour</a></li>
+                <li className="btn-list__item"><a href="./index.html" className="btn-list__link"><img src={my_tour} className="icon_btn" alt=""/>My tour</a></li>
             </ul>
         </div>
 
@@ -116,6 +124,7 @@ const Cabinet = () => {
             </table>
             </div>
         </div>
+        <Footer/>
         </>
      );
 }
