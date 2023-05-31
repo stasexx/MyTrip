@@ -14,6 +14,10 @@ public interface IUserService
     Task<ActionResult<User>> AuthorizationWithOAut(string email, string avatar, string firstName, string lastName);
     
     Task<ActionResult<User>> GetUserByEmailAsync(string email);
+
+    Task<(int travelCount, int createdTourCount, DateTime? latestBookingStartDate)> GetDateForUser(int userId);
+
+    Task<List<int>> GetRecentBookedTourIdsByLast30Days(int userId);
     
     Task<bool> ChangePassword(string email, string oldPassword, string newPassword);
     

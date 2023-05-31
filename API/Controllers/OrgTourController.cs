@@ -68,4 +68,37 @@ public class OrgTourController:BaseApiController
             destination, placeOfDeparture, countOfUser, mainPhoto, allPhotos, tags);
         return await _orgTourService.CreateOrgTour(tour, user.Value, experience, price, promocode);
     }
+    
+    
+    [HttpPost("change/newExperience={newExperience}/orgTourId={orgTourId}")]
+    public async Task<ActionResult> ChangeExperience(int orgTourId, int newExperience)
+    {
+        if (await _orgTourService.ChangeExperience(orgTourId, newExperience))
+        {
+            return Ok();
+        }
+        return NotFound();
+    }
+    
+    
+    [HttpPost("change/newPrice={newPrice}/orgTourId={orgTourId}")]
+    public async Task<ActionResult> ChangePrice(int orgTourId, int newPrice)
+    {
+        if (await _orgTourService.ChangePrice(orgTourId, newPrice))
+        {
+            return Ok();
+        }
+        return NotFound();
+    }
+    
+    [HttpPost("change/newPromocode={newPromocode}/orgTourId={orgTourId}")]
+    public async Task<ActionResult> ChangePromocode(int orgTourId, string newPromocode)
+    {
+        if (await _orgTourService.ChangePromocode(orgTourId, newPromocode))
+        {
+            return Ok();
+        }
+        return NotFound();
+    }
+    
 }

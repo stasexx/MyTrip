@@ -17,4 +17,11 @@ public interface IOrgTourService
     Task<List<OrgTour>> GetAllOrgTourWithTourInfo();
 
     Task<OrgTour> CreateOrgTour(Tour tour, User user, int experience, int price, string promocode);
+
+
+    Task<bool> ChangePromocode(int id, string newPromocode);
+
+    Task<bool> ChangePrice(int id, int newPrice);
+
+    Task<bool> ChangeExperience(int id, int newExperience);
 }

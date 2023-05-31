@@ -27,6 +27,44 @@ public class UserServices : IUserService
         return await _context.Users.FindAsync(id);
     }
     
+    public async Task<(int travelCount, int createdTourCount, DateTime? latestBookingStartDate)> GetDateForUser(int userId)
+    {
+        var travelCount = await _context.Orders
+            .CountAsync(o => o.User.UserId == userId);
+        
+        var createdHandTourCount = await _context.HandTours
+            .CountAsync(t => t.User.UserId == userId);
+        
+        var createdOrgTourCount = await _context.OrgTours
+            .CountAsync(t => t.User.UserId == userId);
+
+        var latestBookingStartDate = await _context.OrgTours
+            .Where(o => o.User.UserId == userId)
+            .OrderByDescending(o => o.Tour.startDate)
+            .Select(o => (DateTime?)o.Tour.startDate)
+            .FirstOrDefaultAsync();
+
+        return (travelCount, createdHandTourCount+createdOrgTourCount, latestBookingStartDate);
+    }
+    
+    public async Task<List<int>> GetRecentBookedTourIdsByLast30Days(int userId)
+    {
+        var thirtyDaysAgo = DateTime.Now.AddDays(-30);
+
+        var tourIds = await _context.Orders
+            .Where(o => o.User.UserId == userId && o.OrgTour.Tour.startDate>= thirtyDaysAgo)
+            .Select(o => o.OrgTour.Tour.TourId)
+            .ToListAsync();
+
+
+        var handToursId= await _context.HandTours.Where(h => h.User.UserId == userId && h.Tour.startDate > thirtyDaysAgo)
+            .Select(h => h.Tour.TourId).ToListAsync();
+        
+        tourIds.AddRange(handToursId);
+        
+        return tourIds;
+    }
+    
     public async Task<List<User>> Registration(string email, string password, string firstName, string lastName)
     {
         if (!_context.Users.Any(u => u.Email.Contains(email)))
