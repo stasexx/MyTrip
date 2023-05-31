@@ -20,6 +20,10 @@ public class ReviewService : IReviewService
 
     public async Task<List<Review>> GetAllReviewsByTourIdAsync(int id)
     {
-        return await _context.Reviews.Where(r => r.Order.OrgTour.Tour.TourId == id).ToListAsync();
+        return await _context.Reviews.Include(o=>o.Order)
+            .Include(o=>o.Order.OrgTour)
+            .Include(o=>o.Order.OrgTour.Tour)
+            .Include(o=>o.Order.OrgTour.User)
+            .Where(r => r.Order.OrgTour.Tour.TourId == id).ToListAsync();
     }
 }
