@@ -1,0 +1,145 @@
+.cabinet{
+    display: flex;
+    background-color: #FAE388;
+}
+
+.profile-photo{
+    padding: 30px 30px;
+    border-radius: 50%;
+}
+
+.profile-info{
+    padding-top: 70px;
+    width: 250px;
+    text-align: center;
+}
+
+.name{
+    font-size: 40px;
+    position: relative;
+}
+
+
+.level{
+    padding-top: 30px;
+}
+
+.level__label{    
+    color: #606060;
+    font-size: 24px;
+}
+
+progress {
+    width: 230px;
+    height : 24px;
+ }
+ progress::-webkit-progress-bar {
+    background-color: #ABABAB;
+    border-radius: 12px;
+ }
+ progress::-webkit-progress-value {
+    background-color: #9747FF;
+    border-radius: 12px;
+ }
+
+ .travels{
+    padding-top: 70px;
+    width: 250px;
+    text-align: center;
+}
+
+.additional{
+    padding-top: 70px;
+    width: 250px;
+    text-align: center;
+}
+
+h2{
+    font-size: 32px;
+}
+
+h3{
+    font-size: 32px;
+    color: #606060;
+}
+
+.info{
+    padding-top: 10px;
+    padding-bottom: 20px;
+}
+
+.btns{
+    margin-left: auto;
+    margin-right: 0px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+.edit{
+    margin-top: 20px;
+    margin-right: 0px;
+    margin-left: auto;
+}
+
+.exit{
+    padding-top: 170px;
+}
+
+.buttons{
+    margin-top: 20px;
+    margin-bottom: 20px;
+	display: flex;
+	justify-content:center;
+}
+
+.btn-list{
+	display: flex;
+	column-gap: 70px;
+	font-size: 24px;
+}
+
+.btn-list__link{
+	padding: 7px 15px ;
+	color: black;
+}
+
+.btn-list__link:hover {
+	background-color: #000000;
+	padding: 7px 15px ;
+	border-radius: 25px;
+	color: rgb(255, 255, 255);
+}
+
+.btn-list__link:hover .icon_btn {
+	-webkit-filter: grayscale(100) brightness(200);
+	filter: grayscale(100) brightness(200);
+}
+
+.last-header{
+    font-size: 40px;
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 20px;
+}
+
+.table_container{
+    display: flex;
+	justify-content: center;
+    padding-bottom: 20px;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    table-layout: fixed;
+    width: 1255px;
+    height: auto;
+  }
+  
+td {
+    border: 1px solid #828282;
+    padding: 8px;
+}
+.td_tour-photo{
+    width: 320px;
+}
