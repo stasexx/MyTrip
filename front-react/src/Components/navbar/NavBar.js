@@ -46,10 +46,10 @@ const  NavBar= () => {
                     
                         {user_id ? (
 
-                               <li className="nav-list__item"><a href="./cabinet" className="nav-list_user"><img className="icon_user" src={user.avatar} alt="Link" /></a></li>
+                               <li className="nav-list__item"><a href="/cabinet" className="nav-list_user"><img className="icon_user" src={user.avatar} alt="Link" /></a></li>
 
                           ) : (
-                            <li className="nav-list__item"><a href="./login" className="nav-list_sign"><img className="icon_header" src={sign_in} alt="Link" />Sign in</a></li>
+                            <li className="nav-list__item"><a href="/login" className="nav-list_sign"><img className="icon_header" src={sign_in} alt="Link" />Sign in</a></li>
                           )}
                     
                     

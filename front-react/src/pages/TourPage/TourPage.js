@@ -39,7 +39,7 @@ const  TourPage = () => {
     const[tour,setTours] = useState([]);
     const[photo,setPhoto] = useState([]);
     const[review,setReview] = useState([]);
-
+    const[review_to_print,setReview_to_print] = useState([]);
     useEffect(()=>{
         axios.get(src)
         .then(data =>{
@@ -53,6 +53,27 @@ const  TourPage = () => {
         setPhoto(data.data);
         })
         },[]);
+
+    useEffect(()=>{
+
+            axios.get(`http://localhost:5000/api/OrgTour/get/orgTourByTourId/tourId=${id}`)
+
+            .then(function(response){
+                setReview_to_print(response.data)
+            })
+            .catch(function(error) {
+                console.log(error)
+            })
+        },[]);
+        var us=review_to_print.user;
+        if(us){
+            var agency=us.agency;
+            var email=us.email;
+
+        }
+
+
+
     useEffect(()=>{
         axios.get(`http://localhost:5000/api/Reviews/get/reviews/tourId=${id}`)
         .then(data =>{
@@ -96,9 +117,6 @@ const  TourPage = () => {
         }
 
 
-
-
-
         function show(e) {
 
             var btn = document.getElementById(2);
@@ -120,7 +138,7 @@ const  TourPage = () => {
                     <div className={styles.name_tour}>{MyTour.name}</div>
                     
                     <div className={styles.info_orh}>
-                        <div className={styles.name_org} >TrapStar</div><div className={styles.delimiter}>●</div><StRating rate={MyTour.rate}/><div className={styles.delimiter}>●</div>{count_review} reviews<div className={styles.delimiter}>●</div>+25 Exp <div className={styles.delimiter}>●</div> mail@mail.com
+                        <div className={styles.name_org} >{agency}</div><div className={styles.delimiter}>●</div><StRating rate={MyTour.rate}/><div className={styles.delimiter}>●</div>{count_review} reviews<div className={styles.delimiter}>●</div>+{review_to_print.experience} Exp <div className={styles.delimiter}>●</div> {email}
                     </div>    
             </div>
             <div className={styles.infoo__tour}>
@@ -132,7 +150,7 @@ const  TourPage = () => {
                             <div>Begin: {startDatefinal}</div>
                             <div>End: {endDatefinal}</div>
                             <div>Category: {MyTour.category}</div>
-                            <div className={styles.price}>300$</div>
+                            <div className={styles.price}>{review_to_print.price}$</div>
                             <label href="#" className={styles.link_tour}>Purchase</label>
                         </div>
                     </div> 
@@ -198,6 +216,7 @@ const  TourPage = () => {
                     <div className={styles.reviews}>
                         <div className={styles.name_org} ></div><StRating rate={MyTour.rate}/><div className={styles.delimiter}>●</div>{count_review} reviews
                     </div>    
+                    
             </div>
 
 
