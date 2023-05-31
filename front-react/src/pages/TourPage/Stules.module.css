@@ -4,7 +4,6 @@ body {
 	font-family: 'Montserrat';
 }
 .container {
-
 	position: relative;
 	margin: 0 auto;
 	max-width: 1920px;
@@ -14,30 +13,38 @@ body {
 .name_tour{
     font-size: 64px;
 }
-.info_orh{
-    font-size: 25px;
-        text-align: center;
+.info_orh {
+	margin-top: 15px;
+	margin-bottom: 15px;
+	font-size: 20px;
+	display: flex;
+	align-items: center;
+	white-space: nowrap;
+}
+.name_org{
+	font-size: 40px;
+}
+.delimiter{
+	margin-left: 10px;
+	margin-right: 10px;
 }
 
-.star1 {
+.star {
+	white-space: nowrap;
 	cursor: pointer;
 	height: 25px;
 	width: 25px;
 	margin: 2px;
 	float: left;
-	background-color: rgb(20, 214, 36);
+	background-color: grey;
 	clip-path: polygon(50% 0%, 63% 38%, 100% 38%, 69% 59%, 82%  100%, 50% 75%, 18% 100%, 31% 59%, 0% 38%, 37% 38%);
 	
 }
-.star.selected1 {
+.star.selected {
+	white-space: nowrap;
+	background-color: #F5B129;
+}
 
-	background-color: #db1d1d;
-}
-.raiting1 {
-		width: 90px;
-		margin: 5px;
-		float: none;
-}
 /* wishlist*/
 
 .wishlist{
@@ -73,4 +80,100 @@ body {
 .wish_not img{
 	-webkit-filter: grayscale(100) invert(9);
 	filter: grayscale(100) invert(9);
+}
+
+/*ggggggggggggggggggggggggggggg*/
+.infoo__tour{
+	margin: 0 auto;
+	right: 255px;
+	position: relative;
+	width: 1400px;
+	background-color: #fad894;
+	margin-bottom: 56px;
+}
+.foto_tour{
+	margin-top: 40px;
+	margin-bottom: 56px;
+	height: 446px;
+	width: 670px;
+	position: relative;
+}
+.text_tour{
+	position: absolute;
+	display: block;
+	left: 970px;
+	top: 50px ;
+	justify-content: center;
+	width: 450px;
+	text-align: center;
+	font-size: 36px;
+}
+.text_tour div{
+	margin-bottom: 40px;
+}
+.link_tour{
+	position: relative;
+	top:10px;
+	left: 90px;
+	border: 0.5px solid rgb(100, 100, 100);
+	width: 250px;
+	height: 60px;
+	background-color: black;
+	text-align: center;
+	display: block;
+	font-size: 36px;
+	line-height: 50px;
+	color: white;
+	overflow: hidden;
+	z-index: 1;
+	margin-bottom: 30px;
+}
+.price{
+	font-size: 63px;
+	margin-bottom: 30px;
+}
+.description{
+	font-size: 36px;
+}
+
+.all_photo{
+	max-width: 600px;
+	margin: auto ;
+
+}
+.items{
+	overflow-x: scroll;
+	display: flex;
+	flex-direction: row;
+	cursor: pointer;
+}
+.item{
+	width:400px;
+	margin-left: 10px;
+}
+.item::-webkit-scrollbar{
+	width: 0;
+	background: transparent;
+}
+.photo {
+	width:400px;
+}
+.reviews_cont{
+	margin: 0 auto;
+	position: relative;
+	width: 1620px;
+	left: 141px;
+	height: 85px;
+	background-color: #fad894;
+	font-size: 40px;
+	padding-top: 20px;
+	padding-left: 40px;
+}
+.reviews{
+	margin-top: 15px;
+	margin-bottom: 15px;
+	font-size: 25px;
+	display: flex;
+	align-items: center;
+	white-space: nowrap;
 }
