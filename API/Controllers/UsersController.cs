@@ -41,6 +41,27 @@ public class UsersController : BaseApiController
         return await _userService.GetUserByEmailAsync(email);
     }
     
+    [HttpGet("get/userDateForProfile/userId={userId}")]
+    public async Task<ActionResult<object>> GetDateForUser(int userId)
+    {
+        var data = await _userService.GetDateForUser(userId);
+    
+        var result = new
+        {
+            travelCount = data.travelCount,
+            createdTourCount = data.createdTourCount,
+            latestBookingStartDate = data.latestBookingStartDate
+        };
+
+        return result;
+    }
+
+    [HttpGet("get/userRecentBookedTourBuLast30DaysIds/userId={userId}")]
+    public async Task<List<int>> GetRecentBookedTourBuLast30DaysIds(int userId)
+    {
+        return await _userService.GetRecentBookedTourIdsByLast30Days(userId);
+    }
+    
     [HttpPost("change/oldPassword={oldPassword}/newPassword={newPassword}/email={email}")]
     public async Task<ActionResult> ChangePassword(string email, string oldPassword, string newPassword)
     {
