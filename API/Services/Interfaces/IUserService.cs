@@ -19,6 +19,8 @@ public interface IUserService
 
     Task<List<int>> GetRecentBookedTourIdsByLast30Days(int userId);
     
+    Task<List<int>> GetAllToursIdForUser(int userId);
+    
     Task<bool> ChangePassword(string email, string oldPassword, string newPassword);
     
     Task<bool> ChangeLogin(string email, string newLogin);
