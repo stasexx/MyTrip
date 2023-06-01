@@ -56,6 +56,11 @@ public class UsersController : BaseApiController
         return result;
     }
 
+    [HttpGet("get/getAllToursIdForUser/userId={userId}")]
+    public async Task<List<int>> GetAllToursIdForUser(int userId)
+    {
+        return await _userService.GetAllToursIdForUser(userId);
+    }
     [HttpGet("get/userRecentBookedTourBuLast30DaysIds/userId={userId}")]
     public async Task<List<int>> GetRecentBookedTourBuLast30DaysIds(int userId)
     {

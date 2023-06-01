@@ -93,7 +93,11 @@ public class UserServices : IUserService
         return await _context.Users.ToListAsync();
     }
     
-    
+    public async Task<List<int>> GetAllToursIdForUser(int userId)
+    {
+        return await _context.Orders.Where(u => u.User.UserId == userId).Select(i => i.OrgTour.Tour.TourId)
+            .ToListAsync();
+    }
     public async Task<ActionResult<User>> AuthorizationWithOAut(string email, string avatar, string firstName, string lastName)
     {
         if (!_context.Users.Any(u => u.Email.Contains(email)))
