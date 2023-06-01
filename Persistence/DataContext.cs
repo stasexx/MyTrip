@@ -33,4 +33,8 @@ public class DataContext : DbContext
     public DbSet<Message> Messages { get; set; }
     
     public DbSet<Membership> Memberships { get; set; }
+    
+    public DbSet<Subscription> Subscriptions { get; set; }
+    
+    public DbSet<SubMembership> SubMemberships { get; set; }
 }
