@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Mobile.Models
 {
-    internal class Tour
+    public class Tour
     {
         public int TourId { get; set; }
 

@@ -20,7 +20,9 @@ namespace Mobile
 
             //MainPage = new NavigationPage(new Views.Register());
 
-            MainPage = new NavigationPage(new Views.Profile());
+            //MainPage = new NavigationPage(new Views.Profile());
+
+            MainPage = new NavigationPage(new Views.Tour());
         }
 
         protected override void OnStart()

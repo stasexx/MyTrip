@@ -41,31 +41,25 @@
             <StackLayout Orientation="Horizontal"
              HorizontalOptions="CenterAndExpand"
              Margin="0,0,0,10">
-                
-                
                 <BoxView BackgroundColor="#949494"
              HeightRequest="1"
              WidthRequest="90"
              HorizontalOptions="FillAndExpand" />
-                
-                
                 <Label Text="or"
            FontFamily="Trebuchet MS"
            FontSize="14"
            HorizontalOptions="Center"
            VerticalOptions="Center"
-                      TextColor="#949494"
+           TextColor="#949494"
            Margin="10,0" />
-                
-                
                 <BoxView BackgroundColor="#949494"
              HeightRequest="1"
              WidthRequest="90"
              HorizontalOptions="FillAndExpand" />
             </StackLayout>
 
-            
-            
+
+
             <Button Text="Continue with Google"
                     BackgroundColor="#EEEBE4"
                     TextColor="Black"

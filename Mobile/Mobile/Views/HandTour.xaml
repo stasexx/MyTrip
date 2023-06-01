@@ -1,0 +1,241 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Mobile.Views.HandTour"
+             BackgroundColor="#EEE"
+             NavigationPage.HasNavigationBar="False">
+
+    <Grid>
+        <ScrollView>
+            <StackLayout>
+                <Image Source="TourPic.png"
+                       Aspect="AspectFill"
+                       HeightRequest="240"
+                       VerticalOptions="Start"
+                       Grid.Row="0" />
+
+                <Frame CornerRadius="10"
+                       BackgroundColor="White"
+                       WidthRequest="320"
+                       HorizontalOptions="Center"
+                       VerticalOptions="End"
+                       Padding="10"
+                       Margin="0,-40,0,0"
+                       Grid.Row="0">
+
+                    <StackLayout>
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="Not Specified"
+                                   FontSize="20"
+                                   FontAttributes="Bold"
+                                   TextColor="Black"
+                                   FontFamily="Trebuchet MS"
+                                   TextTransform="None" />
+
+                            <Label Text="{Binding Tour.Name}"
+                                   FontSize="18"
+                                   FontAttributes="Bold"
+                                   TextColor="Black"
+                                   Margin="0,5,0,0"
+                                   FontFamily="Trebuchet MS" />
+
+                            <Label Text="{Binding Tour.Destination}"
+                                   FontSize="14"
+                                   TextColor="#666666"
+                                   Margin="0,5,0,0"
+                                   FontFamily="Trebuchet MS" />
+
+                            <Button Text="JOIN"
+                                    FontSize="14"
+                                    TextColor="White"
+                                    BackgroundColor="#F5B129"
+                                    HorizontalOptions="Center"
+                                    WidthRequest="60"
+                                    Margin="0,10,0,40"
+                                    FontFamily="Trebuchet MS" />
+
+                            <!-- Другие элементы интерфейса -->
+
+                        </StackLayout>
+
+                        <StackLayout>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+
+                                <Label Text="Start:"
+                                       FontSize="14"
+                                       TextColor="Black"
+                                       FontFamily="Trebuchet MS" />
+
+                                <Label Text="{Binding Tour.StartDate}"
+                                       FontSize="14"
+                                       TextColor="Black"
+                                       Grid.Column="1"
+                                       FontFamily="Trebuchet MS" />
+                            </Grid>
+
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+
+                                <Label Text="End:"
+                                       FontSize="14"
+                                       TextColor="Black"
+                                       FontFamily="Trebuchet MS" />
+
+                                <Label Text="{Binding Tour.EndDate}"
+                                       FontSize="14"
+                                       TextColor="Black"
+                                       Grid.Column="1"
+                                       FontFamily="Trebuchet MS" />
+                            </Grid>
+
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+
+                                <Label Text="Type:"
+                                       FontSize="14"
+                                       TextColor="Black"
+                                       FontFamily="Trebuchet MS" />
+
+                                <Label Text="{Binding Tour.Category}"
+                                       FontSize="14"
+                                       TextColor="Black"
+                                       Grid.Column="1"
+                                       FontFamily="Trebuchet MS" />
+                            </Grid>
+
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+
+                                <Label Text="Departure:"
+                                       FontSize="14"
+                                       TextColor="Black"
+                                       FontFamily="Trebuchet MS" />
+
+                                <Label Text="{Binding Tour.placeOfDeparture}"
+                                       FontSize="14"
+                                       TextColor="Black"
+                                       Grid.Column="1"
+                                       FontFamily="Trebuchet MS" />
+                            </Grid>
+
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+
+                                <Label Text="Contact: "
+                                       FontSize="14"
+                                       TextColor="Black"
+                                       FontFamily="Trebuchet MS" />
+
+                                <Label Text="{Binding Tour.Contact}"
+                                       FontSize="14"
+                                       TextColor="Black"
+                                       Grid.Column="1"
+                                       FontFamily="Trebuchet MS" />
+                            </Grid>
+
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+
+                                <Label Text="Email:"
+                                       FontSize="14"
+                                       TextColor="Black"
+                                       FontFamily="Trebuchet MS" />
+
+                                <Label Text="{Binding Tour.Email}"
+                                       FontSize="14"
+                                       TextColor="Black"
+                                       Grid.Column="1"
+                                       FontFamily="Trebuchet MS" />
+                            </Grid>
+
+                            <!-- Другие элементы интерфейса -->
+
+                        </StackLayout>
+
+                        <StackLayout>
+                            <Grid VerticalOptions="CenterAndExpand"
+                                  Margin="0,10,0,0">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+
+                                <Image Source="MapIcon.png"
+                                       HeightRequest="20"
+                                       WidthRequest="20"
+                                       VerticalOptions="Center"
+                                       Margin="0,0,5,0" />
+
+                                <Label Text="Views in Maps"
+                                       FontSize="14"
+                                       TextColor="Black"
+                                       Grid.Column="1">
+                                    <Label.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding GoToMapsCommand}" />
+                                    </Label.GestureRecognizers>
+                                </Label>
+                            </Grid>
+
+                            <!-- Другие элементы интерфейса -->
+
+                        </StackLayout>
+
+                        <BoxView Color="#EEE"
+                                 HeightRequest="1"
+                                 Margin="0,10,0,0" />
+
+                        <StackLayout>
+                            <Grid VerticalOptions="CenterAndExpand"
+                                  Margin="0,10,0,0">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+
+                                <Image Source="DisIcon.png"
+                                       HeightRequest="20"
+                                       WidthRequest="20"
+                                       VerticalOptions="Center"
+                                       Margin="0,0,5,0" />
+
+                                <Label Text="Details"
+                                       FontSize="14"
+                                       TextColor="Black"
+                                       Grid.Column="1">
+                                    <Label.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding ShowDetailsCommand}" />
+                                    </Label.GestureRecognizers>
+                                </Label>
+                            </Grid>
+
+                            <!-- Другие элементы интерфейса -->
+
+                        </StackLayout>
+
+                    </StackLayout>
+
+                </Frame>
+            </StackLayout>
+        </ScrollView>
+    </Grid>
+
+</ContentPage>
