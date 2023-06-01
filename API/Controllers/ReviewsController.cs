@@ -24,4 +24,10 @@ public class ReviewsController:BaseApiController
     {
         return await _reviewService.GetAllReviewsByTourIdAsync(id);
     }
+    
+    [HttpPost("create/reviews/orderId={orderId}/reviewDate={reviewDate}/rate={rate}/text={text}")]
+    public async Task<bool> CreateReviewAsync(int orderId, DateTime reviewDate, double rate, string text)
+    {
+        return await _reviewService.CreateReviewAsync(orderId, reviewDate, rate, text);
+    }
 }

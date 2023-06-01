@@ -26,4 +26,23 @@ public class ReviewService : IReviewService
             .Include(o=>o.Order.User)
             .Where(r => r.Order.OrgTour.Tour.TourId == id).ToListAsync();
     }
+
+    public async Task<bool> CreateReviewAsync(int orderId, DateTime reviewDate, double rate, string text)
+    {
+        var order = await _context.Orders.FirstOrDefaultAsync(o => o.OrderId == orderId);
+        if (order!=null)
+        {
+            Review review = new Review()
+            {
+                Order = order,
+                ReviewDate = reviewDate,
+                Rate = rate,
+                Text = text
+            };
+            await _context.Reviews.AddAsync(review);
+            await _context.SaveChangesAsync();
+            return true;
+        }
+        return false;
+    }
 }
