@@ -29,7 +29,7 @@ public class WishListController : BaseApiController
         return NotFound();
     }
     
-    [HttpPost("delete/favourite/id={id}/email={email}")]
+    [HttpPost("delete/favourite/tourId={id}/email={email}")]
     public async Task<ActionResult> DeleteTourFromWshList(int id, string email)
     {
         if (await _wishListService.DeleteTourFromWshList(id, email))
