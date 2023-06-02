@@ -41,6 +41,12 @@ public class UsersController : BaseApiController
         return await _userService.GetUserByEmailAsync(email);
     }
     
+    [HttpGet("get/getAllToursWitchCreateBydUser/userId={userId}")]
+    public async Task<List<int>> GetAllToursWitchCreateBydUser(int userId)
+    {
+        return await _userService.GetAllToursWitchCreateBydUser(userId);
+    }
+    
     [HttpGet("get/userDateForProfile/userId={userId}")]
     public async Task<ActionResult<object>> GetDateForUser(int userId)
     {
