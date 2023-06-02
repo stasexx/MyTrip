@@ -30,10 +30,12 @@ const Tour = ({name, main_photo, rate,tourId,typeOfTour}) => {
     function show(e) {
         if(isActive){
             setIsActive(false);
-
+            axios.post(`http://localhost:5000/api/WishList/delete/favourite/tourId=${tourId}/email=${user.email}`)
+            .then(alert("Успішно видалино з обраних"))
+            .catch((error) => alert(error));
         }else{
             setIsActive(true);
-            axios.post(`http://localhost:5000/api/WishList/create/newFavourite/tourId=${tourId}?email=${user.email}`)
+            axios.post(`http://localhost:5000/api/WishList/create/newFavourite/tourId=${tourId}/email=${user.email}`)
             .then(alert("Успішно додали до обраних"))
             .catch((error) => alert(error));
             

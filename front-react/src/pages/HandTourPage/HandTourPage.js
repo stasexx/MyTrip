@@ -128,10 +128,13 @@ const  TourPage = () => {
         function show(e) {
             if(isActive){
                 setIsActive(false);
+                axios.post(`http://localhost:5000/api/WishList/delete/favourite/tourId=${id}/email=${user.email}`)
+                .then(alert("Успішно видалино з обраних"))
+                .catch((error) => alert(error));
 
             }else{
                 setIsActive(true);
-                axios.post(`http://localhost:5000/api/WishList/create/newFavourite/tourId=${id}?email=${user.email}`)
+                axios.post(`http://localhost:5000/api/WishList/create/newFavourite/tourId=${id}/email=${user.email}`)
                 .then(alert("Успішно додали до обраних"))
                 .catch((error) => alert(error));
                 

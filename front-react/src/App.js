@@ -11,6 +11,7 @@ import HandTourPage from "./pages/HandTourPage/HandTourPage";
 import Wishlist from "./pages/WashList/WashList";
 import MyTour from "./pages/MyTour/MyTour";
 import MyOrders from "./pages/MyOrders/MyOrders";
+import About from "./pages/AboutUs/AboutUs";
 function App() {
 
   const cors = require("cors");
@@ -30,6 +31,7 @@ function App() {
               <Route path="/tour/orh/:id/bascket" element={<Bascket/>}/>
               <Route path="/cabinet/wishlist" element={<Wishlist/>}/>
               <Route path="/cabinet/myorders" element={<MyOrders/>}/>
+              <Route path="/about" element={<About/>}/>
               
           </Routes>
       </Router>

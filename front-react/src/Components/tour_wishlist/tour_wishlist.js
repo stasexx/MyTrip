@@ -26,17 +26,10 @@ const Tour_wishlist = ({name, main_photo, rate,tourId,typeOfTour,category}) => {
 
 
     function show(e) {
-        if(isActive){
-            setIsActive(false);
-
-        }else{
-            setIsActive(true);
-            axios.post(`http://localhost:5000/api/WishList/create/newFavourite/tourId=${tourId}?email=${user.email}`)
-            .then(alert("Успішно додали до обраних"))
+            axios.post(`http://localhost:5000/api/WishList/delete/favourite/tourId=${tourId}/email=${user.email}`)
+            .then(alert("Успішно видалино з обраних"))
             .catch((error) => alert(error));
-            
-        }
-        console.log(isActive)
+            window.location.reload();
       }
 
     return ( 
