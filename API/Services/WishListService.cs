@@ -42,7 +42,7 @@ public class WishListService : IWishListService
 
     public async Task<bool> DeleteTourFromWshList(int id, string email)
     {
-        var item = _context.Favourites.FirstOrDefault(f => f.FavouriteId == id && f.User.Email == email);
+        var item = _context.Favourites.FirstOrDefault(f => f.Tour.TourId == id && f.User.Email == email);
         if (item != null)
         {
             _context.Favourites.Remove(item);
