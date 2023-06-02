@@ -98,6 +98,14 @@ public class UserServices : IUserService
         return await _context.Orders.Where(u => u.User.UserId == userId).Select(i => i.OrgTour.Tour.TourId)
             .ToListAsync();
     }
+    
+    public async Task<List<int>> GetAllToursWitchCreateBydUser(int userId)
+    {
+        var orgTours = await _context.OrgTours.Where(u => u.User.UserId == userId).Select(i => i.Tour.TourId).ToListAsync();
+        var handTours = await _context.HandTours.Where(u => u.User.UserId == userId).Select(i => i.Tour.TourId).ToListAsync();
+        orgTours.AddRange(handTours);
+        return orgTours;
+    }
     public async Task<ActionResult<User>> AuthorizationWithOAut(string email, string avatar, string firstName, string lastName)
     {
         if (!_context.Users.Any(u => u.Email.Contains(email)))
