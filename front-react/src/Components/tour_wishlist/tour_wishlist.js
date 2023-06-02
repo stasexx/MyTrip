@@ -1,11 +1,9 @@
 import styles from './Stules.module.css';
-import StRating from './rating';
-import wish_button from "./../../img/icon/wish_button.png";
-import wish_button_black from "./../../img/icon/wish_button_black.png";
+import wish_button from "./../../img/icon/image 49.png";
 import React, {useEffect, useState} from "react";
 import axios from 'axios';
 
-const Tour = ({name, main_photo, rate,tourId,typeOfTour}) => {
+const Tour_wishlist = ({name, main_photo, rate,tourId,typeOfTour,category}) => {
 
     const [isActive, setIsActive] = useState(false);
 
@@ -44,10 +42,11 @@ const Tour = ({name, main_photo, rate,tourId,typeOfTour}) => {
     return ( 
 
         <li id="dfg"className={styles.tour}>
-            <a href={`./tour/${typeOfTour}/${tourId}`}>
+            <a href={`/tour/${typeOfTour}/${tourId}`}>
                 <img src={main_photo} alt="Project img" className={styles.tour__img}/>
                 <h3 className={styles.tour__title}>{name}</h3>
-                <div className={styles.tour__rating}><StRating rate={rate}/></div>
+                <h3 className={styles.tour__title}>{category}</h3>
+                
             </a>
             <a id={tourId} className={`${styles.wishlist} ${isActive ? styles.wish : styles.wish_not}`} onClick={show}>
                     <img src={wish_button} alt="" className={styles.like__img} />
@@ -56,4 +55,4 @@ const Tour = ({name, main_photo, rate,tourId,typeOfTour}) => {
     );
 }
  
-export default Tour;
+export default Tour_wishlist;

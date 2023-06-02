@@ -6,6 +6,8 @@
 .profile-photo{
     padding: 30px 30px;
     border-radius: 50%;
+    width: 300px;
+    height: 300px;
 }
 
 .profile-info{
@@ -120,26 +122,4 @@ h3{
     text-align: center;
     padding-top: 10px;
     padding-bottom: 20px;
-}
-
-.table_container{
-    display: flex;
-	justify-content: center;
-    padding-bottom: 20px;
-}
-
-table {
-    border-collapse: collapse;
-    border-spacing: 0;
-    table-layout: fixed;
-    width: 1255px;
-    height: auto;
-  }
-  
-td {
-    border: 1px solid #828282;
-    padding: 8px;
-}
-.td_tour-photo{
-    width: 320px;
 }

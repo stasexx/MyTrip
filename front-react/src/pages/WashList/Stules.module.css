@@ -1,0 +1,58 @@
+body {
+	
+	font-family: 'Montserrat';
+}
+.container {
+
+	position: relative;
+	margin: 0 auto;
+	max-width: 1920px;
+	padding: 0 300px;
+}
+
+.buttons{
+    margin-top: 20px;
+    margin-bottom: 20px;
+	display: flex;
+	justify-content:center;
+}
+
+.btn_list{
+	display: flex;
+	column-gap: 70px;
+	font-size: 24px;
+}
+
+.btn_list__link{
+	padding: 7px 15px ;
+	color: black;
+}
+
+.btn_list__link:hover {
+	background-color: #000000;
+	padding: 7px 15px ;
+	border-radius: 25px;
+	color: rgb(255, 255, 255);
+}
+
+.btn_list__link:hover .icon_btn {
+	-webkit-filter: grayscale(100) brightness(200);
+	filter: grayscale(100) brightness(200);
+}
+
+.last_header{
+    font-size: 40px;
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 20px;
+}
+.tours {
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+	column-gap: 50px;
+	row-gap: 50px;
+
+	padding-bottom: 60px;
+	padding-top: 60px;
+}

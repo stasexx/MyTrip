@@ -39,14 +39,18 @@ const  NavBar= () => {
                     <input class="search-tour" type ="text" name="" placeholder="Search tours"></input>
                 </div>
                    <ul className="nav-list">
-                        <li className="nav-list__item"><a href="./index.html" className="nav-list__link"><img className="icon_header" src={about_us} alt="Link"/>About us</a></li>
+                        <li className="nav-list__item"><a href="/about" className="nav-list__link"><img className="icon_header" src={about_us} alt="Link"/>About us</a></li>
                         <li className="nav-list__item"><a href="./projects.html" className="nav-list__link"><img className="icon_header" src={tours} alt="Link"/>Tours</a></li>
-                        <li className="nav-list__item"><a href="./contacts.html" className="nav-list__link"><img className="icon_header" src={wish_list}  alt="Link"/>Wish list</a></li>
+         
                     
                     
                         {user_id ? (
+                                <>
+                                    <li className="nav-list__item"><a href="/cabinet/wishlist" className="nav-list__link"><img className="icon_header" src={wish_list}  alt="Link"/>Wish list</a></li>
 
-                               <li className="nav-list__item"><a href="/cabinet" className="nav-list_user"><img className="icon_user" src={user.avatar} alt="Link" /></a></li>
+                                    <li className="nav-list__item"><a href="/cabinet" className="nav-list_user"><img className="icon_user" src={user.avatar} alt="Link" /></a></li>
+
+                                </>
 
                           ) : (
                             <li className="nav-list__item"><a href="/login" className="nav-list_sign"><img className="icon_header" src={sign_in} alt="Link" />Sign in</a></li>

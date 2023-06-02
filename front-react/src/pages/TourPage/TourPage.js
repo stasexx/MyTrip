@@ -3,7 +3,7 @@ import axios from 'axios';
 import NavBar from "../../Components/navbar/NavBar";
 import Footer from "../../Components/footer/Footer"
 import styles from './Stules.module.css';
-import { useParams } from "react-router-dom";
+import { useParams,Navigate } from "react-router-dom";
 import StRating from './rating';
 import './styles.css';
 
@@ -41,6 +41,24 @@ const  TourPage = () => {
     const[review,setReview] = useState([]);
     const[org,setOrg] = useState([]);
     const[review_to_print,setReview_to_print] = useState([]);
+
+
+    const [isActive, setIsActive] = useState(false);
+
+    const[user,setUser] = useState([]);
+
+    var user_id = localStorage.getItem("login");
+
+        useEffect(()=>{
+            if(user_id){
+                axios.get(`http://localhost:5000/api/Users/get/userById=${user_id}`)
+                .then(data =>{
+                    setUser(data.data);
+                })
+            }
+        
+        },[]);
+
 
     useEffect(()=>{
         axios.get(src)
@@ -190,17 +208,18 @@ const  TourPage = () => {
 
 
         function show(e) {
+            if(isActive){
+                setIsActive(false);
 
-            var btn = document.getElementById(2);
-    
-            btn.addEventListener("click", function() {
-                if(this.classList.contains('wish')){
-                    this.classList.remove('wish');
-                }else {
-                    this.classList.add('wish');
-                }
-            });
-        }
+            }else{
+                setIsActive(true);
+                axios.post(`http://localhost:5000/api/WishList/create/newFavourite/tourId=${id}?email=${user.email}`)
+                .then(alert("Успішно додали до обраних"))
+                .catch((error) => alert(error));
+                
+            }
+            console.log(isActive)
+          }
 
 
         return ( 
@@ -208,6 +227,9 @@ const  TourPage = () => {
             <NavBar/>
             <div className={styles.container}>
                     <div className={styles.name_tour}>{MyTour.name}</div>
+                    <a id={id} className={`${styles.wishlist} ${isActive ? styles.wish : styles.wish_not}`} onClick={show}>
+                    <img src={wish_button} alt="" className={styles.like__img} />
+                    </a>
                     
                     <div className={styles.info_orh}>
                         <div className={styles.name_org} >{agency}</div><div className={styles.delimiter}>●</div><StRating rate={MyTour.rate}/><div className={styles.delimiter}>●</div>{count_review} reviews<div className={styles.delimiter}>●</div>+{org.experience} Exp <div className={styles.delimiter}>●</div> {email}
@@ -223,7 +245,7 @@ const  TourPage = () => {
                             <div>End: {endDatefinal}</div>
                             <div>Category: {MyTour.category}</div>
                             <div className={styles.price}>{org.price}$</div>
-                            <label href="#" className={styles.link_tour}>Purchase</label>
+                            <a href={`./${id}/bascket`} className={styles.link_tour}>Purchase</a>
                         </div>
                     </div> 
             </div>
@@ -289,26 +311,41 @@ const  TourPage = () => {
                         <div className={styles.name_org} ></div><StRating rate={MyTour.rate}/><div className={styles.delimiter}>●</div>{count_review} reviews
                     </div>    
                     
+                    {
+                        text_rew ? (
+                            <div className={styles.reviews_list}>       
+                                <img className={styles.rew_photo_user} src={photo_user} alt="slide_image" />
+                                <div className={styles.name_org} >
+                                    <div className={styles.name_user}>{firstName} {lastName} <label>{date_rew}</label></div>
+                                    <div><StRating  rate={rate_rew}/></div>
+                                    <div className={styles.errf}></div>
+                                    <div className={styles.text_rew} >{text_rew}</div>
+                                </div>    
+                            </div> 
 
-                    <div className={styles.reviews_list}>       
-                        <img className={styles.rew_photo_user} src={photo_user} alt="slide_image" />
-                        <div className={styles.name_org} >
-                            <div className={styles.name_user}>{firstName} {lastName} <label>{date_rew}</label></div>
-                            <div><StRating  rate={rate_rew}/></div>
-                            <div className={styles.errf}></div>
-                            <div className={styles.text_rew} >{text_rew}</div>
-                        </div>    
-                    </div> 
+                        ): <div className={styles.text_rew} >Відгуки відсутні</div>
 
-                    <div className={styles.reviews_list}>       
-                        <img className={styles.rew_photo_user} src={photo_user1} alt="slide_image" />
-                        <div className={styles.name_org} >
-                            <div className={styles.name_user}>{firstName1} {lastName1} <label>{date_rew1}</label></div>
-                            <div><StRating  rate={rate_rew1}/></div>
-                            <div className={styles.errf}></div>
-                            <div className={styles.text_rew} >{text_rew1}</div>
-                        </div>    
-                    </div> 
+
+                    }
+
+                    {
+                        text_rew1 ? (
+                            <div className={styles.reviews_list}>       
+                            <img className={styles.rew_photo_user} src={photo_user1} alt="slide_image" />
+                            <div className={styles.name_org} >
+                                <div className={styles.name_user}>{firstName1} {lastName1} <label>{date_rew1}</label></div>
+                                <div><StRating  rate={rate_rew1}/></div>
+                                <div className={styles.errf}></div>
+                                <div className={styles.text_rew} >{text_rew1}</div>
+                            </div>    
+                        </div> 
+
+                        ): null
+
+
+                    }
+
+                <a href="#" className={styles.link_pop_tour}>SHOW MORE</a>
             </div>
 
 
