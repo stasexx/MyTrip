@@ -40,9 +40,9 @@ public class WishListService : IWishListService
         return false;
     }
 
-    public async Task<bool> DeleteTourFromWshList(int id)
+    public async Task<bool> DeleteTourFromWshList(int id, string email)
     {
-        var item = _context.Favourites.FirstOrDefault(f => f.FavouriteId == id);
+        var item = _context.Favourites.FirstOrDefault(f => f.FavouriteId == id && f.User.Email == email);
         if (item != null)
         {
             _context.Favourites.Remove(item);

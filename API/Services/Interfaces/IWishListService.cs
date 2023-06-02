@@ -8,5 +8,5 @@ public interface IWishListService
     
     Task<bool> AddNewTourToWshList(string email, int id);
     
-    Task<bool> DeleteTourFromWshList(int id);
+    Task<bool> DeleteTourFromWshList(int id, string email);
 }
