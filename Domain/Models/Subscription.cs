@@ -2,9 +2,9 @@
 
 public class Subscription
 {
-    public int SubscriptionId;
+    public int SubscriptionId { get; set; }
 
-    public int Price;
+    public int Price { get; set; }
 
-    public int Duration;
+    public int Duration { get; set; }
 }
