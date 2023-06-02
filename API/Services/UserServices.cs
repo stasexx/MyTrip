@@ -38,10 +38,10 @@ public class UserServices : IUserService
         var createdOrgTourCount = await _context.OrgTours
             .CountAsync(t => t.User.UserId == userId);
 
-        var latestBookingStartDate = await _context.OrgTours
+        var latestBookingStartDate = await _context.Orders
             .Where(o => o.User.UserId == userId)
-            .OrderByDescending(o => o.Tour.startDate)
-            .Select(o => (DateTime?)o.Tour.startDate)
+            .OrderByDescending(o => o.OrgTour.Tour.startDate)
+            .Select(o => (DateTime?)o.OrgTour.Tour.startDate)
             .FirstOrDefaultAsync();
 
         return (travelCount, createdHandTourCount+createdOrgTourCount, latestBookingStartDate);
