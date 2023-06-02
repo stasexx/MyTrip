@@ -95,10 +95,9 @@ body {
 	filter: grayscale(100) invert(9);
 }
 .wish img{
-	-webkit-filter: grayscale(100) invert(9);
-	filter: grayscale(100) invert(9);
+	-webkit-filter: grayscale(100%) invert(100%);
+	filter: grayscale(100%) invert(100%);
 }
 .wish_not img{
-	-webkit-filter: grayscale(100) invert(9);
-	filter: grayscale(100) invert(9);
+	filter: none;
 }

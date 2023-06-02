@@ -1,0 +1,129 @@
+.container {
+
+	position: relative;
+	margin: 0 auto;
+}
+.infoo__tour{
+	margin: 0 auto;
+    left: 149px;
+	position: relative;
+	width: 1620px;
+    height: 280px;
+	background-color: #fad894;
+
+}
+.foto_tour{
+	margin-top: 25px;
+    left: 50px;
+	height: 230px;
+    float: left;
+	width: 320;
+	position: absolute;
+}
+.text_tour{
+    
+	position: absolute;
+	display: block;
+	left: 990px;
+	top: 100px ;
+	justify-content: center;
+	width: 450px;
+	text-align: center;
+	font-size: 36px;
+}
+.text_tour div{
+	margin-bottom: 40px;
+}
+.price{
+	font-size: 63px;
+	margin-bottom: 30px;
+}
+.link_tour{
+	position: relative;
+	top:10px;
+	left: 90px;
+	border: 0.5px solid rgb(100, 100, 100);
+	width: 250px;
+	height: 60px;
+	background-color: black;
+	text-align: center;
+	display: block;
+	font-size: 36px;
+	line-height: 50px;
+	color: white;
+	overflow: hidden;
+	z-index: 1;
+	margin-bottom: 30px;
+}
+.name{
+    font-size: 60px;
+    position: relative;
+margin-left: 500px;
+    top: 110px;
+}
+.data{
+    position: relative;
+    color: #757575;
+    right: 100px;
+}
+.text_tour_data{
+    padding-top: 40px;
+    margin: 0 auto;
+    font-size: 35px;
+    position: relative;
+    left: 155px;
+	width: 1620px;
+
+
+
+}
+.text_tour_data div{
+    margin-bottom: 30px;
+}
+.promocod{
+    margin-left: 380px;
+}
+.promocod input{
+    background-color: #fad894;
+    width: 340px;
+    font-size: 25px;
+    height: 40px;
+    padding-left: 20px;
+}
+.link_create_tour{
+	position: relative;
+	bottom:100px;
+	left: 980px;
+	border: 0.5px solid rgb(100, 100, 100);
+	width: 250px;
+	height: 60px;
+	background-color: black;
+	text-align: center;
+	display: block;
+	font-size: 30px;
+	line-height: 50px;
+	color: white;
+	overflow: hidden;
+	z-index: 1;
+	margin-bottom: 30px;
+}
+.link_create_tour::before{
+
+	position: absolute;
+	content: '';
+	width: 100%;
+	height: 100%;
+	background-color: white;
+	color: white;
+	bottom: -100%;
+	left: 0%;
+	z-index: -1;
+	transition: .8s;
+}
+
+.link_create_tour:hover{
+	color:black
+}
+.link_create_tour:hover:before{
+	bottom: 0;
+}

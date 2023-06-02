@@ -3,10 +3,12 @@ import NavBar from "./Components/navbar/NavBar"
 import MainPge from "./pages/MainPage/MainPage"
 import Login from "./pages/Login/Login"
 import Cabinet from "./pages/Cabinet/Cabinet"
+import Bascket from "./pages/Bascket/Bascket";
 import Register from "./pages/Register/Register"
 import {BrowserRouter as Router,Routes,Route} from "react-router-dom";
 import TourPage from "./pages/TourPage/TourPage";
-
+import HandTourPage from "./pages/HandTourPage/HandTourPage";
+import Wishlist from "./pages/WashList/WashList";
 function App() {
 
   const cors = require("cors");
@@ -19,9 +21,13 @@ function App() {
              <Routes>
               <Route path="/register" element={<Register/>}/>
               <Route path="/login" element={<Login/>}/>
-              <Route path="/tour/:id" element={<TourPage/>}/>
+              <Route path="/tour/orh/:id" element={<TourPage/>}/>
+              <Route path="/tour/hdm/:id" element={<HandTourPage/>}/>
               <Route path="/" element={<MainPge/>}/>
               <Route path="/cabinet" element={<Cabinet/>}/>
+              <Route path="/tour/orh/:id/bascket" element={<Bascket/>}/>
+              <Route path="/cabinet/wishlist" element={<Wishlist/>}/>
+              
           </Routes>
       </Router>
     </div>

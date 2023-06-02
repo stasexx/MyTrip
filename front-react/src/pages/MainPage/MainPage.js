@@ -41,7 +41,7 @@ const  MainPge = () => {
                     <ul className={styles.tours}>    
                         {
                             tour_pop.map(item =>{
-                            return<Tour name={item.name} main_photo={item.mainPhoto} rate={item.rate} tourId={item.tourId}/>;
+                            return<Tour name={item.name} main_photo={item.mainPhoto} rate={item.rate} tourId={item.tourId} typeOfTour={item.typeOfTour}/>;
                              })
                         }
 
@@ -54,7 +54,7 @@ const  MainPge = () => {
                             tour_hand.map(item1 =>{
                                 if(item1.typeOfTour=="hdm"){
 
-                                    return<Tour name={item1.name} main_photo={item1.mainPhoto} rate={item1.rate} tourId={item1.tourId}/>;
+                                    return<Tour name={item1.name} main_photo={item1.mainPhoto} rate={item1.rate} tourId={item1.tourId} typeOfTour={item1.typeOfTour}/>;
                             
                                 }
                             })

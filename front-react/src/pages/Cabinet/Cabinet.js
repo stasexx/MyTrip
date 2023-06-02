@@ -10,14 +10,17 @@ import React, {useEffect, useState} from "react";
 import NavBar from "../../Components/navbar/NavBar";
 import Footer from "../../Components/footer/Footer"
 import axios from 'axios';
+import Tour_user from "../../Components/tour_cabinet/tour_cabinet"
 
 
 const Cabinet = () => {
 
     var user_id = localStorage.getItem("login");
-
+    var startDatefinal;
     const[users,setUsers] = useState([]);
-  
+    const[info,setUsersinfo] = useState([]);
+    const[id_tour,setIdTour] = useState([]);
+
         useEffect(()=>{
             if(user_id){
         axios.get(`http://localhost:5000/api/Users/get/userById=${user_id}`)
@@ -26,9 +29,50 @@ const Cabinet = () => {
         })
         }
         },[]);
+
+        useEffect(()=>{
+
+        axios.get(`http://localhost:5000/api/Users/get/userRecentBookedTourBuLast30DaysIds/userId=${user_id}`)
+        .then(data =>{
+            setIdTour(data.data);
+        })
+        
+        },[]);
+
+
+
+
+        if(info.latestBookingStartDate!=null){
+            let startDateString = info.latestBookingStartDate;
+            let startDate = new Date(startDateString);
+            let day = startDate.getDate();
+            let month = startDate.getMonth() + 1;
+            let year = startDate.getFullYear();
+            startDatefinal=`${day < 10 ? '0' + day : day}.${month < 10 ? '0' + month : month}.${year}`;
+        }else{
+            startDatefinal="none"
+        }
+
+
+        
+        useEffect(()=>{
+            if(user_id){
+        axios.get(`http://localhost:5000/api/Users/get/userDateForProfile/userId=${user_id}`)
+        .then(data =>{
+            setUsersinfo(data.data);
+        })
+        }
+        },[]);
+
+
+
         if (!users) {
             return <h1>...Loading</h1>
         } 
+
+
+
+
 
         function exit_function() {
             localStorage.removeItem("login");
@@ -57,15 +101,15 @@ const Cabinet = () => {
 
                 <div className="travels">
                     <h2>My travels</h2>
-                    <h3 className="info">27</h3>
+                    <h3 className="info">{info.travelCount}</h3>
 
                     <h2>Last travel</h2>
-                    <h3 className="info">19.02.2023</h3>
+                    <h3 className="info">{startDatefinal}</h3>
                 </div>
 
                 <div className="additional">
                     <h2>Created journeys</h2>
-                    <h3 className="info">3</h3>
+                    <h3 className="info">{info.createdTourCount}</h3>
 
                     <h2>City</h2>
                     <h3 className="info">{users.city}</h3>
@@ -81,48 +125,22 @@ const Cabinet = () => {
         <div className="buttons">
             <ul className="btn-list">
                 <li className="btn-list__item"><a href="./index.html" className="btn-list__link"><img src={basket} className="icon_btn" alt=""/>My orders</a></li>
-                <li className="btn-list__item"><a href="./index.html" className="btn-list__link"><img src={wishlist} className="icon_btn" alt=""/>Wish list</a></li>
+                <li className="btn-list__item"><a href="/cabinet/wishlist" className="btn-list__link"><img src={wishlist} className="icon_btn" alt=""/>Wish list</a></li>
                 <li className="btn-list__item"><a href="./index.html" className="btn-list__link"><img src={my_tour} className="icon_btn" alt=""/>My tour</a></li>
             </ul>
         </div>
 
         <div className="last">
             <h1 className="last-header">The last rounds completed in this month</h1>
-            <div className="table_container">
-            <table>
-                <tr>
-                    <td rowspan="2" className="td_tour-photo"><img src={tour_photo} alt=""/></td>
-                    <td>Header 2</td>
-                    <td>Header 3</td>
-                    <td>Header 4</td>
-                    <td>Header 5</td>
-                </tr>
-                <tr>
-                    <td>Data 2</td>
-                    <td>Data 3</td>
-                    <td>Data 4</td>
-                    <td>Data 5</td>
-                </tr>
-            </table>
-            </div>
+           
 
-            <div className="table_container">
-            <table>
-                <tr>
-                    <td rowspan="2">Header 1</td>
-                    <td>Header 2</td>
-                    <td>Header 3</td>
-                    <td>Header 4</td>
-                    <td>Header 5</td>
-                </tr>
-                <tr>
-                    <td>Data 2</td>
-                    <td>Data 3</td>
-                    <td>Data 4</td>
-                    <td>Data 5</td>
-                </tr>
-            </table>
-            </div>
+            {
+                id_tour.map(item1 =>{
+
+                    return<Tour_user tour_id={item1}/>;
+                })
+            }
+
         </div>
         <Footer/>
         </>

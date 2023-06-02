@@ -45,52 +45,6 @@ body {
 	background-color: #F5B129;
 }
 
-/* wishlist*/
-
-.wishlist{
-	background-color: white;
-	height: 60px;
-	width: 60px;
-	border-radius: 50px;
-	float: right;
-	right: 10px;
-	bottom: 310px;
-	position: relative;
-
-}
-/* wishlist*/
-
-.wishlist{
-	background-color: white;
-	height: 60px;
-	width: 60px;
-	border-radius: 50px;
-	float: right;
-	right: 50px;
-	bottom:  25px;
-	position: relative;
-
-}
-.wishlist:hover img{
-	transform: scale(1.4);
-}
-.like__img{
-	position: relative;
-	left: 20%;
-	top: 30%;
-	display: block;
-
-	transition: transform 0.25s;
-}
-
-.wish img{
-	-webkit-filter: grayscale(100%) invert(100%);
-	filter: grayscale(100%) invert(100%);
-}
-.wish_not img{
-	filter: none;
-}
-
 /*ggggggggggggggggggggggggggggg*/
 .infoo__tour{
 	margin: 0 auto;
@@ -248,4 +202,36 @@ margin-top: 40px;
 }
 .link_pop_tour:hover:before{
 	bottom: 0;
+}
+/* wishlist*/
+
+.wishlist{
+	background-color: white;
+	height: 60px;
+	width: 60px;
+	border-radius: 50px;
+	float: right;
+	right: 50px;
+	bottom:  25px;
+	position: relative;
+
+}
+.wishlist:hover img{
+	transform: scale(1.4);
+}
+.like__img{
+	position: relative;
+	left: 20%;
+	top: 30%;
+	display: block;
+
+	transition: transform 0.25s;
+}
+
+.wish img{
+	-webkit-filter: grayscale(100%) invert(100%);
+	filter: grayscale(100%) invert(100%);
+}
+.wish_not img{
+	filter: none;
 }

@@ -1,0 +1,32 @@
+
+.table_container{
+    display: flex;
+	justify-content: center;
+    padding-bottom: 20px;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    table-layout: fixed;
+    width: 1300px;
+    height: auto;
+    
+  }
+  
+td {
+    border: 1px solid #9e9d9d;
+    padding: 7px;
+    font-size: 24px;
+    
+}
+.td_tour_photo{
+    width: 320px;
+}
+.tour__img{
+    padding-right: 10px;
+}
+.name{
+    padding-top: 15px;
+    padding-left: 40px;
+}
