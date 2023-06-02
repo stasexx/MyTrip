@@ -44,8 +44,9 @@ const Wishlist = () => {
                 <div className={styles.buttons}>
                     <ul className={styles.btn_list}>
                         <li className={styles.btn_list__item}><a href="/cabinet" className={styles.btn_list__link}><img src={profile} className={styles.icon_btn} alt=""/>Profile</a></li>
-                        <li className={styles.btn_list__item}><a href="./index.html" className={styles.btn_list__link}><img src={basket} className={styles.icon_btn} alt=""/>My orders</a></li>
-                        <li className={styles.btn_list__item}><a href="./index.html" className={styles.btn_list__link}><img src={my_tour} className={styles.icon_btn} alt=""/>My tour</a></li>
+                        <li className={styles.btn_list__item}><a href="/cabinet/myorders" className={styles.btn_list__link}><img src={basket} className={styles.icon_btn} alt=""/>My orders</a></li>
+                        <li className={styles.btn_list__item}><a href="/cabinet/mytour" className={styles.btn_list__link}><img src={my_tour} className={styles.icon_btn} alt=""/>My tour</a></li>
+                        
                     </ul>
                 </div>
 

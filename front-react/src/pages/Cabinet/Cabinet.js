@@ -124,9 +124,9 @@ const Cabinet = () => {
 
         <div className="buttons">
             <ul className="btn-list">
-                <li className="btn-list__item"><a href="./index.html" className="btn-list__link"><img src={basket} className="icon_btn" alt=""/>My orders</a></li>
+                <li className="btn-list__item"><a href="/cabinet/myorders" className="btn-list__link"><img src={basket} className="icon_btn" alt=""/>My orders</a></li>
                 <li className="btn-list__item"><a href="/cabinet/wishlist" className="btn-list__link"><img src={wishlist} className="icon_btn" alt=""/>Wish list</a></li>
-                <li className="btn-list__item"><a href="./index.html" className="btn-list__link"><img src={my_tour} className="icon_btn" alt=""/>My tour</a></li>
+                <li className="btn-list__item"><a href="/cabinet/mytour" className="btn-list__link"><img src={my_tour} className="icon_btn" alt=""/>My tour</a></li>
             </ul>
         </div>
 

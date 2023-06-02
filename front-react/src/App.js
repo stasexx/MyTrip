@@ -9,6 +9,8 @@ import {BrowserRouter as Router,Routes,Route} from "react-router-dom";
 import TourPage from "./pages/TourPage/TourPage";
 import HandTourPage from "./pages/HandTourPage/HandTourPage";
 import Wishlist from "./pages/WashList/WashList";
+import MyTour from "./pages/MyTour/MyTour";
+import MyOrders from "./pages/MyOrders/MyOrders";
 function App() {
 
   const cors = require("cors");
@@ -27,6 +29,7 @@ function App() {
               <Route path="/cabinet" element={<Cabinet/>}/>
               <Route path="/tour/orh/:id/bascket" element={<Bascket/>}/>
               <Route path="/cabinet/wishlist" element={<Wishlist/>}/>
+              <Route path="/cabinet/myorders" element={<MyOrders/>}/>
               
           </Routes>
       </Router>
