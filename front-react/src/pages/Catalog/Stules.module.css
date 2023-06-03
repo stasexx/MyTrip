@@ -1,0 +1,173 @@
+
+.tours_text{
+    background-color: #FF9635;
+    color: white;
+    font-size: 128px;
+    text-align: center;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    font-weight:900;
+}
+body {
+	
+	font-family: 'Montserrat';
+}
+.container {
+	position: relative;
+	margin: 0 auto;
+	max-width: 1920px;
+	padding: 0 300px;
+
+}
+.all_photo{
+    margin-left: 350px;
+    margin-top: 30px;
+}
+.all_photo img{
+    width:980px ;
+    height:450px ;
+}
+.icon_header{
+	padding: 0px 7px;
+}
+.search_box{
+    margin: 0 auto;
+	justify-content:center;
+	width: 530px;
+	height: 50px;
+	border: 1px solid #525252;
+	border-radius: 25px;
+	padding: 13px 20px ;
+    font-size: 20px;
+}
+.search{
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 30px;
+    font-weight:900;
+}
+.name_filter{
+    font-size: 30px;
+    font-weight:900;
+    display: flex;
+    margin-top: 20px;
+    justify-content:center;
+
+}
+
+
+.Parts{
+    margin-left: 220px;
+    padding: 0px 10px;
+}
+.Parts:hover{
+    background-color: #FF9635;
+    padding: 0px 10px;
+}
+.Parts:hover .part_filter{
+    display: initial;
+}
+
+
+
+.Category{
+    margin-right: 340px;
+    padding: 0px 10px;
+}
+.Category:hover{
+    background-color: #FF9635;
+    padding: 0px 10px;
+}
+
+.Category:hover .cat_filter{
+    display: initial;
+}
+
+.price_filter{
+    margin-top: 10px;
+    font-size: 30px;
+    font-weight:900;
+    display: flex;
+	column-gap: 50px;
+    justify-content:center;
+
+}
+.price_filter_from{
+    border: 1px solid #9b9898;
+    font-size: 20px;
+    padding: 5px 10px;
+    width: 100px ;
+    height: 35px ;
+    border-radius: 15px;
+    color: black;
+    overflow: hidden;
+}
+.price_filter_to{
+    border: 1px solid #9b9898;
+    font-size: 20px;
+    padding: 5px 20px;
+    width: 100px ;
+    height: 35px ;
+    border-radius: 15px;
+    overflow: hidden;
+}
+/* Category*/
+.cat_filter{
+    font-size: 20px;
+    position: absolute;
+    background-color: white;
+    left: 444px;
+    top: 688px;
+    display: none;
+    z-index: 1;
+
+}
+.cat_filter li{
+border:  1px solid rgba(0,0,0,.1);
+padding: 0px 10px;
+}
+.cat_filter li:hover{
+    background-color: #ffc793;
+    padding: 0px 20px;
+}
+
+
+/* Part*/
+.part_filter{
+    font-size: 20px;
+    position: absolute;
+    background-color: white;
+    padding: 0px 10px;
+    left: 1209px;
+    top: 688px;
+    display: none;
+    z-index: 1;
+
+}
+.part_filter li{
+border-bottom:  1px solid rgba(0,0,0,.1);
+
+}
+
+.part_filter li:hover{
+    padding: 0px 15px;
+}
+.under_filter{
+    display: initial;
+    color: #000;
+}
+
+.under_filter li:hover{
+    background-color: #ffc793;
+    padding: 0px 15px;
+}
+.tours {
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+	column-gap: 50px;
+	row-gap: 50px;
+
+	padding-bottom: 60px;
+	padding-top: 60px;
+}

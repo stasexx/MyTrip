@@ -4,7 +4,8 @@ import NavBar from "../../Components/navbar/NavBar";
 import Footer from "../../Components/footer/Footer"
 import styles from './Stules.module.css';
 import { useParams } from "react-router-dom";
-
+import { SHA1 } from 'crypto-js';
+import { enc } from 'crypto-js';
 
 const  Bascket = () => {
     const {id}=useParams();
@@ -80,6 +81,25 @@ const  Bascket = () => {
         }
 
 
+        var json_string = `{"public_key":"sandbox_i59238924040","version":"3","action":"pay","amount":"${org.price}","currency":"UAH","description":"test","order_id":"000001"}`;
+        var data = btoa(json_string);
+        
+        console.log(data);
+
+        const sign_string = "sandbox_tJi2z6e5iVHPcfx4x5if1Xb8S0YPmv4Wzv50reUI"+data+"sandbox_tJi2z6e5iVHPcfx4x5if1Xb8S0YPmv4Wzv50reUI";
+
+        console.log(sign_string);
+
+        // Обчислення SHA1 хешу
+        var sha1_hash = SHA1(sign_string);
+
+        // Перетворення хешу у рядок
+        var sha1_hash_string = sha1_hash.toString(enc.Hex);
+
+        // Кодування у Base64
+        var signature  = enc.Base64.stringify(enc.Hex.parse(sha1_hash_string));
+
+        console.log(signature );
 return(
     <>
      <NavBar/>
@@ -104,7 +124,20 @@ return(
                             <div className={styles.user_buy}>Ordered by: {user.lastName} {user.firstName} <label className={styles.promocod}>Promocode: <input  type ="text" className={styles.box} id="password" placeholder="Enter your promocode"></input></label></div>
                             <div className={styles.begin}>Tour begin: {startDatefinal}</div>
                             <div className={styles.end}>Tour end: {endDatefinal}</div>
-                            <a href="#" className={styles.link_create_tour}>Pay with MonoPay</a>
+
+
+                            <form method="POST" accept-charset="utf-8" action="https://www.liqpay.ua/api/3/checkout">
+
+                            <input type="hidden" name="data" value={data} />
+
+                            <input type="hidden" name="signature" value={signature} />
+
+                            <button >
+                                <a  className={styles.link_create_tour}>Pay with LIQPAY</a>
+                            </button>
+
+                            </form>
+                            
                         </div>
                     </div> 
         <Footer/>
