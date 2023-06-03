@@ -116,7 +116,7 @@ const Cabinet = () => {
                 </div>
 
                 <div className="btns">
-                    <div className="edit"><a href="./index.html"><img src={edit} alt="edit"/></a></div>
+                    <div className="edit"><a href="/cabinet/editprofile"><img src={edit} alt="edit"/></a></div>
                     <div onClick={exit_function}  className="exit"><a href="/"><img src={exit} alt="exit"/></a></div>
                 </div>
             </div>

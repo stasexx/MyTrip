@@ -1,0 +1,148 @@
+.cabinet{
+    display: flex;
+    height: 700px;
+    margin-bottom: 50px;
+    z-index: 0;
+}
+body {
+	
+	font-family: 'Montserrat';
+}
+.container {
+	position: relative;
+	margin: 0 auto;
+	max-width: 1920px;
+	padding: 0 300px;
+
+}
+.profile_photo{
+    margin: 30px 30px;
+    border-radius: 5%;
+    width: 310px;
+    height: 370px;
+}
+
+.profile_info{
+    padding-top: 70px;
+    width: 250px;
+    text-align: center;
+}
+
+.name{
+    font-size: 40px;
+    position: relative;
+}
+
+
+.level{
+    padding-top: 30px;
+}
+
+.level__label{    
+    color: #606060;
+    font-size: 24px;
+}
+
+
+ .travels{
+    margin-right: 250px;
+    padding-top: 70px;
+    width: 250px;
+    text-align: center;
+}
+
+.additional{
+    padding-top: 70px;
+    width: 250px;
+    text-align: center;
+}
+.btn_save{
+    margin-top: 35px;
+    font-size: 36px;
+    width: 400px;
+    height: 50px;
+    background-color: #fff7d8;
+    cursor: pointer;
+}
+.h2{
+    font-size: 32px;
+    float: left;
+    padding-left: 10px;
+    padding-bottom: 5px;
+}
+
+.info{
+    line-height: 45px;
+    font-size: 25px;
+    padding-left: 20px;
+    margin-bottom: 30px;
+    background-color: #fff7d8;
+    width: 400px;
+}
+.avatar{
+    line-height: 45px;
+    font-size: 20px;
+    padding-left: 20px;
+    background-color: #fff7d8;
+    width: 300px;
+    position: absolute;
+    left: 335px;
+    bottom: 220px;
+}
+.btns{
+    margin-left: auto;
+    margin-right: 0px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+.edit{
+    margin-top: 20px;
+    margin-right: 0px;
+    margin-left: auto;
+}
+
+.exit{
+    padding-top: 170px;
+}
+
+.buttons{
+    margin-top: 20px;
+    margin-bottom: 20px;
+	display: flex;
+	justify-content:center;
+}
+
+.btn_list{
+	display: flex;
+	column-gap: 70px;
+	font-size: 24px;
+}
+
+.btn_list__link{
+	padding: 7px 15px ;
+	color: black;
+}
+
+.btn_list__link:hover {
+	background-color: #000000;
+	padding: 7px 15px ;
+	border-radius: 25px;
+	color: rgb(255, 255, 255);
+}
+
+.btn_list__link:hover .icon_btn {
+	-webkit-filter: grayscale(100) brightness(200);
+	filter: grayscale(100) brightness(200);
+}
+
+.last_header{
+    font-size: 40px;
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 20px;
+}
+.font__img{
+    position: absolute;
+    z-index: -1;
+}
