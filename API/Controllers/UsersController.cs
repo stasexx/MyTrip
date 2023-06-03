@@ -34,6 +34,12 @@ public class UsersController : BaseApiController
         return await _userService.Registration(email, password, firstName, lastName);
     }
     
+    [HttpPost("registration/oauth/email={email}/avatar={avatar}/firstname={firstName}/lastname={lastName}")]
+    public async Task<ActionResult<User>> RegistrationByOauth(string email, string avatar, string firstName, string lastName)
+    {
+        return await _userService.AuthorizationWithOAut(email, avatar, firstName, lastName);
+    }
+    
     
     [HttpGet("get/userByEmail={email}")]
     public async Task<ActionResult<User>> FindForEmail(string email)
@@ -97,6 +103,16 @@ public class UsersController : BaseApiController
     public async Task<ActionResult> ChangeCity(string email, string newCity)
     {
         if (await _userService.ChangeCity(email, newCity))
+        {
+            return Ok();
+        }
+        return NotFound();
+    }
+
+    [HttpPost("change/newAvatar={newAvatar}/email={email}")]
+    public async Task<ActionResult> ChangeAvatar(string email, string newAvatar)
+    {
+        if (await _userService.ChangeCity(email, newAvatar))
         {
             return Ok();
         }

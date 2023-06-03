@@ -27,6 +27,8 @@ public interface IUserService
     
     Task<bool> ChangeLogin(string email, string newLogin);
     
+    Task<bool> ChangeAvatar(string email, string newAvatar);
+    
     Task<bool> ChangeCity(string email, string newCity);
     
     Task<bool> ChangePhoneNumber(string email, string newPhoneNumber);
