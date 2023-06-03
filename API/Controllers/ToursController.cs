@@ -41,7 +41,7 @@ public class ToursController : BaseApiController
         return await _tourService.FilterForTourByCategory(category);
     }
     
-    [HttpGet("get/tourFilter/category={category}/category={category}")]
+    [HttpGet("get/tourFilter/country={country}/category={category}")]
     public async Task<List<Tour>> FilterForTourByCategoryAndCategory(string country, string category)
     {
         return await _tourService.FilterForTourByCategoryAndCategory(country, category);
