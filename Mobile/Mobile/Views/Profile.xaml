@@ -2,22 +2,24 @@
     <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Mobile.Views.Profile"
-             BackgroundColor="#EEE">
+             xmlns:local="clr-namespace:Mobile.Views"
+             BackgroundColor="#EEE"
+                 NavigationPage.HasNavigationBar="False">
         <ScrollView>
             <StackLayout >
                 <Frame Padding="10" BackgroundColor="#EEE" HasShadow="False"
                    CornerRadius="5" Margin="10">
                     <StackLayout>
-                        <Image Source="{Binding Avatar}" HeightRequest="240" WidthRequest="360" Aspect="AspectFill" />
+                        <Image Source="ProfilePic.png" HeightRequest="240" WidthRequest="360" Aspect="AspectFill" />
 
                         <StackLayout Orientation="Horizontal" VerticalOptions="Center">
-                            <Label Text="{Binding FirstName}" FontFamily="Trebuchet MS" FontSize="18" />
-                            <Label Text="{Binding LastName}" FontFamily="Trebuchet MS" FontSize="18" />
-                            <Label Text="Level" FontFamily="Trebuchet MS" FontSize="14" HorizontalOptions="Start" TextColor="Black" />
-                            <Label Text="{Binding ExperienceLevel}" FontFamily="Trebuchet MS" FontSize="14" HorizontalOptions="End" />
+                            <Label Text="{Binding User.FirstName}" FontFamily="Trebuchet MS" FontSize="18" />
+                            <Label Text="{Binding User.LastName}" FontFamily="Trebuchet MS" FontSize="18" />
+                            
+                            
                         </StackLayout>
 
-                        <ProgressBar Progress="{Binding ExperienceProgress}" ProgressColor="Purple" HeightRequest="10" />
+                        
                     </StackLayout>
                 </Frame>
 
@@ -27,30 +29,26 @@
 
                 <Frame Padding="10" BackgroundColor="#EEE" HasShadow="False"
                     Margin="0" >
-                    <StackLayout>
+                <StackLayout>
 
-
-
-
-
-                        <Label Text="Phone" FontFamily="Trebuchet MS"  TextColor="Black"/>
-                        <Label Text="{Binding PhoneNumber}" FontFamily="Trebuchet MS" TextColor="Black"/>
+                    
+                        <Label Text="{Binding User.PhoneNumber}" FontFamily="Trebuchet MS" TextColor="Black"/>
 
                         <Label Text="Tap to change phone number" FontFamily="Trebuchet MS" TextColor="#707070"
                            HorizontalOptions="Start" VerticalOptions="Center" Margin="0,3,0,0" />
 
                         <BoxView HeightRequest="1" BackgroundColor="Gray" HorizontalOptions="FillAndExpand" />
 
-                        <Label Text="Login" FontFamily="Trebuchet MS" TextColor="Black"/>
-                        <Label Text="{Binding Login}" FontFamily="Trebuchet MS" TextColor="Black"/>
+                        
+                        <Label Text="{Binding User.Login}" FontFamily="Trebuchet MS" TextColor="Black"/>
 
                         <Label Text="Tap to change username" FontFamily="Trebuchet MS" TextColor="#707070"
                            HorizontalOptions="Start" VerticalOptions="Center" Margin="0,3,0,0" />
 
                         <BoxView HeightRequest="1" BackgroundColor="Gray" HorizontalOptions="FillAndExpand" />
 
-                        <Label Text="Email" FontFamily="Trebuchet MS" TextColor="Black" />
-                        <Label Text="{Binding Email}" FontFamily="Trebuchet MS" TextColor="Black"/>
+                        
+                        <Label Text="{Binding User.Email}" FontFamily="Trebuchet MS" TextColor="Black"/>
 
                         <Label Text="Tap to change email" FontFamily="Trebuchet MS" TextColor="#707070"
                            HorizontalOptions="Start" VerticalOptions="Center" Margin="0,3,0,0" />

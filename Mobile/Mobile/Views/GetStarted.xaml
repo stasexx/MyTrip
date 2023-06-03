@@ -5,12 +5,17 @@
              x:Class="Mobile.Views.GetStarted">
 
     <ContentPage.Content>
+
+       
+
+
         <StackLayout BackgroundColor="#EEEEEE"
                      VerticalOptions="FillAndExpand"
                      HorizontalOptions="FillAndExpand"
                      Padding="20"
-                     Spacing="-90">
-
+                     Spacing="-5">
+            
+            <Image Source="Resources/GetStart.png" Margin="0,100,0,-200"/>
 
             <Label Text="Your adventure, your way"
                    FontFamily="Trebuchet MS"

@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Mobile.Views.WishList"
+    BackgroundColor="#EEE">
+    <ScrollView>
+        <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <!-- Бокс сверху -->
+        <StackLayout Orientation="Horizontal"
+             HorizontalOptions="End"
+             Padding="10">
+            <Grid>
+                <Image Source="HearItcon.png"
+               WidthRequest="40"
+               HeightRequest="40"
+               Margin="0,0,5,0" />
+
+                <BoxView Color="#80000000"
+                 WidthRequest="40"
+                 HeightRequest="40"
+                 Opacity="0.5" />
+            </Grid>
+        </StackLayout>
+
+        <StackLayout Grid.Row="1">
+            <Label Text="Make your choice"
+                   FontSize="18"
+                   TextColor="White"
+                   BackgroundColor="#FFA800"
+                   HorizontalOptions="Center"
+                   VerticalOptions="Start"
+                   Margin="0,10,0,0" />
+
+            <!-- Туры из базы данных -->
+            <CollectionView ItemsSource="{Binding Tours}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame CornerRadius="10"
+                               BackgroundColor="White"
+                               WidthRequest="330"
+                               HeightRequest="230"
+                               Margin="10">
+
+                            <StackLayout>
+                                <Image Source="{Binding TourImage}"
+                                       Aspect="AspectFill"
+                                       HeightRequest="160" />
+
+                                <StackLayout Padding="10">
+                                    <Label Text="{Binding TourName}"
+                                           FontSize="16"
+                                           FontAttributes="Bold"
+                                           TextColor="Black" />
+
+                                    <Label Text="{Binding TourLocation}"
+                                           FontSize="14"
+                                           TextColor="Black" />
+                                </StackLayout>
+
+                                <StackLayout Orientation="Horizontal"
+                                             HorizontalOptions="End"
+                                             Padding="10">
+                                    <Image Source="heart_icon.png"
+                                           WidthRequest="40"
+                                           HeightRequest="40"
+                                           Margin="0,0,5,0" />
+
+                                    <BoxView Color="#80000000"
+                                             WidthRequest="40"
+                                             HeightRequest="40"
+                                             Opacity="0.5" />
+                                </StackLayout>
+                            </StackLayout>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </StackLayout>
+    </Grid>
+    </ScrollView>
+</ContentPage>

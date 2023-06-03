@@ -6,22 +6,35 @@ namespace Mobile.Models
 {
     public class User
     {
-        public int userId { get; set; }
 
-        public string password { get; set; }
-        public string login { get; set; }
-        public string email { get; set; }
-        public bool orgRights { get; set; }
-        public string agency { get; set; }
-        public int experience { get; set;}
-        public string firstName { get; set; }
-        public string lastName { get; set; }
-        public string phoneNumber { get; set; }
-        public string city { get; set; }
-        public string avatar { get; set; }
-        public bool availabilityOfTours { get; set; }
-        public bool availabilityOfProfile { get; set; }
-        public bool isBanned { get; set; }
-        public DateTime regDate { get; set; }
+        public string Password { get; set; }
+
+        public string Login { get; set; }
+
+        public string Email { get; set; }
+
+        public bool OrgRights { get; set; }
+
+        public string Agency { get; set; }
+
+        public int Expirience { get; set; }
+
+        public string FirstName { get; set; }
+
+        public string LastName { get; set; }
+
+        public string PhoneNumber { get; set; }
+
+        public string City { get; set; }
+
+        public string Avatar { get; set; }
+
+        public bool AvailabilityOfTours { get; set; }
+
+        public bool AvailabilityOfProfile { get; set; }
+
+        public bool IsBanned { get; set; }
+
+        public DateTime RegDate { get; set; }
     }
 }

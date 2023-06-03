@@ -11,9 +11,9 @@
                      Padding="20"
                      >
 
-            
-            
-            
+
+            <Image Source="Resources/GetStart.png" Margin="0,100,0,-200"/>
+
             <Label Text="Welcome Back!"
                    FontFamily="Trebuchet MS"
                    FontSize="28"
@@ -28,10 +28,10 @@
 
             <StackLayout Spacing="10" HorizontalOptions="FillAndExpand">
                 <Frame BackgroundColor="White" CornerRadius="25" Padding="5" Margin="0,0,0,10" HeightRequest="40">
-                    <Entry Placeholder="   Enter your email" PlaceholderColor="#808080" FontSize="15"/>
+                    <Entry x:Name="EmailEntry" Placeholder="Enter your email" PlaceholderColor="#808080" FontSize="15"/>
                 </Frame>
                 <Frame BackgroundColor="White" CornerRadius="25" Padding="5" Margin="0,0,0,20" HeightRequest="40">
-                    <Entry Placeholder="   Enter your password" PlaceholderColor="#808080" FontSize="15" />
+                    <Entry x:Name="PasswordEntry" Placeholder="Enter your password" PlaceholderColor="#808080" FontSize="15" />
                 </Frame>
             </StackLayout>
 
@@ -41,31 +41,25 @@
             <StackLayout Orientation="Horizontal"
              HorizontalOptions="CenterAndExpand"
              Margin="0,0,0,10">
-                
-                
                 <BoxView BackgroundColor="#949494"
              HeightRequest="1"
              WidthRequest="90"
              HorizontalOptions="FillAndExpand" />
-                
-                
                 <Label Text="or"
            FontFamily="Trebuchet MS"
            FontSize="14"
            HorizontalOptions="Center"
            VerticalOptions="Center"
-                      TextColor="#949494"
+           TextColor="#949494"
            Margin="10,0" />
-                
-                
                 <BoxView BackgroundColor="#949494"
              HeightRequest="1"
              WidthRequest="90"
              HorizontalOptions="FillAndExpand" />
             </StackLayout>
 
-            
-            
+
+
             <Button Text="Continue with Google"
                     BackgroundColor="#EEEBE4"
                     TextColor="Black"
@@ -79,7 +73,7 @@
 
             <StackLayout VerticalOptions="EndAndExpand" Spacing="10">
                 <Label Text="Forget password?" TextColor="#F5B129" FontSize="14" HorizontalOptions="Center" TextDecorations="Underline"/>
-                <Button Text="Login" BackgroundColor="#F5B129" TextColor="White" CornerRadius="25" TextTransform="None" FontSize="22"/>
+                <Button Text="Login" BackgroundColor="#F5B129" TextColor="White" CornerRadius="25" TextTransform="None" FontSize="22" Command="{Binding OnLoginButtonClicked}"/>
             </StackLayout>
 
             <StackLayout Orientation="Horizontal"
@@ -94,7 +88,7 @@
 
                 <Label Text="Register" TextColor="#F5B129" FontSize="14" HorizontalOptions="Center" TextDecorations="Underline">
                     <Label.GestureRecognizers>
-                        <TapGestureRecognizer Tapped="SignUpLabel_Tapped" />
+                        <TapGestureRecognizer Command="{Binding OnLoginButtonClicked}" />
                     </Label.GestureRecognizers>
                 </Label>
 
