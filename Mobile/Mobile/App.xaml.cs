@@ -2,17 +2,20 @@
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using Mobile.Views;
+using Mobile.MobileServices;
 
 namespace Mobile
 {
     public partial class App : Application
     {
+
         public App()
         {
             InitializeComponent();
 
-            //MainPage = new MainPage();
             MainPage = new MainFlyout();
+            //MainPage = new MainFlyoutDetail();
+            //MainPage = new NavigationPage(new MainFlyout());
 
             //MainPage = new NavigationPage(new Views.GetStarted());
 

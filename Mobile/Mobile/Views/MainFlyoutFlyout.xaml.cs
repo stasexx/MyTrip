@@ -22,7 +22,7 @@ namespace Mobile.Views
             InitializeComponent();
 
             BindingContext = new MainFlyoutFlyoutViewModel();
-            ListView = MenuItemsListView;
+
         }
 
         private class MainFlyoutFlyoutViewModel : INotifyPropertyChanged
