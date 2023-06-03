@@ -286,4 +286,9 @@ public class TourServices:ITourService
     {
         return await _context.Tours.Where(t => t.Category == category).ToListAsync();
     }
+    
+    public async Task<List<Tour>> FilterForTourByCategoryAndCategory(string country, string category)
+    {
+        return await _context.Tours.Where(t => t.Category == category && t.Destination==country).ToListAsync();
+    }
 }

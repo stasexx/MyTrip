@@ -180,6 +180,19 @@ public class UserServices : IUserService
 
         return false;
     }
+
+    public async Task<bool> ChangeAvatar(string email, string newAvatar)
+    {
+        var user = _context.Users.FirstOrDefault(u => u.Email == email);
+        if (user != null)
+        {
+            user.Avatar = newAvatar;
+            await _context.SaveChangesAsync();
+            return true;
+        }
+
+        return false;
+    }
     
     public async Task<bool> ChangePhoneNumber(string email, string newPhoneNumber)
     {
