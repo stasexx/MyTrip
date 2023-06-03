@@ -102,6 +102,16 @@ public class UsersController : BaseApiController
         }
         return NotFound();
     }
+
+    [HttpPost("change/newAvatar={newAvatar}/email={email}")]
+    public async Task<ActionResult> ChangeAvatar(string email, string newAvatar)
+    {
+        if (await _userService.ChangeCity(email, newAvatar))
+        {
+            return Ok();
+        }
+        return NotFound();
+    }
     
     [HttpPost("change/newPhoneNumber={newPhoneNumber}/email={email}")]
     public async Task<ActionResult> ChangePhoneNumber(string email, string newPhoneNumber)
