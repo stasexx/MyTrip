@@ -66,7 +66,7 @@ public class OrgTourService:IOrgTourService
         };
         _context.AddAsync(orgTour);
         _context.SaveChangesAsync();
-        return await _context.OrgTours.FirstOrDefaultAsync(o=>o.Id == orgTour.Id);
+        return await _context.OrgTours.Include(u=>u.Tour).FirstOrDefaultAsync(o=>o.Id == orgTour.Id);
     }
     
     public async Task<bool> ChangeExperience(int id, int newExperience)

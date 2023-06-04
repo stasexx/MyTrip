@@ -48,4 +48,6 @@ public interface ITourService
     Task<List<OrgTour>> FilterForTourByPrice(double price1, double price2);
     
     Task<List<Tour>> FilterForTourByCategoryAndCategory(string country, string category);
+
+    Task<List<Tour>> SearchByName(string name);
 }

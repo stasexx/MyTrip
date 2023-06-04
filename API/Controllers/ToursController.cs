@@ -137,4 +137,10 @@ public class ToursController : BaseApiController
     {
         return await _tourService.ChangeTags(id, newTags);
     }
+    
+    [HttpGet("get/searchTourByName/name={name}")]
+    public async Task<List<Tour>> SearchByName(string name)
+    {
+        return await _tourService.SearchByName(name);
+    }
 }
