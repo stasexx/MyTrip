@@ -1,0 +1,140 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Mobile.Views.MainFlyoutFlyout"
+             Title="Flyout"
+             BackgroundColor="#FFFFFF">
+    <StackLayout VerticalOptions="FillAndExpand">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="90"></RowDefinition>
+                <RowDefinition Height="54"></RowDefinition>
+                <RowDefinition Height="175"></RowDefinition>
+                <RowDefinition Height="127"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <Label Grid.Row="0" Text="Settings" FontSize="20" FontFamily="Trebuchet MS" TextColor="Black" HorizontalOptions="Center" Padding="25"></Label>
+            <Frame Grid.Row="1" HorizontalOptions="Center" WidthRequest="260" CornerRadius="10" BackgroundColor="#FFA800" Padding="20, 0, 20, 0">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding NavToSubCommand}"></TapGestureRecognizer>
+                </Frame.GestureRecognizers>
+                <StackLayout>
+                    <Label Text="Premium Membership" FontSize="16" TextColor="White" FontFamily="Trebuchet MS" Padding="0, 5, 0, 0"></Label>
+                    <Label Text="Upgrade for more features" FontSize="13" TextColor="White" Opacity="0.7" FontFamily="Trebuchet MS" Padding="0, -5, 0, 0"></Label>
+                </StackLayout>
+            </Frame>
+            <Grid Grid.Row="2" Padding="30, 0, 0, 0" RowSpacing="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="60"></RowDefinition>
+                    <RowDefinition Height="10"></RowDefinition>
+                    <RowDefinition Height="30"></RowDefinition>
+                    <RowDefinition Height="1"></RowDefinition>
+                    <RowDefinition Height="30"></RowDefinition>
+                    <RowDefinition Height="1"></RowDefinition>
+                    <RowDefinition Height="30"></RowDefinition>
+                    <RowDefinition Height="1"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Label Grid.Row="0" Text="Account" FontFamily="Bold" FontSize="18" TextColor="Black" VerticalOptions="End"></Label>
+                <Frame Padding="0" Grid.Row="2" BackgroundColor="#FFFFFF" HasShadow="False">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding NavToProfileCommand}"></TapGestureRecognizer>
+                    </Frame.GestureRecognizers>
+                    <StackLayout>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="30"></ColumnDefinition>
+                                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Image Grid.Column="0" Source="Profile.png" Margin="0, 7, 0, 0" HorizontalOptions="Center"></Image>
+                            <Label Grid.Column="1" Text="Profile" FontFamily="Bold" FontSize="16" Margin="0, 3, 0, 0" TextColor="Black" ></Label>
+                            <Image Grid.Column="2" Source="RightArrow.png" HorizontalOptions="End" Margin="0, 0, 20, 0" ></Image>
+                        </Grid>
+                    </StackLayout>
+                </Frame>
+                <BoxView Grid.Row="3" Color="#B3B3B3" Margin="-30, 0, 0 ,0"></BoxView>
+                <Frame Padding="0" Grid.Row="4" BackgroundColor="#FFFFFF" HasShadow="False" >
+                    <StackLayout >
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="30"></ColumnDefinition>
+                                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Image Grid.Column="0" Source="Lock.png" Margin="0, 7, 0, 0" HorizontalOptions="Center"></Image>
+                            <Label Grid.Column="1" Text="Other can view your profile" FontFamily="Bold" FontSize="16" Margin="0, 3, 0, 0" TextColor="Black" ></Label>
+                            <Switch Grid.Column="2" Scale="0.8" ThumbColor="Black" OnColor="#D9D9D9"></Switch>
+                        </Grid>
+                    </StackLayout>
+                </Frame>
+                <BoxView Grid.Row="5" Color="#B3B3B3" Margin="-30, 0, 0 ,0"></BoxView>
+                <BoxView Grid.Row="3" Color="#B3B3B3" Margin="-30, 0, 0 ,0"></BoxView>
+                <Frame Padding="0" Grid.Row="6" BackgroundColor="#FFFFFF" HasShadow="False" >
+                    <StackLayout >
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="30"></ColumnDefinition>
+                                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Image Grid.Column="0" Source="Eye.png" Margin="0, 7, 0, 0" HorizontalOptions="Center"></Image>
+                            <Label Grid.Column="1" Text="Friends can view your trips" FontFamily="Bold" FontSize="16" Margin="0, 3, 0, 0" TextColor="Black" ></Label>
+                            <Switch Grid.Column="2" Scale="0.8" ThumbColor="Black" OnColor="#D9D9D9"></Switch>
+                        </Grid>
+                    </StackLayout>
+                </Frame>
+                <BoxView Grid.Row="7" Color="#B3B3B3" Margin="-30, 0, 0 ,0"></BoxView>
+            </Grid>
+
+
+            <Grid Grid.Row="3" Padding="30, 0, 0, 0" RowSpacing="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="60"></RowDefinition>
+                    <RowDefinition Height="10"></RowDefinition>
+                    <RowDefinition Height="30"></RowDefinition>
+                    <RowDefinition Height="1"></RowDefinition>
+                    <RowDefinition Height="30"></RowDefinition>
+                    <RowDefinition Height="1"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Label Grid.Row="0" Text="More" FontFamily="Bold" FontSize="18" TextColor="Black" VerticalOptions="End"></Label>
+                <Frame Padding="0" Grid.Row="2" BackgroundColor="#FFFFFF" HasShadow="False" >
+
+                    <StackLayout >
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="30"></ColumnDefinition>
+                                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Image Grid.Column="0" Source="RateStar.png" Margin="0, 7, 0, 0" HorizontalOptions="Center"></Image>
+                            <Label Grid.Column="1" Text="Rate &amp; Review" FontFamily="Bold" FontSize="16" Margin="0, 3, 0, 0" TextColor="Black" ></Label>
+                            <Image Grid.Column="2" Source="RightArrow.png" HorizontalOptions="End" Margin="0, 0, 20, 0" ></Image>
+                        </Grid>
+                    </StackLayout>
+                </Frame>
+                <BoxView Grid.Row="3" Color="#B3B3B3" Margin="-30, 0, 0 ,0"></BoxView>
+                <Frame Padding="0" Grid.Row="4" BackgroundColor="#FFFFFF" HasShadow="False" >
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding NavToSupportCommand}"></TapGestureRecognizer>
+                    </Frame.GestureRecognizers>
+                    <StackLayout >
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="30"></ColumnDefinition>
+                                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Image Grid.Column="0" Source="Help.png" Margin="0, 7, 0, 0" HorizontalOptions="Center"></Image>
+                            <Label Grid.Column="1" Text="Help" FontFamily="Bold" FontSize="16" Margin="0, 3, 0, 0" TextColor="Black" ></Label>
+                            <Image Grid.Column="2" Source="RightArrow.png" HorizontalOptions="End" Margin="0, 0, 20, 0" ></Image>
+                        </Grid>
+                    </StackLayout>
+                </Frame>
+                <BoxView Grid.Row="5" Color="#B3B3B3" Margin="-30, 0, 0 ,0"></BoxView>
+            </Grid>
+        </Grid>
+        <BoxView Color="Transparent" VerticalOptions="FillAndExpand" />
+        <Label Text="Log out" VerticalOptions="End" HorizontalOptions="Center" Margin="0,0,0,15"></Label>
+    </StackLayout>
+</ContentPage>            

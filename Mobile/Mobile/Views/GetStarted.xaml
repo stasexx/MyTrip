@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"   
+             xmlns:local="clr-namespace:Mobile.Views"
+             x:Class="Mobile.Views.GetStarted">
+
+    <ContentPage.Content>
+
+       
+
+
+        <StackLayout BackgroundColor="#EEEEEE"
+                     VerticalOptions="FillAndExpand"
+                     HorizontalOptions="FillAndExpand"
+                     Padding="20"
+                     Spacing="-5">
+            
+            <Image Source="Resources/GetStart.png" Margin="0,100,0,-200"/>
+
+            <Label Text="Your adventure, your way"
+                   FontFamily="Trebuchet MS"
+                   FontSize="28"
+                   HorizontalOptions="CenterAndExpand"
+                   VerticalOptions="EndAndExpand"
+                   HorizontalTextAlignment="Center"
+                   VerticalTextAlignment="End"
+                   Margin="0,210,0,10" 
+                   TextColor="Black"/>
+
+            <Label Text="Book your next adventure with ease by browsing and booking from a wide selection of guided and self-guided tours. Ready to start exploring?"
+                   FontFamily="Trebuchet MS"
+                   FontSize="14"
+                   HorizontalOptions="CenterAndExpand"
+                   VerticalOptions="CenterAndExpand"
+                   HorizontalTextAlignment="Center"
+                   VerticalTextAlignment="Center"
+                   Margin="0,0,0,20"
+                   TextColor="Black"/>
+
+            <Button Text="Get Started"
+                    BackgroundColor="#F5B129"
+                    TextColor="White"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center"
+                    Margin="0,70,0,0"
+                    FontFamily="Trebuchet MS"
+                    FontSize="22"
+                    CornerRadius="25"
+                    Clicked="Button_Clicked"
+                    Padding="25,10,25,10"
+                    TextTransform="None"/>
+
+        </StackLayout>
+    </ContentPage.Content>
+
+
+</ContentPage>

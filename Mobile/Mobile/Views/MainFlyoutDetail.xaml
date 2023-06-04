@@ -1,0 +1,156 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:local="clr-namespace:Mobile.ViewModels"
+             x:Class="Mobile.Views.MainFlyoutDetail"
+             Title="Detail"
+             NavigationPage.HasNavigationBar="False"
+             BackgroundColor="#EEEEEE">
+    <RelativeLayout IsVisible="True">
+
+        <StackLayout Grid.Row="0" Padding="22,17,22,0" RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0}">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="36"></RowDefinition>
+                    <RowDefinition Height="1"></RowDefinition>
+                    <RowDefinition Height="44"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="0" >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="36" ></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="36"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <ImageButton Clicked="ShowFlyoutMenu" Source="Menu.png" Grid.Row="0" Grid.Column="0"></ImageButton>
+                    <ImageButton BackgroundColor="#EEEEEE" Source="Loop.png" Grid.Row="0" Grid.Column="2"></ImageButton>
+                    <Grid Grid.Column="1" HorizontalOptions="CenterAndExpand">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"></RowDefinition>
+                            <RowDefinition Height="15"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Label Text="Current location" Grid.Row="0" FontSize="12"></Label>
+                        <StackLayout Grid.Row="1" Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                            <ImageButton BackgroundColor="#EEEEEE" Source="LocationMark"></ImageButton>
+                            <Label Text="Kyiv" FontSize="13" ></Label>
+                        </StackLayout>
+                    </Grid>
+                </Grid>
+
+                <BoxView Grid.Row="1" Color="#A7A7A7" Margin="-22,0,-22,0"></BoxView>
+
+
+                <Grid Grid.Row="2">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="36"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <ImageButton Grid.Column="0" BackgroundColor="#EEEEEE" Source="Filter.png" Command="{Binding NavToFiltersCommand}"></ImageButton>
+                    <Grid Grid.Column="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="35"></RowDefinition>
+                            <RowDefinition Height="2"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Button Grid.Row="0" Grid.Column="0" BackgroundColor="#EEEEEE" FontFamily="Trebuchet MS" Text="Best" TextColor="{Binding ButtonBestTextColor}" TextTransform="None" Command="{Binding BestButtonCommand}"></Button>
+                        <Button Grid.Row="0" Grid.Column="1" BackgroundColor="#EEEEEE" FontFamily="Trebuchet MS" Text="Handmade" TextColor="{Binding ButtonHandTextColor}" TextTransform="None" Command="{Binding HandmadeButtonCommand}"></Button>
+                        <Button Grid.Row="0" Grid.Column="2" BackgroundColor="#EEEEEE" FontFamily="Trebuchet MS" Text="Official" TextColor="{Binding ButtonOffTextColor}" TextTransform="None" Command="{Binding OfficialButtonCommand}"></Button>
+
+                        <BoxView Grid.Row="1" Grid.Column="0" Color="{Binding BestBoxColor}" Margin="30,0,0,0" HorizontalOptions="StartAndExpand"></BoxView>
+                        <BoxView Grid.Row="1" Grid.Column="1" Color="{Binding HandBoxColor}" Margin="10,0,10,0"></BoxView>
+                        <BoxView Grid.Row="1" Grid.Column="2" Color="{Binding OffBoxColor}" Margin="30,0,0,0" HorizontalOptions="StartAndExpand"></BoxView>
+                    </Grid>
+                </Grid>
+
+                <Grid Grid.Row="3" Padding="-22,0,-22, 0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="170"></RowDefinition>
+                        <RowDefinition Height="430"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <BoxView Grid.Row="0" Color="#FFA800"></BoxView>
+                    <Label Margin="22,25,82,0" Text="Explore the best of the world" TextColor="White" FontSize="36" FontFamily="Trebuchet MS"></Label>
+                    <CollectionView Grid.Row="1" Margin="0,-60,0,0" ItemsSource="{Binding CombinedTours}" HorizontalOptions="Center">
+                        <CollectionView.ItemsLayout>
+                            <LinearItemsLayout Orientation="Vertical"></LinearItemsLayout>
+                        </CollectionView.ItemsLayout>
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <StackLayout Padding="0,20,0,0">
+                                    <Frame HeightRequest="230" WidthRequest="325" HorizontalOptions="Center" CornerRadius="10" Padding="0">
+                                        <Frame.GestureRecognizers>
+                                            <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type local:MainPageViewModel}}, Path=ItemSelectedCommand}" CommandParameter="{Binding .}"></TapGestureRecognizer>
+                                        </Frame.GestureRecognizers>
+                                    <StackLayout BackgroundColor="White">
+                                        <Grid>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="159"></RowDefinition>
+                                                <RowDefinition Height="15"></RowDefinition>
+                                                <RowDefinition Height="15"></RowDefinition>
+                                                <RowDefinition Height="*"></RowDefinition>
+                                                </Grid.RowDefinitions>
+                                            
+                                                <Image Aspect="Fill" Source="{Binding tour.mainPhoto}"></Image>
+                                            <Grid Grid.Row="0">
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                                    <ColumnDefinition Width="*"></ColumnDefinition>
+                                                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                                </Grid.ColumnDefinitions>
+                                                <BoxView Grid.Column="0" CornerRadius="10" HeightRequest="20" BackgroundColor="Black" Opacity="0.4" VerticalOptions="End" Margin="10, 0, 0, 9"></BoxView>
+                                                    <Label Text="$" Grid.Column="0" TextColor="White" VerticalOptions="End" Margin="15, 0, 0, 10"></Label>
+                                                    <Label Text="{Binding price}" Grid.Column="0" TextColor="White" VerticalOptions="End" Margin="25, 0, 8, 10"></Label>
+                                                <ImageButton Grid.Column="2" Source="Like.png" VerticalOptions="End" BackgroundColor="Transparent" Margin="0, 0, 4, 8"></ImageButton>
+                                            </Grid>
+                                            <Label Grid.Row="1" Text="{Binding tour.name}" TextColor="Black" FontSize="14" FontFamily="Trebuchet MS" Margin="17, 0, 0, 0" VerticalOptions="End"></Label>
+                                            <Label Grid.Row="2" Text="{Binding tour.destination}" TextColor="#666666" FontSize="10" FontFamily="Trebuchet MS" Margin="17, 0, 0, 0" VerticalOptions="End"></Label>
+                                                <Grid Grid.Row="3">
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                                        <ColumnDefinition Width="*"></ColumnDefinition>
+                                                    </Grid.ColumnDefinitions>
+                                                    <StackLayout Grid.Column="0" Orientation="Horizontal" Margin="17,0,0,0">
+                                                        <Image Source="{Binding tour.rateImage}" Grid.Row="3" ></Image>
+                                                    </StackLayout>
+                                                    <Label Grid.Column="1" Text="935 reviews" TextColor="#666666" FontSize="11" HorizontalOptions="End" Margin="0,0,15,0"></Label>
+                                                </Grid>
+                                            </Grid>
+                                    </StackLayout>
+                                </Frame>
+                                </StackLayout>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </Grid>
+            </Grid>
+        </StackLayout>
+            <StackLayout RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0.7}" 
+                     RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width}"
+                     RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0.92}">
+                <Frame HeightRequest="70" CornerRadius="10"  Padding="0">
+                    <StackLayout Orientation="Horizontal">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="89"></ColumnDefinition>
+                                <ColumnDefinition Width="1"></ColumnDefinition>
+                                <ColumnDefinition Width="89"></ColumnDefinition>
+                                <ColumnDefinition Width="1"></ColumnDefinition>
+                                <ColumnDefinition Width="89"></ColumnDefinition>
+                                <ColumnDefinition Width="1"></ColumnDefinition>
+                                <ColumnDefinition Width="89"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <ImageButton BackgroundColor="Transparent" Grid.Column="0" Source="Home.png" HorizontalOptions="Center" VerticalOptions="Center"></ImageButton>
+                            <BoxView Color="Black" Grid.Column="1" Opacity="0.5" HorizontalOptions="Center" VerticalOptions="Center"></BoxView>
+                            <ImageButton BackgroundColor="Transparent" Grid.Column="2" Source="Liked.png" HorizontalOptions="Center" VerticalOptions="Center"></ImageButton>
+                            <BoxView Color="Black" Grid.Column="3" Opacity="0.5" HorizontalOptions="Center" VerticalOptions="Center"></BoxView>
+                            <ImageButton BackgroundColor="Transparent" Grid.Column="4" Source="Social.png" HorizontalOptions="Center" VerticalOptions="Center"></ImageButton>
+                            <BoxView Color="Black" Grid.Column="5" Opacity="0.5" HorizontalOptions="Center" VerticalOptions="Center"></BoxView>
+                            <ImageButton BackgroundColor="Transparent" Grid.Column="6" Source="Premium.png" HorizontalOptions="Center" VerticalOptions="Center"></ImageButton>
+                        </Grid>
+                    </StackLayout>
+                </Frame>
+            </StackLayout>
+    </RelativeLayout>
+</ContentPage>

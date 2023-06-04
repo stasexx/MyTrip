@@ -1,0 +1,177 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Mobile.Views.Filter"
+             BackgroundColor="#FEFEFE"
+             x:Name="FiltersPage">
+    <ContentPage.Content>
+        <ScrollView>
+            <Grid Margin="20, 0, 0, 0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="60"></RowDefinition>
+                    <RowDefinition Height="30"></RowDefinition>
+                    <RowDefinition Height="40"></RowDefinition>
+                    <RowDefinition Height="1"></RowDefinition>
+                    <RowDefinition Height="30"></RowDefinition>
+                    <RowDefinition Height="40"></RowDefinition>
+                    <RowDefinition Height="1"></RowDefinition>
+                    <RowDefinition Height="30"></RowDefinition>
+                    <RowDefinition Height="40"></RowDefinition>
+                    <RowDefinition Height="1"></RowDefinition>
+                    <RowDefinition Height="30"></RowDefinition>
+                    <RowDefinition Height="40"></RowDefinition>
+                    <RowDefinition Height="1"></RowDefinition>
+                    <RowDefinition Height="30"></RowDefinition>
+                    <RowDefinition Height="40"></RowDefinition>
+                    <RowDefinition Height="1"></RowDefinition>
+                    <RowDefinition Height="30"></RowDefinition>
+                    <RowDefinition Height="40"></RowDefinition>
+                    <RowDefinition Height="1"></RowDefinition>
+                    <RowDefinition Height="30"></RowDefinition>
+                    <RowDefinition Height="40"></RowDefinition>
+                    <RowDefinition Height="60"></RowDefinition>
+                </Grid.RowDefinitions>
+                <ImageButton Grid.Row="0" HorizontalOptions="Start" VerticalOptions="Center" Source="LeftArrow" BackgroundColor="Transparent" Command="{Binding NavToMainCommand}"></ImageButton>
+                <Label Grid.Row="0" HorizontalOptions="Center" VerticalOptions="Center" Text="Filters"  FontSize="24" FontFamily="Trebuchet MS" TextColor="Black" Margin="-20, 0, 0, 0"></Label>
+                <Label Grid.Row="0" HorizontalOptions="End" VerticalOptions="Center" Text="Reset" FontSize="16" FontFamily="Trebuchet MS" TextColor="Black" Margin="0, 0, 20, 0"></Label>
+
+                <Label Grid.Row="1" Text="Departure" VerticalOptions="End" FontSize="20" FontFamily="Trebuchet MS" TextColor="Black" ></Label>
+                <CollectionView ItemsSource="{Binding Departures}" Grid.Row="2">
+                    <CollectionView.ItemsLayout>
+                        <LinearItemsLayout Orientation="Horizontal"></LinearItemsLayout>
+                    </CollectionView.ItemsLayout>
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                    <ColumnDefinition Width="5"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <Button Grid.Column="0" Text="{Binding}" TextTransform="None"  TextColor="Black" BorderWidth="1" BorderColor="Black" CornerRadius="20" BackgroundColor="#FEFEFE"></Button>
+                                <BoxView Grid.Column="1"></BoxView>
+                            </Grid>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+
+                <BoxView Grid.Row="3" Color="#B3B3B3" Margin="-20, 0, 0 ,0"></BoxView>
+
+                <Label Grid.Row="4" Text="Destination" VerticalOptions="End" FontSize="20" FontFamily="Trebuchet MS" TextColor="Black" ></Label>
+                <CollectionView ItemsSource="{Binding CombinedTours}" Grid.Row="5">
+                    <CollectionView.ItemsLayout>
+                        <LinearItemsLayout Orientation="Horizontal"></LinearItemsLayout>
+                    </CollectionView.ItemsLayout>
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                    <ColumnDefinition Width="5"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <Button Grid.Column="0" Text="{Binding tour.name}" TextTransform="None" BorderWidth="1" BorderColor="Black" CornerRadius="20" BackgroundColor="#FEFEFE"></Button>
+                                <BoxView Grid.Column="1"></BoxView>
+                            </Grid>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+
+                <BoxView Grid.Row="6" Color="#B3B3B3" Margin="-10, 0, 0 ,0"></BoxView>
+
+                <Label Grid.Row="7" Text="Type" VerticalOptions="End" FontSize="20" FontFamily="Trebuchet MS" TextColor="Black" ></Label>
+                <CollectionView ItemsSource="{Binding Types}" Grid.Row="8">
+                    <CollectionView.ItemsLayout>
+                        <LinearItemsLayout Orientation="Horizontal"></LinearItemsLayout>
+                    </CollectionView.ItemsLayout>
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                    <ColumnDefinition Width="5"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <Button Grid.Column="0" Text="{Binding}" TextTransform="None" BorderWidth="1" BorderColor="Black" CornerRadius="20" BackgroundColor="#FEFEFE"></Button>
+                                <BoxView Grid.Column="1"></BoxView>
+                            </Grid>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+
+                <BoxView Grid.Row="9" Color="#B3B3B3" Margin="-10, 0, 0 ,0"></BoxView>
+
+                <Label Grid.Row="10" Text="Price Range" VerticalOptions="End" FontSize="20" FontFamily="Trebuchet MS" TextColor="Black" ></Label>
+                <Grid Grid.Row="11" Padding="20, 0, 0, 0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="140"></ColumnDefinition>
+                        <ColumnDefinition Width="20"></ColumnDefinition>
+                        <ColumnDefinition Width="140"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Frame Padding="20, 0, 20, 0" Grid.Column="0" BorderColor="Black" CornerRadius="20">
+                        <Entry Placeholder="From" HorizontalTextAlignment="Center"></Entry>
+                    </Frame>
+                    <Grid Grid.Column="1">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="13"></RowDefinition>
+                            <RowDefinition Height="2"></RowDefinition>
+                            <RowDefinition Height="13"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <BoxView Grid.Row="1" Color="Black" HorizontalOptions="Center" VerticalOptions="Center"></BoxView>
+                    </Grid>
+                    <Frame Padding="20, 0, 20, 0" Margin="0, 0, 0, 0" Grid.Column="2" BorderColor="Black" CornerRadius="20">
+                        <Entry Placeholder="To" HorizontalTextAlignment="Center"></Entry>
+                    </Frame>
+                </Grid>
+
+                <BoxView Grid.Row="12" Color="#B3B3B3" Margin="-10, 0, 0 ,0"></BoxView>
+
+                <Label Grid.Row="13" Text="Review" HorizontalOptions="Center" FontSize="20" FontFamily="Trebuchet MS" TextColor="Black" Margin="-20, 0, 0, 0"></Label>
+                <Grid Grid.Row="14" Padding="20, 0, 0, 0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="140"></ColumnDefinition>
+                        <ColumnDefinition Width="20"></ColumnDefinition>
+                        <ColumnDefinition Width="140"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Button Padding="20, 0, 20, 0" Grid.Column="0" BorderWidth="1" BorderColor="Black" CornerRadius="20" BackgroundColor="#FEFEFE"  Text="From low" TextTransform="None" FontSize="16"></Button>
+                    <Button Padding="20, 0, 20, 0" Grid.Column="2" BorderWidth="1" BorderColor="Black" CornerRadius="20" BackgroundColor="#FEFEFE"  Text="From high" TextTransform="None" FontSize="16"></Button>
+                </Grid>
+
+                <BoxView Grid.Row="15" Color="#B3B3B3" Margin="-10, 0, 0 ,0"></BoxView>
+
+                <Label Grid.Row="16" Text="Price" HorizontalOptions="Center" FontSize="20" FontFamily="Trebuchet MS" TextColor="Black" Margin="-20, 0, 0, 0"></Label>
+                <Grid Grid.Row="17" Padding="20, 0, 0, 0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="140"></ColumnDefinition>
+                        <ColumnDefinition Width="20"></ColumnDefinition>
+                        <ColumnDefinition Width="140"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Button Padding="20, 0, 20, 0" Grid.Column="0" BorderWidth="1" BorderColor="Black" CornerRadius="20" BackgroundColor="#FEFEFE"  Text="From low" TextTransform="None" FontSize="16"></Button>
+                    <Button Padding="20, 0, 20, 0" Grid.Column="2" BorderWidth="1" BorderColor="Black" CornerRadius="20" BackgroundColor="#FEFEFE"  Text="From high" TextTransform="None" FontSize="16"></Button>
+                </Grid>
+
+                <BoxView Grid.Row="18" Color="#B3B3B3" Margin="-10, 0, 0 ,0"></BoxView>
+
+                <Label Grid.Row="19" Text="Tour Date" HorizontalOptions="Center" FontSize="20" FontFamily="Trebuchet MS" TextColor="Black" Margin="-20, 0, 0, 0"></Label>
+                <Grid Grid.Row="20" Padding="10, 0, 0, 0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="150"></ColumnDefinition>
+                        <ColumnDefinition Width="20"></ColumnDefinition>
+                        <ColumnDefinition Width="150"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Frame Padding="20, 0, 20, 0" Grid.Column="0" BorderColor="Black" CornerRadius="20">
+                        <DatePicker Format="dd/MM/yyyy" HorizontalOptions="Center" ></DatePicker>
+                    </Frame>
+                    <Grid Grid.Column="1">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="13"></RowDefinition>
+                            <RowDefinition Height="2"></RowDefinition>
+                            <RowDefinition Height="13"></RowDefinition>
+                        </Grid.RowDefinitions>
+                    </Grid>
+                    <Frame Padding="20, 0, 20, 0" Grid.Column="2" BorderColor="Black" CornerRadius="20">
+                        <DatePicker Format="dd/MM/yyyy" HorizontalOptions="Center" ></DatePicker>
+                    </Frame>
+                </Grid>
+                <Button Grid.Row="21" Margin="-20, 0, 0, 0" HorizontalOptions="Center" Text="Apply" TextTransform="None" BackgroundColor="#FFA800" CornerRadius="10" VerticalOptions="End" HeightRequest="40" WidthRequest="120"></Button>
+            </Grid>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

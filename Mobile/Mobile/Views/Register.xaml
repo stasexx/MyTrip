@@ -1,0 +1,104 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:Mobile.Views"
+             x:Class="Mobile.Views.Register">
+    <ContentPage.Content>
+        <StackLayout BackgroundColor="#EEEEEE" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="150"></RowDefinition>
+                    <RowDefinition Height="40"></RowDefinition>
+                    <RowDefinition Height="20"></RowDefinition>
+                    <RowDefinition Height="320" ></RowDefinition>
+                    <RowDefinition Height="41" ></RowDefinition>
+                    <RowDefinition Height="50" ></RowDefinition>
+                    <RowDefinition Height="10" ></RowDefinition>
+                    <RowDefinition Height="60" ></RowDefinition>
+                    <RowDefinition Height="*" ></RowDefinition>
+                </Grid.RowDefinitions>
+
+                <Path Fill="#FFA800" Opacity="0.6" Data="M16.75 135.5C58.1714 135.5 91.75 101.921 91.75 60.5C91.75 35.966 79.9699 14.1834 61.7573 0.5H0.25L0.25 133.679C5.55912 134.871 11.0811 135.5 16.75 135.5Z"></Path>
+                <Path Fill="#FFA800" Opacity="0.6" WidthRequest="10" Data="M72 77.25C111.35 77.25 143.25 45.3503 143.25 6C143.25 4.23426 143.186 2.48353 143.06 0.75L0.940483 0.75C0.814231 2.48353 0.75 4.23426 0.75 6C0.75 45.3503 32.6497 77.25 72 77.25Z"></Path>
+
+                <Label Grid.Row="1" Text="Welcome to MyTrip!"
+                   FontFamily="Trebuchet MS"
+                   FontSize="28"
+                   TextColor="Black"
+                   HorizontalOptions="Center"
+                   VerticalOptions="End"
+                   HorizontalTextAlignment="Center">
+                </Label>
+
+                <StackLayout Grid.Row="3" Spacing="10" HorizontalOptions="FillAndExpand" Padding="20">
+
+                    <Frame BackgroundColor="White" CornerRadius="15" Padding="5" Margin="0,0,0,0" HeightRequest="40">
+                        <Entry Placeholder="   Enter your First Name" Text="{Binding login.FirstName}" PlaceholderColor="#808080" FontSize="15"/>
+                    </Frame>
+                    <Frame BackgroundColor="White" CornerRadius="15" Padding="5" Margin="0,0,0,0" HeightRequest="40">
+                        <Entry Placeholder="   Enter your Second Name" Text="{Binding login.LastName}" PlaceholderColor="#808080" FontSize="15"/>
+                    </Frame>
+                    <Frame BackgroundColor="White" CornerRadius="15" Padding="5" Margin="0,0,0,0" HeightRequest="40">
+                        <Entry Placeholder="   Enter your Email" Text="{Binding login.Email}" PlaceholderColor="#808080" FontSize="15" />
+                    </Frame>
+                    <Frame BackgroundColor="White" CornerRadius="15" Padding="5" Margin="0,0,0,0" HeightRequest="40">
+                        <Entry Placeholder="   Enter your password" Text="{Binding login.Password}" PlaceholderColor="#808080" FontSize="15" IsPassword="True"/>
+                    </Frame>
+                    <Frame BackgroundColor="White" CornerRadius="15" Padding="5" Margin="0,0,0,20" HeightRequest="40">
+                        <Entry Placeholder="   Confirm password" Text="{Binding login.ConfirmPassword}" PlaceholderColor="#808080" FontSize="15" IsPassword="True"/>
+                    </Frame>
+                </StackLayout>
+
+
+                <StackLayout Grid.Row="4" Orientation="Horizontal" HorizontalOptions="CenterAndExpand" Margin="0,0,0,10">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"></ColumnDefinition>
+                            <ColumnDefinition Width="70"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Grid Grid.Column="0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="10"></RowDefinition>
+                                <RowDefinition Height="1"></RowDefinition>
+                                <RowDefinition Height="10"></RowDefinition>
+                            </Grid.RowDefinitions>
+
+                            <BoxView Grid.Row="1" BackgroundColor="#949494" WidthRequest="120" HeightRequest="1" VerticalOptions="Center" />
+                        </Grid>
+
+                        <Label Grid.Column="1" Text="or" FontFamily="Trebuchet MS" FontSize="18" HorizontalOptions="Center" VerticalOptions="Center" TextColor="#949494" />
+
+                        <Grid Grid.Column="2">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="10"></RowDefinition>
+                                <RowDefinition Height="1"></RowDefinition>
+                                <RowDefinition Height="10"></RowDefinition>
+                            </Grid.RowDefinitions>
+
+                            <BoxView Grid.Row="1" BackgroundColor="#949494" WidthRequest="120" HeightRequest="1" VerticalOptions="Center" />
+                        </Grid>
+                    </Grid>
+                </StackLayout>
+
+                <Button Grid.Row="5" Text="Continue with Google" ImageSource="Google.png" Padding="70, 0, 70, 0" FontSize="18" BorderColor="Black" BorderWidth="1" BackgroundColor="#EEEBE4" TextColor="Black" HorizontalOptions="FillAndExpand" Margin="20,0,20,0" CornerRadius="25" TextTransform="None"/>
+
+
+                <Button Grid.Row="7" BackgroundColor="#F5B129" CornerRadius="50" Text="Register" TextColor="White" TextTransform="None" FontSize="24" HorizontalOptions="Center" WidthRequest="230" Command="{Binding RegisterCommand}"></Button>
+
+                <StackLayout Grid.Row="8" Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="End">
+                    <Label Text="Don’t have an account?" FontFamily="Trebuchet MS" FontSize="14" HorizontalOptions="End" VerticalOptions="Center"  TextColor="Black"/>
+
+                    <Label Text="Sign in" TextColor="#F5B129" FontSize="14" HorizontalOptions="Center" TextDecorations="Underline">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding SignInButtonCommand}" />
+                        </Label.GestureRecognizers>
+                    </Label>
+                </StackLayout>
+            </Grid>
+
+        </StackLayout>
+    </ContentPage.Content>
+
+</ContentPage>
