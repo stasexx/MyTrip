@@ -6,7 +6,7 @@ namespace Mobile.Models
 {
     public class User
     {
-
+        public int UserId { get; set; }
         public string Password { get; set; }
 
         public string Login { get; set; }
@@ -36,5 +36,13 @@ namespace Mobile.Models
         public bool IsBanned { get; set; }
 
         public DateTime RegDate { get; set; }
+        private int level;
+        public int Level {
+            get { return level; }
+            set
+            {
+                level = Expirience % 100;
+            }
+        }
     }
 }

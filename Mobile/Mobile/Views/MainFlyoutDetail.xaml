@@ -80,6 +80,9 @@
                             <DataTemplate>
                                 <StackLayout Padding="0,20,0,0">
                                     <Frame HeightRequest="230" WidthRequest="325" HorizontalOptions="Center" CornerRadius="10" Padding="0">
+                                        <Frame.GestureRecognizers>
+                                            <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type local:MainPageViewModel}}, Path=ItemSelectedCommand}" CommandParameter="{Binding .}"></TapGestureRecognizer>
+                                        </Frame.GestureRecognizers>
                                     <StackLayout BackgroundColor="White">
                                         <Grid>
                                             <Grid.RowDefinitions>
@@ -88,7 +91,8 @@
                                                 <RowDefinition Height="15"></RowDefinition>
                                                 <RowDefinition Height="*"></RowDefinition>
                                                 </Grid.RowDefinitions>
-                                            <Image Source="Tour1.png"></Image>
+                                            
+                                                <Image Aspect="Fill" Source="{Binding tour.mainPhoto}"></Image>
                                             <Grid Grid.Row="0">
                                                 <Grid.ColumnDefinitions>
                                                     <ColumnDefinition Width="Auto"></ColumnDefinition>

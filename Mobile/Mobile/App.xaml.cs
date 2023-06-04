@@ -3,6 +3,8 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using Mobile.Views;
 using Mobile.MobileServices;
+using Xamarin.Essentials;
+using System.Net.Http.Headers;
 
 namespace Mobile
 {
@@ -13,18 +15,20 @@ namespace Mobile
         {
             InitializeComponent();
 
-            //MainPage = new MainPage();
-            //MainPage = new MainFlyout();
+            //bool isFirsRun = !Preferences.ContainsKey("isFirstRun");
 
-            //MainPage = new NavigationPage(new Views.GetStarted());
+            //if (isFirsRun)
+            //{
+            //    MainPage = new GetStarted();
+            //    Preferences.Set("isFirstRun", false);
+            //}
+            //else
+            //{
+            //    MainPage = new SignIn();
 
-            //MainPage = new NavigationPage(new Views.SignIn());
+            //}
+            MainPage = new GetStarted();
 
-            //MainPage = new NavigationPage(new Views.Register());
-
-            //MainPage = new NavigationPage(new Views.Profile());
-
-            MainPage = new NavigationPage(new Views.Tour());
         }
 
         protected override void OnStart()

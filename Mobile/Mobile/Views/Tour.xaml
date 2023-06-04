@@ -8,82 +8,60 @@
     <Grid>
         <ScrollView>
         <StackLayout>
-            <Image Source="TourPic.png"
-           Aspect="AspectFill"
-           HeightRequest="240"
-           VerticalOptions="Start"
-           Grid.Row="0" />
-
-        
-            <Frame CornerRadius="10"
-                   BackgroundColor="White"
-                   WidthRequest="320"
-                   HorizontalOptions="Center"
-                   VerticalOptions="End"
-                   Padding="10"
-                   Margin="0,-40,0,0"
-                   Grid.Row="0">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="240"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Image Source="{Binding OrgTour.tour.mainPhoto}" Aspect="AspectFill" HeightRequest="240" VerticalOptions="Start" Grid.Row="0" />
+                    <Frame Padding="0" HeightRequest="40" WidthRequest="40"  Grid.Row="0" HorizontalOptions="Start" VerticalOptions="Start" Margin="15" CornerRadius="40" BackgroundColor="Black" Opacity="0.4">
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding NavToMainCommand}"></TapGestureRecognizer>
+                        </Frame.GestureRecognizers>
+                        <Image Grid.Row="0" Source="WhiteLeftArrow.png" HorizontalOptions="Center" Margin="8, 0, 0, 0" VerticalOptions="Center" Scale="1.3"></Image>
+                    </Frame>
+                    
+                    <Frame Padding="0, 0, 0, 0" Margin="0, 15, 15, 0" HeightRequest="40" WidthRequest="40"  Grid.Row="0" HorizontalOptions="End" VerticalOptions="Start"  CornerRadius="40" BackgroundColor="Black" Opacity="0.4">
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding ShareCommand}"></TapGestureRecognizer>
+                        </Frame.GestureRecognizers>
+                        <Image Grid.Row="0" Source="Share.png" HorizontalOptions="Center" Margin="4, 0, 0, 0" VerticalOptions="Center" Scale="1.3"></Image>
+                    </Frame>
+                </Grid>
+  
+            <Frame CornerRadius="10" BackgroundColor="White" WidthRequest="320" HorizontalOptions="Center" VerticalOptions="End" Padding="10" Margin="0,-40,0,0" Grid.Row="0">
 
 
                 <StackLayout>
                 <StackLayout Orientation="Horizontal">
-                    <Label Text="$"
-                       FontSize="20"
-                       FontAttributes="Bold"
-                       TextColor="Black" 
-                           FontFamily="Trebuchet MS"/>
-                    <Label Text="{Binding Tour.Price}"
-                       FontSize="20"
-                       FontAttributes="Bold"
-                       TextColor="Black" 
-                           FontFamily="Trebuchet MS"/>
+                    <Label Text="$" FontSize="20" FontAttributes="Bold" TextColor="Black"  FontFamily="Trebuchet MS"/>
+                    <Label Text="{Binding OrgTour.price}" FontSize="20" FontAttributes="Bold" TextColor="Black" FontFamily="Trebuchet MS"/>
                 </StackLayout>
 
-                <Label Text="{Binding Tour.Name}"
-                   FontSize="18"
-                   FontAttributes="Bold"
-                   TextColor="Black"
-                   Margin="0,5,0,0"
-                       FontFamily="Trebuchet MS"/>
+                <Label Text="{Binding OrgTour.tour.name}" FontAttributes="Bold" FontSize="20" TextColor="Black" Margin="0,0,0,0" FontFamily="Trebuchet MS"/>
 
-                <Label Text="{Binding Tour.Destination}"
-                   FontSize="14"
-                   TextColor="#666666"
-                   Margin="0,5,0,0" 
-                       FontFamily="Trebuchet MS"/>
+                <Label Text="{Binding OrgTour.tour.destination}" FontSize="14" TextColor="#666666" Margin="0,0,0,0" FontFamily="Trebuchet MS"/>
+                    
+                <Image Source="{Binding OrgTour.tour.rateImage}" HorizontalOptions="Start"></Image>
 
-                <Button Text="Book Now"
-                    FontSize="14"
-                    TextColor="White"
-                    BackgroundColor="#F5B129"
-                    HorizontalOptions="Center"
-                    WidthRequest="3600"
-                    Margin="0,10,0,40" 
-                    FontFamily="Trebuchet MS"/>
+                <Button Text="Book Now"  FontSize="18"  TextColor="White" BackgroundColor="#F5B129" HorizontalOptions="Center" WidthRequest="3600" Margin="0,10,0,40" FontFamily="Trebuchet MS"/>
 
-                <!-- Другие элементы интерфейса -->
-
-                
-
-                <!-- Данные о туре -->
 
                 <StackLayout>
                     <Grid>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="Auto" />
                             <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
                         </Grid.ColumnDefinitions>
 
-                        <Label Text="Start:"
-                           FontSize="14"
-                           TextColor="Black" 
-                               FontFamily="Trebuchet MS"/>
+                        <Label Text="Start:"  FontSize="18" TextColor="Black"   FontFamily="Trebuchet MS"/>
 
-                        <Label Text="{Binding Tour.StartDate}"
-                           FontSize="14"
-                           TextColor="Black"
-                           Grid.Column="1" 
-                               FontFamily="Trebuchet MS"/>
+                        <Label Text="{Binding OrgTour.tour.startDateNoTime}" FontSize="18" TextColor="Black" Grid.Column="1" FontFamily="Trebuchet MS"/>
+                        <Label Text="+" Grid.Column="2" FontSize="16" HorizontalOptions="End" TextColor="Black"></Label>
+                        <Label Text="{Binding OrgTour.experience}" Grid.Column="3" FontSize="16" TextColor="Black"></Label>
+                        <Label Text="Exp" Grid.Column="4" FontSize="16" TextColor="Black"></Label>
                     </Grid>
                     
                     <Grid>
@@ -92,16 +70,9 @@
                             <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
 
-                        <Label Text="End:"
-                           FontSize="14"
-                           TextColor="Black" 
-                               FontFamily="Trebuchet MS"/>
+                        <Label Text="End:" FontSize="18" TextColor="Black"  FontFamily="Trebuchet MS"/>
 
-                        <Label Text="{Binding Tour.EndDate}"
-                           FontSize="14"
-                           TextColor="Black"
-                           Grid.Column="1" 
-                               FontFamily="Trebuchet MS"/>
+                        <Label Text="{Binding OrgTour.tour.EndDateNoTime}" FontSize="18" TextColor="Black" Grid.Column="1" FontFamily="Trebuchet MS"/>
                     </Grid>
                     
                     <Grid>
@@ -110,16 +81,9 @@
                             <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
 
-                        <Label Text="Type:"
-                           FontSize="14"
-                           TextColor="Black" 
-                               FontFamily="Trebuchet MS"/>
+                        <Label Text="Type:" FontSize="18" TextColor="Black"  FontFamily="Trebuchet MS"/>
 
-                        <Label Text="{Binding Tour.Category}"
-                           FontSize="14"
-                           TextColor="Black"
-                           Grid.Column="1" 
-                               FontFamily="Trebuchet MS"/>
+                        <Label Text="{Binding OrgTour.tour.category}"  FontSize="18" TextColor="Black" Grid.Column="1" FontFamily="Trebuchet MS"/>
                     </Grid>
                     
                     <Grid>
@@ -128,16 +92,9 @@
                             <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
 
-                        <Label Text="Departure:"
-                           FontSize="14"
-                           TextColor="Black" 
-                               FontFamily="Trebuchet MS"/>
+                        <Label Text="Departure:" FontSize="18" TextColor="Black"  FontFamily="Trebuchet MS"/>
 
-                        <Label Text="{Binding Tour.placeOfDeparture}"
-                           FontSize="14"
-                           TextColor="Black"
-                           Grid.Column="1" 
-                               FontFamily="Trebuchet MS"/>
+                        <Label Text="{Binding OrgTour.tour.placeOfDeparture}" FontSize="18" TextColor="Black" Grid.Column="1" FontFamily="Trebuchet MS"/>
                     </Grid>
                     
                     <Grid>
@@ -146,16 +103,9 @@
                             <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
 
-                        <Label Text="Contact: "
-                           FontSize="14"
-                           TextColor="Black" 
-                               FontFamily="Trebuchet MS"/>
+                        <Label Text="Contact: " FontSize="18" TextColor="Black"  FontFamily="Trebuchet MS"/>
 
-                        <Label Text="{Binding Tour.Contact}"
-                           FontSize="14"
-                           TextColor="Black"
-                           Grid.Column="1" 
-                               FontFamily="Trebuchet MS"/>
+                        <Label Text="{Binding OrgTour.user.PhoneNumber}" FontSize="18" TextColor="Black" Grid.Column="1"  FontFamily="Trebuchet MS"/>
                     </Grid>
                     
                     <Grid>
@@ -164,124 +114,84 @@
                             <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
 
-                        <Label Text="Email:"
-                           FontSize="14"
-                           TextColor="Black" 
-                               FontFamily="Trebuchet MS"/>
+                        <Label Text="Email:" FontSize="18" TextColor="Black"  FontFamily="Trebuchet MS"/>
 
-                        <Label Text="{Binding Tour.Email}"
-                           FontSize="14"
-                           TextColor="Black"
-                           Grid.Column="1" 
-                               FontFamily="Trebuchet MS"/>
+                        <Label Text="{Binding OrgTour.user.Email}" FontSize="18" TextColor="Black" Grid.Column="1"  FontFamily="Trebuchet MS"/>
                     </Grid>
 
-                    <!-- Другие элементы интерфейса -->
 
                 </StackLayout>
 
-                
-
-                <!-- Переходы на другие страницы -->
-
-                <StackLayout>
-                    <Grid VerticalOptions="CenterAndExpand"
-          Margin="0,10,0,0">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="Auto" />
-                            <ColumnDefinition Width="*" />
-                        </Grid.ColumnDefinitions>
-
-                        <Image Source="MapIcon.png"
-               HeightRequest="20"
-               WidthRequest="20"
-               VerticalOptions="Center"
-               Margin="0,0,5,0" />
-
-                        <Label Text="Views in Maps"
-               FontSize="14"
-               TextColor="Black"
                
-               Grid.Column="1">
-                            
-                            <Label.GestureRecognizers>
-                                <TapGestureRecognizer Command="{Binding GoToNewPageCommand}" />
-                            </Label.GestureRecognizers>
-                        </Label>
-                    </Grid>
-
-                    <!-- Другие элементы интерфейса -->
-
-                </StackLayout>
-
-
-                <BoxView Color="#EEE"
-                     HeightRequest="1"
-                     Margin="0,10,0,0" />
-
 
                 <StackLayout>
-                    <Grid VerticalOptions="CenterAndExpand"
-          Margin="0,10,0,0">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="Auto" />
-                            <ColumnDefinition Width="*" />
-                        </Grid.ColumnDefinitions>
+                            <Grid VerticalOptions="CenterAndExpand" Margin="0,30,0,0">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="30"></RowDefinition>
+                                    <RowDefinition Height="1"></RowDefinition>
+                                    <RowDefinition Height="30"></RowDefinition>
+                                    <RowDefinition Height="1"></RowDefinition>
+                                    <RowDefinition Height="30"></RowDefinition>
+                                    <RowDefinition Height="1"></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <Frame Padding="0" Grid.Row="0" BackgroundColor="#FFFFFF" HasShadow="False">
+                                    <Frame.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding NavToMapCommand}"></TapGestureRecognizer>
+                                    </Frame.GestureRecognizers>
+                                    <StackLayout>
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="30"></ColumnDefinition>
+                                                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                            </Grid.ColumnDefinitions>
+                                            <Image Grid.Column="0" Source="MapIcon.png" Scale="0.7" HorizontalOptions="Center" VerticalOptions="Center"></Image>
+                                            <Label Grid.Column="1" Text="View in Maps" FontFamily="Bold" FontSize="16" Margin="0, 3, 0, 0" TextColor="Black" ></Label>
+                                            <Image Grid.Column="2" Source="RightArrow.png" HorizontalOptions="End" Margin="0, 0, 20, 0" ></Image>
+                                        </Grid>
+                                    </StackLayout>
+                                </Frame>
+                                <BoxView Grid.Row="1" Color="#B3B3B3" Margin="-30, 0, 0 ,0"></BoxView>
 
-                        <Image Source="DisIcon.png"
-               HeightRequest="20"
-               WidthRequest="20"
-               VerticalOptions="Center"
-               Margin="0,0,5,0" />
+                                <Frame Padding="0" Grid.Row="2" BackgroundColor="#FFFFFF" HasShadow="False">
+                                    <Frame.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding NavToDetailCommand}"></TapGestureRecognizer>
+                                    </Frame.GestureRecognizers>
+                                    <StackLayout>
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="30"></ColumnDefinition>
+                                                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                            </Grid.ColumnDefinitions>
+                                            <Image Grid.Column="0" Source="DisIcon.png" Scale="0.7" HorizontalOptions="Center" VerticalOptions="Center"></Image>
+                                            <Label Grid.Column="1" Text="Details" FontFamily="Bold" FontSize="16" Margin="0, 3, 0, 0" TextColor="Black" ></Label>
+                                            <Image Grid.Column="2" Source="RightArrow.png" HorizontalOptions="End" Margin="0, 0, 20, 0" ></Image>
+                                        </Grid>
+                                    </StackLayout>
+                                </Frame>
+                                <BoxView Grid.Row="3" Color="#B3B3B3" Margin="-30, 0, 0 ,0"></BoxView>
 
-                        <Label Text="Ditails"
-               FontSize="14"
-               TextColor="Black"
-               
-               Grid.Column="1">
-                            <Label.GestureRecognizers>
-                                <TapGestureRecognizer Command="{Binding GoToNewPageCommand}" />
-                            </Label.GestureRecognizers>
-                        </Label>
-                    </Grid>
-
-                    <!-- Другие элементы интерфейса -->
-
-                </StackLayout>
-                
-                
-                <BoxView Color="#EEE"
-                     HeightRequest="1"
-                     Margin="0,10,0,0" />
-                
-                <StackLayout>
-                    <Grid VerticalOptions="CenterAndExpand"
-          Margin="0,10,0,0">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="Auto" />
-                            <ColumnDefinition Width="*" />
-                        </Grid.ColumnDefinitions>
-
-                        <Image Source="RewIcon.png"
-               HeightRequest="20"
-               WidthRequest="20"
-               VerticalOptions="Center"
-               Margin="0,0,5,0" />
-
-                        <Label Text="Reviews"
-               FontSize="14"
-               TextColor="Black"
-               
-               Grid.Column="1">
-                            <Label.GestureRecognizers>
-                                <TapGestureRecognizer Command="{Binding GoToNewPageCommand}" />
-                            </Label.GestureRecognizers>
-                        </Label>
-                    </Grid>
-
-                    <!-- Другие элементы интерфейса -->
-
-                </StackLayout>
+                                <Frame Padding="0" Grid.Row="4" BackgroundColor="#FFFFFF" HasShadow="False">
+                                    <Frame.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding NavToReviewsCommand}"></TapGestureRecognizer>
+                                    </Frame.GestureRecognizers>
+                                    <StackLayout>
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="30"></ColumnDefinition>
+                                                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                            </Grid.ColumnDefinitions>
+                                            <Image Grid.Column="0" Source="RewIcon.png" Scale="0.7" HorizontalOptions="Center" VerticalOptions="Center"></Image>
+                                            <Label Grid.Column="1" Text="Reviews" FontFamily="Bold" FontSize="16" Margin="0, 3, 0, 0" TextColor="Black" ></Label>
+                                            <Image Grid.Column="2" Source="RightArrow.png" HorizontalOptions="End" Margin="0, 0, 20, 0" ></Image>
+                                        </Grid>
+                                    </StackLayout>
+                                </Frame>
+                                <BoxView Grid.Row="5" Color="#B3B3B3" Margin="-30, 0, 0 ,0"></BoxView>
+                            </Grid>
+                        </StackLayout>
 
             </StackLayout>
 

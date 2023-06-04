@@ -16,5 +16,10 @@ namespace Mobile.Views
         {
             InitializeComponent();
         }
+
+        private void ImageButton_Clicked(object sender, EventArgs e)
+        {
+            App.Current.MainPage = new MainFlyout();
+        }
     }
 }

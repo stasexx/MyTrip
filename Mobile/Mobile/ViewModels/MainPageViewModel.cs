@@ -7,6 +7,7 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Data;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
@@ -27,12 +28,11 @@ namespace Mobile.ViewModels
 
         private Color buttonTextColor;
         private Color boxColor;
-       // private Color departureButtonColor;
-       // private Color textDepartureColor;
+
 
 
         public ObservableCollection<object> CombinedTours { get; set; }
-        public ObservableCollection<Tour> Tours { get; set; }
+        public ObservableCollection<Models.Tour> Tours { get; set; }
         public ObservableCollection<OrgTour> OrgTours { get; set; }
         public ObservableCollection<OrgTour> HandTours { get; set; }
 
@@ -41,6 +41,7 @@ namespace Mobile.ViewModels
         public ICommand HandmadeButtonCommand { get; set; }
         public ICommand BestButtonCommand { get; set; }
         public ICommand NavToFiltersCommand { get; set; }
+        public ICommand ItemSelectedCommand { get; private set; }
 
 
 
@@ -52,7 +53,7 @@ namespace Mobile.ViewModels
         {
 
             CombinedTours = new ObservableCollection<object>();
-            Tours = new ObservableCollection<Tour>();
+            Tours = new ObservableCollection<Models.Tour>();
             OrgTours = new ObservableCollection<OrgTour>();
             HandTours = new ObservableCollection<OrgTour>();
 
@@ -60,6 +61,7 @@ namespace Mobile.ViewModels
             HandmadeButtonCommand = new Command(ChangeHandmadeSelection);
             BestButtonCommand = new Command(ChangeBestSelection);
             NavToFiltersCommand = new Command(NavToFilters);
+            ItemSelectedCommand = new Command(OnItemSelected);
 
 
             ButtonOffTextColor = Color.FromHex("#5F5F5F");
@@ -75,7 +77,7 @@ namespace Mobile.ViewModels
         {
 
             CombinedTours = new ObservableCollection<object>();
-            Tours = new ObservableCollection<Tour>();
+            Tours = new ObservableCollection<Models.Tour>();
             OrgTours = new ObservableCollection<OrgTour>();
             HandTours = new ObservableCollection<OrgTour>();
 
@@ -100,6 +102,22 @@ namespace Mobile.ViewModels
             FiltersViewModel filtersViewModel = new FiltersViewModel(CombinedTours, this);
             var filtersPage = new Filter(filtersViewModel);
             App.Current.MainPage = filtersPage;
+        }
+
+        private void OnItemSelected(object parameter)
+        {
+            if (parameter is OrgTour item)
+            {
+                TourViewModel tourViewModel = new TourViewModel(item);
+                var tourPage = new Views.Tour(tourViewModel);
+                App.Current.MainPage = tourPage;
+            }
+            if (parameter is Models.HandTour item1)
+            {
+                HandTourViewModel handtourViewModel = new HandTourViewModel(item1);
+                var handTourPage = new Views.HandTour(handtourViewModel);
+                App.Current.MainPage = handTourPage;
+            }
         }
 
 
@@ -246,12 +264,12 @@ namespace Mobile.ViewModels
         public async Task GetTours()
         {
 
-            IEnumerable<Tour> tours = await TourService.GetTours();
+            IEnumerable<Models.Tour> tours = await TourService.GetTours();
 
             while (Tours.Any())
                 Tours.RemoveAt(Tours.Count - 1);
 
-            foreach (Tour tour in tours)
+            foreach (Models.Tour tour in tours)
                 Tours.Add(tour);
         }
 
@@ -264,6 +282,7 @@ namespace Mobile.ViewModels
             foreach (OrgTour orgTour in orgTours)
                 CombinedTours.Add(orgTour);
 
+            DecodeUrl();
             ShuffleCombinedTours();
         }
 
@@ -271,11 +290,12 @@ namespace Mobile.ViewModels
         public async Task GetHandTours()
         {
 
-            IEnumerable<HandTour> handTours = await TourService.GetHandTours();
+            IEnumerable<Models.HandTour> handTours = await TourService.GetHandTours();
 
-            foreach (HandTour handTour in handTours)
+            foreach (Models.HandTour handTour in handTours)
                 CombinedTours.Add(handTour);
 
+            DecodeUrl();
             ShuffleCombinedTours();
         }
 
@@ -296,6 +316,22 @@ namespace Mobile.ViewModels
                 CombinedTours.Add(item);
         }
 
+        private void DecodeUrl()
+        {
+            foreach (var item in CombinedTours)
+            {
+
+                if (item is OrgTour orgTour)
+                {
+                    orgTour.tour.mainPhoto = WebUtility.UrlDecode(orgTour.tour.mainPhoto);
+                }
+                else if (item is Models.HandTour handTour)
+                {
+                    handTour.tour.mainPhoto = WebUtility.UrlDecode(handTour.tour.mainPhoto);
+                }
+            }
+        }
+
         private void SortCombinedToursByRateDescending()
         {
             List<object> tempList = CombinedTours.ToList();
@@ -306,12 +342,12 @@ namespace Mobile.ViewModels
 
                 if (x is OrgTour orgTourX)
                     rateX = orgTourX.tour.rate;
-                else if (x is HandTour handTourX)
+                else if (x is Models.HandTour handTourX)
                     rateX = handTourX.tour.rate;
 
                 if (y is OrgTour orgTourY)
                     rateY = orgTourY.tour.rate;
-                else if (y is HandTour handTourY)
+                else if (y is Models.HandTour handTourY)
                     rateY = handTourY.tour.rate;
 
                 return rateY.CompareTo(rateX);

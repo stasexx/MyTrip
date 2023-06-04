@@ -47,7 +47,7 @@
                                     <ColumnDefinition Width="Auto"></ColumnDefinition>
                                     <ColumnDefinition Width="5"></ColumnDefinition>
                                 </Grid.ColumnDefinitions>
-                                <Button Grid.Column="0" Text="{Binding}" TextTransform="None"  TextColor="Black" BorderWidth="1" BorderColor="Black" CornerRadius="20" Command="{Binding BindingContext.DepartureButtonCommand, Source={x:Reference FiltersPage}}" BackgroundColor="{Binding Binding.DepartureButtonColor, Source={x:Reference FiltersPage}}"></Button>
+                                <Button Grid.Column="0" Text="{Binding}" TextTransform="None"  TextColor="Black" BorderWidth="1" BorderColor="Black" CornerRadius="20" BackgroundColor="#FEFEFE"></Button>
                                 <BoxView Grid.Column="1"></BoxView>
                             </Grid>
                         </DataTemplate>

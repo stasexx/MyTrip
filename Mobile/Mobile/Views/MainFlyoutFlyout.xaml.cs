@@ -1,12 +1,14 @@
-﻿using System;
+﻿using Mobile.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
-
+using System.Windows.Input;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -27,19 +29,27 @@ namespace Mobile.Views
 
         private class MainFlyoutFlyoutViewModel : INotifyPropertyChanged
         {
-            public ObservableCollection<MainFlyoutFlyoutMenuItem> MenuItems { get; set; }
+
+
+            public ICommand NavToProfileCommand { get; private set; }
+            public ICommand NavToSupportCommand { get; private set; }
 
             public MainFlyoutFlyoutViewModel()
             {
-                MenuItems = new ObservableCollection<MainFlyoutFlyoutMenuItem>(new[]
-                {
-                    new MainFlyoutFlyoutMenuItem { Id = 0, Title = "Page 1" },
-                    new MainFlyoutFlyoutMenuItem { Id = 1, Title = "Page 2" },
-                    new MainFlyoutFlyoutMenuItem { Id = 2, Title = "Page 3" },
-                    new MainFlyoutFlyoutMenuItem { Id = 3, Title = "Page 4" },
-                    new MainFlyoutFlyoutMenuItem { Id = 4, Title = "Page 5" },
-                });
+                NavToProfileCommand = new Command(NavToProfile);
+                NavToSupportCommand = new Command(NavToSupport);
+
             }
+
+            private void NavToProfile()
+            {
+                App.Current.MainPage = new Views.Profile();
+            }
+            private void NavToSupport()
+            {
+                App.Current.MainPage = new Views.Support();
+            }
+
 
             #region INotifyPropertyChanged Implementation
             public event PropertyChangedEventHandler PropertyChanged;

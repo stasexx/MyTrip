@@ -14,20 +14,12 @@ namespace Mobile.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Tour : ContentPage
     {
-        TourViewModel viewModel;
-        public Tour()
+        public Tour(TourViewModel viewModel)
         {
             InitializeComponent();
-            //viewModel = new TourViewModel();
-            //BindingContext = viewModel;
 
-            
+            BindingContext = viewModel;
         }
 
-        protected override async void OnAppearing()
-        {
-            //await viewModel.GetTour();
-            //base.OnAppearing();
-        }
     }
 }

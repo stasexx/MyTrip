@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Mobile.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,10 +16,7 @@ namespace Mobile.Views
 		public Register ()
 		{
 			InitializeComponent ();
-		}
-        private void SignUpLabel_Tapped(object sender, EventArgs e)
-        {
-            Navigation.PushAsync(new SignIn());
+            BindingContext = new RegisterViewModel();
         }
     }
 }

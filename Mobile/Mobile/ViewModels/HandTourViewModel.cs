@@ -1,30 +1,29 @@
-﻿using Mobile.MobileServices;
-using Mobile.Models;
-using Mobile.Views;
+﻿using Mobile.Views;
+using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Net;
-using System.Security.Authentication;
-using System.Threading.Tasks;
+using System.Text;
 using System.Windows.Input;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 
 namespace Mobile.ViewModels
 {
-    public class TourViewModel : INotifyPropertyChanged
+    public class HandTourViewModel : INotifyPropertyChanged
     {
-        public OrgTour OrgTour { get; set; }
+        public Models.HandTour HandTour { get; set; }
         public ICommand NavToMainCommand { get; private set; }
         public ICommand ShareCommand { get; private set; }
 
         public event PropertyChangedEventHandler PropertyChanged;
 
-        public TourViewModel(OrgTour orgTour)
+        public HandTourViewModel(Models.HandTour handTour)
         {
-            OrgTour = orgTour;
-            OrgTour.tour.startDate = OrgTour.tour.startDate.Date;
-            OrgTour.tour.endDate = OrgTour.tour.endDate.Date;
+            HandTour = handTour;
             DecodeUrl();
+            //HandTour.tour.startDate = HandTour.tour.startDate.Date;
+            //HandTour.tour.endDate = HandTour.tour.endDate.Date;
 
             NavToMainCommand = new Command(NavToMain);
             ShareCommand = new Command(Share);
@@ -32,9 +31,8 @@ namespace Mobile.ViewModels
 
         private void DecodeUrl()
         {
-            OrgTour.tour.mainPhoto = WebUtility.UrlDecode(OrgTour.tour.mainPhoto);
+            HandTour.tour.mainPhoto = WebUtility.UrlDecode(HandTour.tour.mainPhoto);
         }
-
         private void NavToMain()
         {
 
@@ -48,15 +46,13 @@ namespace Mobile.ViewModels
             await Xamarin.Essentials.Share.RequestAsync(new ShareTextRequest
             {
                 Subject = "MyTrip",
-                Text = $"See what tour i found in the MyTripp app.\n Tour to {OrgTour.tour.name} for only {OrgTour.price} $.",
-            }); 
+                Text = $"See what tour i found in the MyTripp app.\n Tour to {HandTour.tour.name}.",
+            });
         }
 
         protected void OnPropertyChanged(string propName)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propName));
         }
-
-
     }
 }

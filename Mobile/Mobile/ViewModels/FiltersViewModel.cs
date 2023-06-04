@@ -10,7 +10,7 @@ using Xamarin.Forms;
 
 namespace Mobile.ViewModels
 {
-    public class FiltersViewModel
+    public class FiltersViewModel : INotifyPropertyChanged
     {
         MainPageViewModel mainPageViewModel { get; set; }
         public event PropertyChangedEventHandler PropertyChanged;
@@ -49,11 +49,6 @@ namespace Mobile.ViewModels
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propName));
         }
-
-
-
-        public event Action<ObservableCollection<object>> Update;
-
 
 
 
@@ -111,7 +106,7 @@ namespace Mobile.ViewModels
                         Destinations.Add(destination);
                     }
                 }
-                else if (item is HandTour handTour)
+                else if (item is Models.HandTour handTour)
                 {
                     if (!Destinations.Contains(handTour.tour.destination))
                     {
@@ -135,7 +130,7 @@ namespace Mobile.ViewModels
                         Departures.Add(departure);
                     }
                 }
-                else if (item is HandTour handTour)
+                else if (item is Models.HandTour handTour)
                 {
                     if (!Departures.Contains(handTour.tour.placeOfDeparture))
                     {
@@ -158,7 +153,7 @@ namespace Mobile.ViewModels
                         Types.Add(type);
                     }
                 }
-                else if (item is HandTour handTour)
+                else if (item is Models.HandTour handTour)
                 {
                     if (!Types.Contains(handTour.tour.category))
                     {
@@ -171,10 +166,9 @@ namespace Mobile.ViewModels
 
         private void NavToMain()
         {
-            
             MainPageViewModel main = new MainPageViewModel(CombinedTours);
 
-            var mainPage = new MainFlyoutDetail();
+            var mainPage = new MainFlyout();
             mainPage.BindingContext = main;
             App.Current.MainPage = mainPage;
         }

@@ -6,6 +6,7 @@
     <StackLayout>
         <Grid>
             <BoxView Color="#FFA800" HeightRequest="90" />
+            <ImageButton Source="LeftArrow.png" HorizontalOptions="Start" VerticalOptions="Start" Margin="15, 15, 0, 0" BackgroundColor="Transparent" Clicked="ImageButton_Clicked"></ImageButton>
             <Label Text="Support" FontSize="24" FontFamily="Trebuchet MS" HorizontalOptions="Center" VerticalOptions="Center" TextColor="Black" />
         </Grid>
 

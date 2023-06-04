@@ -8,11 +8,11 @@ using System.Threading.Tasks;
 
 namespace Mobile.MobileServices
 {
-    internal class TourService
+    public class TourService
     {
-        const string urlAllTours = "https://776e-188-95-93-64.ngrok-free.app/api/Tours/get/allTours";
-        const string urlAllOrgTours = "https://776e-188-95-93-64.ngrok-free.app/api/OrgTour/get/getAllOrgTours";
-        const string urlAllHandTours = "https://776e-188-95-93-64.ngrok-free.app/api/HandTour/get/getAllHandTours";
+        const string urlAllTours = "https://a118-188-95-93-64.ngrok-free.app/api/Tours/get/allTours";
+        const string urlAllOrgTours = "https://a118-188-95-93-64.ngrok-free.app/api/OrgTour/get/getAllOrgTours";
+        const string urlAllHandTours = "https://a118-188-95-93-64.ngrok-free.app/api/HandTour/get/getAllHandTours";
         private HttpClient GetClient()
         {
             var client = new HttpClient();

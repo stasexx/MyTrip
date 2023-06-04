@@ -21,7 +21,15 @@ namespace Mobile.Models
         public DateTime startDate { get; set; }
 
         public DateTime endDate { get; set; }
-
+        
+        public string startDateNoTime
+        {
+            get { return startDate.Date.ToShortDateString(); }
+        }
+        public string EndDateNoTime
+        {
+            get { return endDate.Date.ToShortDateString(); }
+        }
         public string destination { get; set; }
 
         public string placeOfDeparture { get; set; }

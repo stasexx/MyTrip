@@ -12,20 +12,12 @@ namespace Mobile.Views
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class HandTour : ContentPage
 	{
-        TourViewModel viewModel;
-        public HandTour()
+        public HandTour(HandTourViewModel viewModel)
         {
             InitializeComponent();
-            //viewModel = new TourViewModel();
-            //BindingContext = viewModel;
 
-
+            BindingContext = viewModel;
         }
 
-        protected override async void OnAppearing()
-        {
-            //await viewModel.GetTour();
-            //base.OnAppearing();
-        }
     }
 }

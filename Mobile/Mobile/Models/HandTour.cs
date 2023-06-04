@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Mobile.Models
 {
-    class HandTour
+    public class HandTour
     {
         public int Id { get; set; }
         public Tour tour { get; set; }

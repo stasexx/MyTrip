@@ -16,6 +16,9 @@
 
             <Label Grid.Row="0" Text="Settings" FontSize="20" FontFamily="Trebuchet MS" TextColor="Black" HorizontalOptions="Center" Padding="25"></Label>
             <Frame Grid.Row="1" HorizontalOptions="Center" WidthRequest="260" CornerRadius="10" BackgroundColor="#FFA800" Padding="20, 0, 20, 0">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding NavToSubCommand}"></TapGestureRecognizer>
+                </Frame.GestureRecognizers>
                 <StackLayout>
                     <Label Text="Premium Membership" FontSize="16" TextColor="White" FontFamily="Trebuchet MS" Padding="0, 5, 0, 0"></Label>
                     <Label Text="Upgrade for more features" FontSize="13" TextColor="White" Opacity="0.7" FontFamily="Trebuchet MS" Padding="0, -5, 0, 0"></Label>
@@ -33,9 +36,11 @@
                     <RowDefinition Height="1"></RowDefinition>
                 </Grid.RowDefinitions>
                 <Label Grid.Row="0" Text="Account" FontFamily="Bold" FontSize="18" TextColor="Black" VerticalOptions="End"></Label>
-                <Frame Padding="0" Grid.Row="2" BackgroundColor="#FFFFFF" HasShadow="False" >
-
-                    <StackLayout >
+                <Frame Padding="0" Grid.Row="2" BackgroundColor="#FFFFFF" HasShadow="False">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding NavToProfileCommand}"></TapGestureRecognizer>
+                    </Frame.GestureRecognizers>
+                    <StackLayout>
                         <Grid>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="30"></ColumnDefinition>
@@ -110,6 +115,9 @@
                 </Frame>
                 <BoxView Grid.Row="3" Color="#B3B3B3" Margin="-30, 0, 0 ,0"></BoxView>
                 <Frame Padding="0" Grid.Row="4" BackgroundColor="#FFFFFF" HasShadow="False" >
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding NavToSupportCommand}"></TapGestureRecognizer>
+                    </Frame.GestureRecognizers>
                     <StackLayout >
                         <Grid>
                             <Grid.ColumnDefinitions>
