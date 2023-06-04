@@ -46,6 +46,30 @@ public class ToursController : BaseApiController
     {
         return await _tourService.FilterForTourByCategoryAndCategory(country, category);
     }
+    
+    [HttpGet("get/tourFilter/country={country}/category={category}/price1={price1}/price2={price2}")]
+    public async Task<List<OrgTour>> FilterForTourByPriceAndCategoryAndCategory(string country, string category, double price1, double price2)
+    {
+        return await _tourService.FilterForTourByPriceAndCountryAndCategory(price1, price2, country, category);
+    }
+    
+    [HttpGet("get/tourFilter/price1={price1}/price2={price2}")]
+    public async Task<List<OrgTour>> FilterForTourByPrice(double price1, double price2)
+    {
+        return await _tourService.FilterForTourByPrice(price1, price2);
+    }
+    
+    [HttpGet("get/tourFilter/price1={price1}/price2={price2}/category={category}")]
+    public async Task<List<OrgTour>> FilterForTourByPriceAndCategory(double price1, double price2, string category)
+    {
+        return await _tourService.FilterForTourByPriceAndCategory(price1, price2, category);
+    }
+    
+    [HttpGet("get/tourFilter/price1={price1}/price2={price2}/country={country}")]
+    public async Task<List<OrgTour>> FilterForTourByPriceAndCountry(double price1, double price2, string country)
+    {
+        return await _tourService.FilterForTourByPriceAndCountry(price1, price2, country);
+    }
 
     [HttpPost("create/tour/name={name}/description={description}/rate={rate}/" +
               "typeOfTour={typeOfTour}/category={category}/startDate={startDate}/endDate={endDate}/destination={destination}/" +
@@ -112,5 +136,11 @@ public class ToursController : BaseApiController
     public async Task<Tour> ChangeTags(int id, string newTags)
     {
         return await _tourService.ChangeTags(id, newTags);
+    }
+    
+    [HttpGet("get/searchTourByName/name={name}")]
+    public async Task<List<Tour>> SearchByName(string name)
+    {
+        return await _tourService.SearchByName(name);
     }
 }
