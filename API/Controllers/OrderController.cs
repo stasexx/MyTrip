@@ -30,4 +30,16 @@ public class OrderController:BaseApiController
     {
         return await _orderService.ChangeDate(orderId, newDate);
     }
+    
+    [HttpGet("get/getOrdersByUserId/userId={userId}")]
+    public async Task<List<Order>> GetAllOrdersByUserId(int userId)
+    {
+        return await _orderService.GetAllOrdersByUserId(userId);
+    }
+    
+    [HttpGet("get/getOrdersByOrgTourId/userId={userId}")]
+    public async Task<List<Order>> GetAllOrdersByOrgTourId(int orgTourId)
+    {
+        return await _orderService.GetAllOrdersByOrgTourId(orgTourId);
+    }
 }
