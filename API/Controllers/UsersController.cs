@@ -112,7 +112,7 @@ public class UsersController : BaseApiController
     [HttpPost("change/newAvatar={newAvatar}/email={email}")]
     public async Task<ActionResult> ChangeAvatar(string email, string newAvatar)
     {
-        if (await _userService.ChangeCity(email, newAvatar))
+        if (await _userService.ChangeAvatar(email, newAvatar))
         {
             return Ok();
         }

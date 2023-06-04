@@ -91,7 +91,7 @@ public class ToursController : BaseApiController
     }
     
     [HttpPost("change/newCountOfUser={newCountOfUser}/tourId={id}")]
-    public async Task<Tour> ChangeCountOfUser(int id, string newCountOfUser)
+    public async Task<Tour> ChangeCountOfUser(int id, int newCountOfUser)
     {
         return await _tourService.ChangeCountOfUser(id, newCountOfUser);
     }

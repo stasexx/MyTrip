@@ -14,7 +14,7 @@ public class WishListController : BaseApiController
     }
     
     [HttpGet("get/wishList/email={email}")]
-    public async Task<ActionResult<List<Favourite>>> GetAllTours(string email)
+    public async Task<ActionResult<List<Favourite>>> GetAllWishListForUser(string email)
     {
         return await _wishListService.GetAllWshListForUser(email);
     }
