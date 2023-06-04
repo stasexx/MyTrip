@@ -38,7 +38,7 @@ public class TourServices:ITourService
             Category = category,
             startDate = startDate,
             endDate = endDate,
-            Destination = description,
+            Destination = destination,
             placeOfDeparture = placeOfDeparture,
             countOfUser = countOfUser,
             mainPhoto = mainPhoto,
