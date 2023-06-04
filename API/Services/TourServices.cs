@@ -113,7 +113,7 @@ public class TourServices:ITourService
         {
             if (tour!=null && newTypeOfTour !="")
             {
-                tour.Description = newTypeOfTour;
+                tour.typeOfTour = newTypeOfTour;
             }
 
             await _context.SaveChangesAsync();
@@ -133,7 +133,7 @@ public class TourServices:ITourService
         {
             if (tour!=null && newCategory !="")
             {
-                tour.Description = newCategory;
+                tour.Category = newCategory;
             }
 
             await _context.SaveChangesAsync();
@@ -152,7 +152,7 @@ public class TourServices:ITourService
         {
             if (tour!=null && newDestination !="")
             {
-                tour.Description = newDestination;
+                tour.Destination = newDestination;
             }
 
             await _context.SaveChangesAsync();
@@ -172,7 +172,7 @@ public class TourServices:ITourService
         {
             if (tour!=null && newPlaceOfDeparture !="")
             {
-                tour.Description = newPlaceOfDeparture;
+                tour.placeOfDeparture = newPlaceOfDeparture;
             }
 
             await _context.SaveChangesAsync();
@@ -185,14 +185,14 @@ public class TourServices:ITourService
         }
     }
     
-    public async Task<Tour> ChangeCountOfUser(int id, string newCountOfUser)
+    public async Task<Tour> ChangeCountOfUser(int id, int newCountOfUser)
     {
         var tour = _context.Tours.FirstOrDefault(t => t.TourId == id);
         try
         {
-            if (tour!=null && newCountOfUser !="")
+            if (tour!=null && newCountOfUser !=0)
             {
-                tour.Description = newCountOfUser;
+                tour.countOfUser = newCountOfUser;
             }
 
             await _context.SaveChangesAsync();
@@ -212,7 +212,7 @@ public class TourServices:ITourService
         {
             if (tour!=null && newMainPhoto !="")
             {
-                tour.Description = newMainPhoto;
+                tour.mainPhoto = newMainPhoto;
             }
 
             await _context.SaveChangesAsync();

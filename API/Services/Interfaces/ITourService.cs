@@ -28,7 +28,7 @@ public interface ITourService
     
     Task<Tour> ChangePlaceOfDeparture(int id, string newPlaceOfDeparture);
     
-    Task<Tour> ChangeCountOfUser(int id, string newCountOfUser);
+    Task<Tour> ChangeCountOfUser(int id, int newCountOfUser);
     
     Task<Tour> ChangeMainPhoto(int id, string newMainPhoto);
     
