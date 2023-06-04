@@ -286,7 +286,7 @@ const  TourPage = () => {
                                     { photo.map((item) =>(
                                         
                                         <SwiperSlide>
-                                            <img src={item.uuid} alt="slide_image" />
+                                            <img src={decodeURIComponent(item.uuid)} alt="slide_image" />
                                         </SwiperSlide>
                                     )
                                     )}

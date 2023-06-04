@@ -13,6 +13,7 @@ const Redactor = () => {
     const navigate = useNavigate();
     const user_id = localStorage.getItem("login");
     const [users, setUsers] = useState([]);
+    const [idtour, setidtours] = useState([]);
 
             /* Для туру*/ 
 
@@ -158,13 +159,53 @@ const Redactor = () => {
         const mainPhotoen = encodeURIComponent(mainPhoto);
 
         axios.post(`http://localhost:5000/api/OrgTour/create/createOrgTour/name=${name}/description=${description}/rate=0/typeOfTour=${typeOfTour}/category=${category}/startDate=${datetimeString}/endDate=${datetimeString1}/destination=${destination}/placeOfDeparture=${placeOfDeparture}/countOfUser=${countOfUser}/mainPhoto=${mainPhotoen}/allPhotos=0/tags=${tags}/experience=${experience}/price=${price}/promocode=${promocode}/email=${users.email}`)
-        .then(alert("Успішно змінено"))
-        .catch((error) => alert(error)); 
+        .then(data =>{
+            setidtours(data.data);
+            var tour = data.data.tour;
+            console.log(tour.tourId)
+
+            if(photo1){
+                axios.post(`http://localhost:5000/api/TourPhotos/create/tourPhoto/tourId=${tour.tourId}/uuid=${encodeURIComponent(photo1)}`)
+                .then()
+                .catch((error) => alert(error)); 
+            }
+            
+            if(photo2){
+                axios.post(`http://localhost:5000/api/TourPhotos/create/tourPhoto/tourId=${tour.tourId}/uuid=${encodeURIComponent(photo2)}`)
+                .then()
+                .catch((error) => alert(error)); 
+            }
+
+            if(photo3){
+                axios.post(`http://localhost:5000/api/TourPhotos/create/tourPhoto/tourId=${tour.tourId}/uuid=${encodeURIComponent(photo3)}`)
+                .then()
+                .catch((error) => alert(error)); 
+            }
+
+            if(photo4){
+                axios.post(`http://localhost:5000/api/TourPhotos/create/tourPhoto/tourId=${tour.tourId}/uuid=${encodeURIComponent(photo4)}`)
+                .then()
+                .catch((error) => alert(error)); 
+            }
 
 
-        axios.post(`http://localhost:5000/api/TourPhotos/create/tourPhoto/tourId=1/uuid=1`)
-        .then(alert("Успішно змінено"))
-        .catch((error) => alert(error)); 
+            if(photo5){
+                axios.post(`http://localhost:5000/api/TourPhotos/create/tourPhoto/tourId=${tour.tourId}/uuid=${encodeURIComponent(photo5)}`)
+                .then()
+                .catch((error) => alert(error)); 
+            }
+            
+
+            navigate('/');
+
+
+
+
+    
+
+
+            
+        })
         
     }
 
