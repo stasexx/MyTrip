@@ -318,6 +318,6 @@ public class TourServices:ITourService
 
     public async Task<List<Tour>> SearchByName(string name)
     {
-        return await _context.Tours.Where(t => t.Name == name).ToListAsync();
+        return await _context.Tours.Where(t => t.Name.Contains(name)).ToListAsync();
     }
 }
