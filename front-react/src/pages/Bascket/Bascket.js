@@ -55,9 +55,9 @@ const  Bascket = () => {
         const year = currentDate.getFullYear();
         const month = String(currentDate.getMonth() + 1).padStart(2, '0');
         const day = String(currentDate.getDate()).padStart(2, '0');
-        const formattedDate = `${year}-${month}-${day} 00:00:00`;
+        const for7mattedDate = `${year}-${month}-${day} 00:00:00`;
 
-        var startDatefinal=`${day}.${month}.${year}`;
+        var formattedDate=`${day}.${month}.${year}`;
 
         if(tour){
 
@@ -107,12 +107,12 @@ return(
             <div className={styles.infoo__tour}>
                     <div className={styles.container}>
 
-                        <img className={styles.foto_tour} src={tour.mainPhoto} alt="Link"/>
+                        <img className={styles.foto_tour} src={decodeURIComponent(tour.mainPhoto)} alt="Link"/>
                         <div className={styles.name}>{tour.name}</div>
                         <div className={styles.text_tour} >
                     
                             <div className={styles.price}>{org.price}$</div>
-                            <div className={styles.data}>Order date: {startDatefinal}</div>
+                            <div className={styles.data}>Order date: {formattedDate}</div>
                         </div>
                     </div> 
             </div>

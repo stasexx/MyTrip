@@ -71,7 +71,7 @@ const  MainPge = () => {
                                 own unforgettable journey for you and your friends and family. 
                                 Go ahead! It’s adventure time!
 
-                                <label href="#" className={styles.link_create_tour}>Create</label>
+                                <a href="/redactor" className={styles.link_create_tour}>Create</a>
                             </div>
                     </div> 
                 </div>
@@ -80,19 +80,19 @@ const  MainPge = () => {
                     <h2 class={styles.text__categories}>Experience best tours you can have</h2>
                     <ul class={styles.tours}>  
                         <li className={styles.tour_categories}>
-                            <a href="./project-page.html">
+                            <a href="/catalog">
                                 <img src={extreme} alt="Project img" className={styles.tour__img}/>
                                 <h3 className={styles.categories__title}>Extreme</h3>
                             </a>
                         </li>
                         <li className={styles.tour_categories}>
-                            <a href="./project-page.html">
+                            <a href="/catalog">
                                 <img src={entertain} alt="Project img" className={styles.tour__img}/>
                                 <h3 className={styles.categories__title}>Entertain</h3>
                             </a>
                         </li>
                         <li className={styles.tour_categories}>
-                            <a href="./project-page.html">
+                            <a href="/catalog">
                                 <img src={shopping} alt="Project img" className={styles.tour__img}/>
                                 <h3 className={styles.categories__title}>Shopping</h3>
                             </a>

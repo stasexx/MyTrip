@@ -14,6 +14,11 @@ import MyOrders from "./pages/MyOrders/MyOrders";
 import About from "./pages/AboutUs/AboutUs";
 import EditProfile from "./pages/EditProfile/EditProfile";
 import Catalog from "./pages/Catalog/Catalog";
+import AdminCabinet from "./pages/AdminCabinet/AdminCabinet";
+import AdminGeneral from "./pages/AdminGeneral/AdminGeneral";
+import AdminTours from "./pages/AdminTours/AdminTours";
+import Redactor from "./pages/Redactor/Redactor";
+
 function App() {
 
   const cors = require("cors");
@@ -37,6 +42,12 @@ function App() {
               <Route path="/about" element={<About/>}/>
               <Route path="/cabinet/editprofile" element={<EditProfile/>}/>
               <Route path="/catalog" element={<Catalog/>}/>
+              <Route path="/admin/cabinet" element={<AdminCabinet/>}/>
+              <Route path="/admin/general" element={<AdminGeneral/>}/>
+              <Route path="/admin/tour" element={<AdminTours/>}/>
+              <Route path="/redactor" element={<Redactor/>}/>
+
+            
           </Routes>
       </Router>
     </div>

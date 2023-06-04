@@ -74,26 +74,97 @@ const Catalog = () => {
             img.style.color='#000000'
           }else
           img.style.color='#FF9635'
+        }else if (id === "4") {
+          setShowAfrica(!showAfrica);
+          if(showAfrica){
+            img.style.color='#000000'
+          }else
+          
+          img.style.color='#FF9635'
+        }else if(id === "255"){
+          axios.get("http://localhost:5000/api/Tours/get/allTours")
+          .then(data =>{
+          setTours(data.data);
+          })
         }
+        
       }
       function change_cat(e){
         const id = e.target.id;
 
         if (id === "21") {
           
+          axios.get("http://localhost:5000/api/Tours/get/tourFilter/category=Excursion")
+          .then(data =>{
+          setTours(data.data);
+          })
+
 
         } else if (id === "22") {
-          
+          axios.get("http://localhost:5000/api/Tours/get/tourFilter/category=Wedding%20tours")
+          .then(data =>{
+          setTours(data.data);
+          })
+
 
         } else if (id === "23") {
-         
+          axios.get("http://localhost:5000/api/Tours/get/tourFilter/category=Travels%20in%20Ukraine")
+          .then(data =>{
+          setTours(data.data);
+          })
 
         } else if (id === "24") {
-          
+          axios.get("http://localhost:5000/api/Tours/get/tourFilter/category=Romantic")
+          .then(data =>{
+          setTours(data.data);
+          })
 
+        }else if (id === "25") {
+          axios.get("http://localhost:5000/api/Tours/get/allTours")
+          .then(data =>{
+          setTours(data.data);
+          })
         }
       }
 
+
+      function city(e){
+        const id = e.target.id;
+
+        if (id === "31") {
+          
+          axios.get("http://localhost:5000/api/Tours/get/tourFilter/country=London")
+          .then(data =>{
+          setTours(data.data);
+          })
+
+
+        } else if (id === "32") {
+          axios.get("http://localhost:5000/api/Tours/get/tourFilter/country=Paris")
+          .then(data =>{
+          setTours(data.data);
+          })
+
+
+        } else if (id === "33") {
+          axios.get("http://localhost:5000/api/Tours/get/tourFilter/country=Italy")
+          .then(data =>{
+          setTours(data.data);
+          })
+
+        } else if (id === "34") {
+          axios.get("http://localhost:5000/api/Tours/get/tourFilter/country=Egypt")
+          .then(data =>{
+          setTours(data.data);
+          })
+
+        }else if (id === "255") {
+          axios.get("http://localhost:5000/api/Tours/get/allTours")
+          .then(data =>{
+          setTours(data.data);
+          })
+        }
+      }
 
       
     return ( 
@@ -141,6 +212,7 @@ const Catalog = () => {
 
                         <li className ={styles.Category}>Category
                             <ul className ={styles.cat_filter}>
+                                <li id="25" onClick={change_cat}className ={styles.under_cat_filter}>All</li>
                                  <li id="21" onClick={change_cat} className ={styles.under_cat_filter}>Excursion</li>
                                  <li id="22" onClick={change_cat} className ={styles.under_cat_filter}>Wedding tours</li>
                                  <li id="23" onClick={change_cat} className ={styles.under_cat_filter}>Travels in Ukraine</li>
@@ -153,12 +225,13 @@ const Catalog = () => {
                         
                             <ul className ={styles.part_filter}>
 
+                                <li id="255" onClick={city}className ={styles.under_cat_filter}>All</li>
                                  <li id="1" onClick={open} className ={styles.under_part_filter}>Europe →      
                                  {showEurope && (     
                                     <ul className ={styles.under_filter}>
-                                        <li className ={styles.under_part}>France</li>
-                                        <li className ={styles.under_part}>Ukraine</li>
-                                        <li className ={styles.under_part}>FRG</li>   
+                                        <li id="31"onClick={city} className ={styles.under_part}>London</li>
+                                        <li id="32" onClick={city} className ={styles.under_part}>Paris</li>
+                                        <li id="33" onClick={city} className ={styles.under_part}>Italy</li>   
                                     </ul>
                                     )}
                                  </li>
@@ -166,7 +239,7 @@ const Catalog = () => {
                                  <li id="2" onClick={open} className ={styles.under_part_filter}>North America →
                                  {showNAmerica && (
                                     <ul className ={styles.under_filter}>
-                                        <li className ={styles.under_part}>Canada</li>
+                                        <li   className ={styles.under_part}>Canada</li>
                                         <li className ={styles.under_part}>USA</li>
                                         <li className ={styles.under_part}>Mexico</li>   
                                     </ul> 
@@ -177,8 +250,8 @@ const Catalog = () => {
                                  {showSAmerica && (
                                     <ul className ={styles.under_filter}>
                                         <li className ={styles.under_part}>Brazil</li>
-                                        <li className ={styles.under_part}>Argentina</li>
-                                        <li className ={styles.under_part}>Ecuador</li>   
+                                        <li  className ={styles.under_part}>Argentina</li>
+                                        <li  className ={styles.under_part}>Ecuador</li>   
                                     </ul> 
                                   )} 
                                  </li>
@@ -186,9 +259,9 @@ const Catalog = () => {
                                  <li id="4" onClick={open}  className ={styles.under_part_filter}>Africa →
                                     {showAfrica && (
                                         <ul className={styles.under_filter}>
-                                        <li className={styles.under_part}>Egypt</li>
-                                        <li className={styles.under_part}>CAR</li>
-                                        <li className={styles.under_part}>Madagascar</li>
+                                          <li id="34" onClick={city} className={styles.under_part}>Egypt</li>
+                                          <li className={styles.under_part}>CAR</li>
+                                          <li  className={styles.under_part}>Madagascar</li>
                                         </ul>
                                     )}
                                  </li>

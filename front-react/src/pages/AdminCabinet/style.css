@@ -1,0 +1,490 @@
+.squareStyle {
+  
+    position: absolute;
+    left: 299px;
+    top: 86px;
+    width: 1320px;
+    height: 974px;
+    background-Color: #FAE388;
+  };
+
+   .frameStyle1 {
+    position: absolute;
+    left: 0px;
+    top: 130px;
+    width: 301px;
+    height: 55px;
+    background-Color: #FBC354;
+    display: flex;
+    justify-Content: center;
+    align-Items: center;
+    font-Family: Times New Roman;
+    font-Size: 24px;
+  };
+
+  .frameStyle2 {
+    position:absolute;
+    left: 0px;
+    top: 178px;
+    width: 301px;
+    height: 55px;
+    background-Color: #FBC354;
+    display: flex;
+    justify-Content: center;
+    align-Items: center;
+    color: white;
+    font-Family: Times New Roman;
+    font-Size: 24px;
+  };
+
+  .frameStyle3 {
+    position: absolute;
+    left: 0px;
+    top: 233px;
+    width: 301px;
+    height: 55px;
+    background-Color: #FBC354;
+    display: flex;
+    justify-Content: center;
+    align-Items: center;
+    color: white;
+    font-Family: Times New Roman;
+    font-Size: 24px;
+  };
+
+  .frameStyle4 {
+    position: absolute;
+    left: 668px;
+    top: 531px;
+    width: 405px;
+    height: 44px;
+    background-Color: #FFFFFF;
+    display: flex;
+    justify-Content: center;
+    align-Items: center;
+    color: white;
+    font-Family: Times New Roman;
+    font-Size: 24px;
+  };
+
+  .frameStyle5 {
+    position: absolute;
+    left: 668px;
+    top: 634px;
+    width: 405px;
+    height: 44px;
+    background-Color: #FFFFFF;
+    display: flex;
+    justify-Content: center;
+    align-Items: center;
+    color: white;
+    font-Family: Times New Roman;
+    font-Size: 24px;
+  };
+
+  .frameStyle6 {
+    position: absolute;
+    left: 668px;
+    top: 743px;
+    width: 405px;
+    height: 44px;
+    background-Color: #FFFFFF;
+    display: flex;
+    justify-Content: center;
+    align-Items: center;
+    color: white;
+    font-Family: Times New Roman;
+    font-Size: 24px;
+  };
+
+  .frameStyle7 {
+    position: absolute;
+    left: 668px;
+    top: 853px;
+    width: 405px;
+    height: 44px;
+    background-Color: #FFFFFF;
+    display: flex;
+    justify-Content: center;
+    align-Items: center;
+    color: white;
+    font-Family: Times New Roman;
+    font-Size: 24px;
+  };
+
+  .frameStyle8 {
+    position: absolute;
+    left: 1123px;
+    top: 529px;
+    width: 405px;
+    height: 44px;
+    background-Color: #FFFFFF;
+    display: flex;
+    justify-Content: center;
+    align-Items: center;
+    color: white;
+    font-Family: Times New Roman;
+    font-Size: 24px;
+  };
+
+  .frameStyle9 {
+    position: absolute;
+    left: 1123px;
+    top: 634px;
+    width: 405px;
+    height: 44px;
+    background-Color: #FFFFFF;
+    display: flex;
+    justify-Content: center;
+    align-Items: center;
+    color: white;
+    font-Family: Times New Roman;
+    font-Size: 24px;
+  };
+
+  .frameStyle10 {
+    position: absolute;
+    left: 1123px;
+    top: 741px;
+    width: 405px;
+    height: 44px;
+    background-Color: #FFFFFF;
+    display: flex;
+    justify-Content: center;
+    align-Items: center;
+    color: white;
+    font-Family: Times New Roman;
+    font-Size: 24px;
+  };
+
+  .frameStyle11 {
+    position: absolute;
+    left: 1123px;
+    top: 853px;
+    width: 405px;
+    height: 44px;
+    background-Color: #FFFFFF;
+    display: flex;
+    justify-Content: center;
+    align-Items: center;
+    color: white;
+    font-Family: Times New Roman;
+    font-Size: 24px;
+  };
+
+  .frameStyle12 {
+    position: absolute;
+    left: 1123px;
+    top: 951px;
+    width: 405px;
+    height: 55px;
+    background-Color: #FFFFFF;
+    display: flex;
+    justify-Content: center;
+    align-Items: center;
+    color: white;
+    font-Family: Times New Roman;
+    font-Size: 24px;
+  };
+
+  .frameStyle13 {
+    position: absolute;
+    left: 1263px;
+    top: 109px;
+    width: 210px;
+    height: 55px;
+    background-Color: #E8B043;
+    display: flex;
+    justify-Content: center;
+    align-Items: center;
+    color: grey;
+    font-Family: Times New Roman;
+    font-Size: 24px;
+  };
+
+  .fieldStyle1 {
+    position: absolute;
+    left: 674px;
+    top: 492px;
+    width: 128px;
+    height: 28px;
+    background-Color: #FAE388;
+    display: flex;
+    justify-Content: center;
+    align-Items: center;
+    color: black;
+    font-Family: Times New Roman;
+    font-Size: 24px;
+  };
+
+  .fieldStyle2  {
+    position: absolute;
+    left: 674px;
+    top: 595px;
+    width: 128px;
+    height: 28px;
+    background-Color: #FAE388;
+    display: flex;
+    justify-Content: center;
+    align-Items: center;
+    color: black;
+    font-Family: Times New Roman;
+    font-Size: 24px;
+  };
+
+  .fieldStyle3 {
+    position: absolute;
+    left: 674px;
+    top: 704px;
+    width: 128px;
+    height: 28px;
+    background-Color: #FAE388;
+    display: flex;
+    justify-Content: center;
+    align-Items: center;
+    color: black;
+    font-Family: Times New Roman;
+    font-Size: 24px;
+  };
+
+   .fieldStyle4 {
+    position: absolute;
+    left: 674px;
+    top: 814px;
+    width: 128px;
+    height: 28px;
+    background-Color: #FAE388;
+    display: flex;
+    justify-Content: center;
+    align-Items: center;
+    color: black;
+    font-Family: Times New Roman;
+    font-Size: 24px;
+  };
+
+   .fieldStyle5 {
+    position: absolute;
+    left: 1132px;
+    top: 490px;
+    width: 128px;
+    height: 28px;
+    background-Color: #FAE388;
+    display: flex;
+    justify-Content: center;
+    align-Items: center;
+    color: black;
+    font-Family: Times New Roman;
+    font-Size: 24px;
+  };
+
+  .fieldStyle6 {
+    position: absolute;
+    left: 1132px;
+    top: 595px;
+    width: 128px;
+    height: 28px;
+    background-Color: #FAE388;
+    display: flex;
+    justify-Content: center;
+    align-Items: center;
+    color: black;
+    font-Family: Times New Roman;
+    font-Size: 24px;
+  };
+
+  .fieldStyle7  {
+    position: absolute;
+    left: 1132px;
+    top: 702px;
+    width: 128px;
+    height: 28px;
+    background-Color: #FAE388;
+    display: flex;
+    justify-Content: center;
+    align-Items: center;
+    color: black;
+    font-Family: Times New Roman;
+    font-Size: 24px;
+  };
+
+  .fieldStyle8  {
+    position: absolute;
+    left: 1132px;
+    top: 814px;
+    width: 128px;
+    height: 28px;
+    background-Color: #FAE388;
+    display: flex;
+    justify-Content: center;
+    align-Items: center;
+    color: black;
+    font-Family: Times New Roman;
+    font-Size: 24px;
+  };
+
+  .fieldStyle9  {
+    position: absolute;
+    left: 674px;
+    top: 226px;
+    width: 178px;
+    height: 40px;
+    background-Color: #FAE388;
+    display: flex;
+    justify-Content: center;
+    align-Items: center;
+    color: black;
+    font-Family: Times New Roman;
+    font-Size: 40px;
+  };
+
+  .fieldStyle10  {
+    position: absolute;
+    left: 653px;
+    top: 291px;
+    width: 228px;
+    height: 40px;
+    background-Color: #FAE388;
+    display: flex;
+    justify-Content: center;
+    align-Items: center;
+    color: black;
+    font-Family: Times New Roman;
+    font-Size: 40px;
+  };
+
+  .fieldStyle11  {
+    position: absolute;
+    left: 966px;
+    top: 198px;
+    width: 295px;
+    height: 32px;
+    background-Color: #FAE388;
+    display: flex;
+    justify-Content: center;
+    align-Items: center;
+    color: black;
+    font-Family: Times New Roman;
+    font-Size: 32px;
+  };
+
+  .fieldStyle12  {
+    position: absolute;
+    left: 966px;
+    top: 254px;
+    width: 103px;
+    height: 32px;
+    background-Color: #FAE388;
+    display: flex;
+    justify-Content: center;
+    align-Items: center;
+    color: grey;
+    font-Family: Times New Roman;
+    font-Size: 32px;
+  };
+
+  .fieldStyle13  {
+    position: absolute;
+    left: 966px;
+    top: 336px;
+    width: 202px;
+    height: 32px;
+    background-Color: #FAE388;
+    display: flex;
+    justify-Content: center;
+    align-Items: center;
+    color: black;
+    font-Family: Times New Roman;
+    font-Size: 32px;
+  };
+
+  .fieldStyle14  {
+    position: absolute;
+    left: 966px;
+    top: 398px;
+    width: 382px;
+    height: 32px;
+    background-Color: #FAE388;
+    display: flex;
+    justify-Content: center;
+    align-Items: center;
+    color: grey;
+    font-Family: Times New Roman;
+    font-Size: 32px;
+  };
+
+  .fieldStyle15  {
+    position: absolute;
+    left: 1301px;
+    top: 200px;
+    width: 275px;
+    height: 32px;
+    background-Color: #FAE388;
+    display: flex;
+    justify-Content: center;
+    align-Items: center;
+    color: black;
+    font-Family: Times New Roman;
+    font-Size: 32px;
+  };
+
+  .fieldStyle16  {
+    position: absolute;
+    left: 1301px;
+    top: 241px;
+    width: 16px;
+    height: 32px;
+    background-Color: #FAE388;
+    display: flex;
+    justify-Content: center;
+    align-Items: center;
+    color: grey;
+    font-Family: Times New Roman;
+    font-Size: 32px;
+  };
+
+  .fieldStyle17  {
+    position: absolute;
+    left: 1301px;
+    top: 320px;
+    width: 300px;
+    height: 32px;
+    background-Color: #FAE388;
+    display: flex;
+    justify-Content: center;
+    align-Items: center;
+    color: black;
+    font-Family: Times New Roman;
+    font-Size: 32px;
+  };
+
+  .fieldStyle18  {
+    position: absolute;
+    left: 1301px;
+    top: 395px;
+    width: 241px;
+    height: 35px;
+    background-Color: #FAE388;
+    display: flex;
+    justify-Content: center;
+    align-Items: center;
+    color: grey;
+    font-Family: Times New Roman;
+    font-Size: 32px;
+  };
+
+  .fieldStyle19 {
+    position: absolute;
+    left: 1003px;
+    top: 109px;
+    width: 262px;
+    height: 55px;
+    background-Color: #FAE388;
+    display: flex;
+    justify-Content: center;
+    align-Items: center;
+    color: black;
+    font-Family: Times New Roman;
+    font-Size: 36px;
+  };
+
+ 

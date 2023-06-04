@@ -1,0 +1,151 @@
+.whiteBackground {
+    position: absolute;
+    top: 298px;
+    left: 302px;
+    width: 1320px;
+    height: 82px;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .siteStatisticText {
+    font-family: "Times New Roman", Times, serif;
+    font-size: 32px;
+  }
+
+.frameStyle1,
+.frameStyle2,
+.frameStyle3 {
+  position: absolute;
+  width: 301px;
+  height: 55px;
+  background-color: #fbc354;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Arial, sans-serif;
+  font-size: 18px;
+  color: #fff;
+}
+
+.frameStyle1 {
+  top: 0;
+  left: 0;
+}
+
+.frameStyle2 {
+  top: 1px;
+  left: 0;
+}
+
+.frameStyle3 {
+  top: 1px;
+  left: 0;
+}
+
+.textFieldStyle1,
+.textFieldStyle2,
+.textFieldStyle3,
+.textFieldStyle4,
+.textFieldStyle5,
+.textFieldStyle6,
+.textFieldStyle7 {
+  position: absolute;
+  top: 380px;
+  left: 301px;
+  width: 235px;
+  height: 54px;
+  background-color: #f5b129;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Times New Roman", Times, serif;
+  font-size: 20px;
+  color: #000;
+}
+
+.textFieldStyle2 {
+  top: 434px;
+}
+
+.textFieldStyle3 {
+  top: 488px;
+}
+
+.textFieldStyle4 {
+  top: 542px;
+}
+
+.textFieldStyle5 {
+  top: 596px;
+}
+
+.textFieldStyle6 {
+  top: 650px;
+}
+
+.textFieldStyle7 {
+  top: 704px;
+}
+
+.fieldStyle1,
+.fieldStyle2,
+.fieldStyle3,
+.fieldStyle4,
+.fieldStyle5,
+.fieldStyle6,
+.fieldStyle7 {
+  position: absolute;
+  top: 380px;
+  left: 542px;
+  width: 1085px;
+  height: 54px;
+  background-color: #f9d07f;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Times New Roman", Times, serif;
+  font-size: 20px;
+  color: #000;
+}
+
+.fieldStyle2 {
+  top: 434px;
+}
+
+.fieldStyle3 {
+  top: 488px;
+}
+
+.fieldStyle4 {
+  top: 542px;
+}
+
+.fieldStyle5 {
+  top: 596px;
+}
+
+.fieldStyle6 {
+  top: 650px;
+}
+
+.fieldStyle7 {
+  top: 704px;
+}
+
+.additionalFieldStyle {
+    position: absolute;
+    left: 1325px;
+    top: 838px;
+    width: 296px;
+    height: 70px;
+    background-color: #F5B129;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    font-family: "Times New Roman", Times, serif;
+    font-size: 36px;
+  }
