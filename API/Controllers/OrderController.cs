@@ -18,4 +18,16 @@ public class OrderController:BaseApiController
     {
         return await _orderService.CreateOrder(orgTourId, userId);
     }
+    
+    [HttpPost("delete/deleteOrder/orderId={orderId}")]
+    public async Task<bool> DeleteOrder(int orderId)
+    {
+        return await _orderService.DeleteOrder(orderId);
+    }
+    
+    [HttpPost("change/changeDateOfOrder/orderId={orderId}/newDate={newDate}")]
+    public async Task<bool> ChangeDateOfOrder(int orderId, DateTime newDate)
+    {
+        return await _orderService.ChangeDate(orderId, newDate);
+    }
 }
