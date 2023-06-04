@@ -8,4 +8,6 @@ public interface IChatService
 
     Task<Chat> EditBudget(int budget, int chatId);
     
+    Task<bool> DeleteChat(int chatId);
+    
 }

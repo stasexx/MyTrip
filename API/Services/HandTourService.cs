@@ -61,7 +61,7 @@ public class HandTourService:IHandTourService
         };
         _context.AddAsync(handTour);
         _context.SaveChangesAsync();
-        return await _context.HandTours.FirstOrDefaultAsync(c=>c.Chat==chat);
+        return await _context.HandTours.Include(u=>u.Tour).FirstOrDefaultAsync(c=>c.Chat==chat);
     }
     
 }
