@@ -11,59 +11,6 @@ namespace Persistence.Migrations
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.DropForeignKey(
-                name: "FK_Membership_Users_UserId",
-                table: "Membership");
-
-            migrationBuilder.DropForeignKey(
-                name: "FK_Message_Chats_ChatId",
-                table: "Message");
-
-            migrationBuilder.DropForeignKey(
-                name: "FK_Message_Membership_MembershipId",
-                table: "Message");
-
-            migrationBuilder.DropPrimaryKey(
-                name: "PK_Message",
-                table: "Message");
-
-            migrationBuilder.DropPrimaryKey(
-                name: "PK_Membership",
-                table: "Membership");
-
-            migrationBuilder.RenameTable(
-                name: "Message",
-                newName: "Messages");
-
-            migrationBuilder.RenameTable(
-                name: "Membership",
-                newName: "Memberships");
-
-            migrationBuilder.RenameIndex(
-                name: "IX_Message_MembershipId",
-                table: "Messages",
-                newName: "IX_Messages_MembershipId");
-
-            migrationBuilder.RenameIndex(
-                name: "IX_Message_ChatId",
-                table: "Messages",
-                newName: "IX_Messages_ChatId");
-
-            migrationBuilder.RenameIndex(
-                name: "IX_Membership_UserId",
-                table: "Memberships",
-                newName: "IX_Memberships_UserId");
-
-            migrationBuilder.AddPrimaryKey(
-                name: "PK_Messages",
-                table: "Messages",
-                column: "MessageId");
-
-            migrationBuilder.AddPrimaryKey(
-                name: "PK_Memberships",
-                table: "Memberships",
-                column: "MembershipId");
-
             migrationBuilder.CreateTable(
                 name: "Subscriptions",
                 columns: table => new
