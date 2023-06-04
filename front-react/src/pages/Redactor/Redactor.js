@@ -160,6 +160,12 @@ const Redactor = () => {
         axios.post(`http://localhost:5000/api/OrgTour/create/createOrgTour/name=${name}/description=${description}/rate=0/typeOfTour=${typeOfTour}/category=${category}/startDate=${datetimeString}/endDate=${datetimeString1}/destination=${destination}/placeOfDeparture=${placeOfDeparture}/countOfUser=${countOfUser}/mainPhoto=${mainPhotoen}/allPhotos=0/tags=${tags}/experience=${experience}/price=${price}/promocode=${promocode}/email=${users.email}`)
         .then(alert("Успішно змінено"))
         .catch((error) => alert(error)); 
+
+
+        axios.post(`http://localhost:5000/api/TourPhotos/create/tourPhoto/tourId=1/uuid=1`)
+        .then(alert("Успішно змінено"))
+        .catch((error) => alert(error)); 
+        
     }
 
   }

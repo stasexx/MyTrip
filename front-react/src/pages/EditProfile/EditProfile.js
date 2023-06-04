@@ -129,7 +129,7 @@ const EditProfile = () => {
         .catch((error) => alert(error)); 
     }
     if(users.avatar!=avatar){
-      axios.post(`http://localhost:5000/api/Users/change/newAvatar=${users.avatar}/email=${users.email}`)
+      axios.post(`http://localhost:5000/api/Users/change/newAvatar=${encodeURIComponent(avatar)}/email=${users.email}`)
       .then(alert("Успішно змінено"))
       .catch((error) => alert(error)); 
   }
@@ -159,7 +159,7 @@ const EditProfile = () => {
 
             <div className={styles.cabinet}>
                 <div>
-                    <img className={styles.profile_photo} src={users.avatar} alt="Profile" />
+                    <img className={styles.profile_photo} src={decodeURIComponent(users.avatar)} alt="Profile" />
                     <input type="text" className={styles.avatar}placeholder="Enter url avatar " value={avatar} onChange={handleAvatarChange} />
 
                 </div>
