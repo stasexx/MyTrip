@@ -96,7 +96,7 @@ const Tour_my = ({tour_id,past}) => {
 
 
                         <tr>
-                            <td rowspan="2" className={styles.td_tour_photo}><img src={tour.mainPhoto} alt=""/></td>
+                            <td rowspan="2" className={styles.td_tour_photo}><img src={decodeURIComponent(tour.mainPhoto)} alt=""/></td>
                             <td>
                                 <div><img src={image_21}  className={styles.tour__img}/>Name</div>
                                 <div className={styles.name}>{tour.name}</div>

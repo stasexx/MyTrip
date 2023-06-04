@@ -241,7 +241,7 @@ const  TourPage = () => {
             <div className={styles.infoo__tour}>
                     <div className={styles.container}>
 
-                        <img className={styles.foto_tour} src={MyTour.mainPhoto} alt="Link"/>
+                        <img className={styles.foto_tour} src={decodeURIComponent(MyTour.mainPhoto)} alt="Link"/>
                         <div className={styles.text_tour} >
                         
                             <div>Begin: {startDatefinal}</div>

@@ -47,7 +47,7 @@ const Tour = ({name, main_photo, rate,tourId,typeOfTour}) => {
 
         <li id="dfg"className={styles.tour}>
             <a href={`./tour/${typeOfTour}/${tourId}`}>
-                <img src={main_photo} alt="Project img" className={styles.tour__img}/>
+                <img src={decodeURIComponent(main_photo)} alt="Project img" className={styles.tour__img}/>
                 <h3 className={styles.tour__title}>{name}</h3>
                 <div className={styles.tour__rating}><StRating rate={rate}/></div>
             </a>

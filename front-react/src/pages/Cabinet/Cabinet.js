@@ -20,7 +20,7 @@ const Cabinet = () => {
     const[users,setUsers] = useState([]);
     const[info,setUsersinfo] = useState([]);
     const[id_tour,setIdTour] = useState([]);
-
+    var avat = useState([]);
         useEffect(()=>{
             if(user_id){
         axios.get(`http://localhost:5000/api/Users/get/userById=${user_id}`)
@@ -83,7 +83,7 @@ const Cabinet = () => {
         <NavBar/>
         <div className="container">
             <div className="cabinet">
-                <img className="profile-photo" src={users.avatar} alt="Profile" />
+                <img className="profile-photo" src={decodeURIComponent(users.avatar)} alt="Profile" />
                 <div>
                     <div className="profile-info">
                         <div className="name">

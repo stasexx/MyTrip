@@ -1,5 +1,5 @@
 
-import React, {useState} from "react";
+import React, {useEffect,useState} from "react";
 import axios from 'axios';
 import login_photo_right from "./../../img/icon/login_photo_right.png";
 import logo from "./../../img/icon/logo.png"; 
@@ -13,6 +13,7 @@ const src="http://localhost:5000/api/Users/get/userByEmail=";
 const  Login = () => {
 
     const[user,setUsers] = useState([]);    
+    const[userCheck,setUsersCheck] = useState([]);    
     const navigate  = useNavigate ();
 
     function Check_login(){
@@ -62,7 +63,43 @@ const  Login = () => {
                   xhr.onreadystatechange = function (e) {
                     if (xhr.readyState === 4 && xhr.status === 200) {
 
-                      console.log(xhr.responseText);
+                        console.log(JSON.parse(xhr.responseText));
+
+                        var use =JSON.parse(xhr.responseText);
+
+                        axios.get(`http://localhost:5000/api/Users/get/userByEmail=${use.email}`)
+                        .then(function (data) {
+                          console.log(data.data);
+                          console.log(data.data.length);
+
+                          if (data.data.length === 0) {
+                            console.log(use.email);
+                            console.log(use.picture);
+                            console.log(use.given_name);
+                            console.log(use.family_name);
+
+                            const email = encodeURIComponent(use.email);
+                            const avatar = encodeURIComponent(use.picture);
+                            const firstname = encodeURIComponent(use.given_name);
+                            const lastname = encodeURIComponent(use.family_name);
+                            
+                            const url = `http://localhost:5000/api/Users/registration/oauth/email=${email}/avatar=${avatar}/firstname=${firstname}/lastname=${lastname}`;
+                            axios.post(url)
+                              .then(function (response) {
+                                navigate('/login');
+                              })
+                              .catch((error) => alert(error));
+
+                          } else {
+                            const user = data.data;
+                            console.log(user);
+                            localStorage.setItem("login", user.userId);
+                            navigate('/');
+                          }
+                        });
+                        
+
+
 
                     } else if (xhr.readyState === 4 && xhr.status === 401) {
                       // Token invalid, so prompt for user permission.

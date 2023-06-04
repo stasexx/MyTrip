@@ -128,6 +128,11 @@ const EditProfile = () => {
         .then(alert("Успішно змінено"))
         .catch((error) => alert(error)); 
     }
+    if(users.avatar!=avatar){
+      axios.post(`http://localhost:5000/api/Users/change/newAvatar=${users.avatar}/email=${users.email}`)
+      .then(alert("Успішно змінено"))
+      .catch((error) => alert(error)); 
+  }
 
 
 

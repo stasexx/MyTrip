@@ -48,7 +48,7 @@ const  NavBar= () => {
                                 <>
                                     <li className="nav-list__item"><a href="/cabinet/wishlist" className="nav-list__link"><img className="icon_header" src={wish_list}  alt="Link"/>Wish list</a></li>
 
-                                    <li className="nav-list__item"><a href="/cabinet" className="nav-list_user"><img className="icon_user" src={user.avatar} alt="Link" /></a></li>
+                                    <li className="nav-list__item"><a href="/cabinet" className="nav-list_user"><img className="icon_user" src={decodeURIComponent(user.avatar)} alt="Link" /></a></li>
 
                                 </>
 

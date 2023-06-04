@@ -36,7 +36,7 @@ const Tour_wishlist = ({name, main_photo, rate,tourId,typeOfTour,category}) => {
 
         <li id="dfg"className={styles.tour}>
             <a href={`/tour/${typeOfTour}/${tourId}`}>
-                <img src={main_photo} alt="Project img" className={styles.tour__img}/>
+                <img src={decodeURIComponent(main_photo)} alt="Project img" className={styles.tour__img}/>
                 <h3 className={styles.tour__title}>{name}</h3>
                 <h3 className={styles.tour__title}>{category}</h3>
                 

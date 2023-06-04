@@ -1,0 +1,221 @@
+.cabinet{
+
+    display: flex;
+    margin-bottom: 50px;
+
+}
+body {
+	
+	font-family: 'Montserrat';
+}
+.container {
+	position: relative;
+	margin: 0 auto;
+	max-width: 1920px;
+	padding: 0 300px;
+
+}
+.name_page{
+    font-size: 48px;
+}
+.tour_cover{
+    margin-top: 30px;
+    font-size: 36px;  
+}
+.swi_name_orh{
+    margin-top: 20px;
+
+    float: right;
+    font-size: 30px;
+}
+.switch{
+    margin-top: 20px;
+    margin-right: 20px;
+    display: inline-block;
+    position: relative;
+    width:40px;
+    height: 14px;
+    float: right;
+}
+.tour_cover{
+    font-size: 26px;  
+}
+.tour_images{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size: 30px;  
+    
+}
+.switch__input{
+    height: 0;
+    width: 0;
+    opacity: 0;
+}
+
+.switch__input:checked+ .switch__slider::before{
+    transform: translateX(26px);
+    background-color: #FFA800;
+}
+.switch__slider{
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: #D9D9D9;
+    border-radius: 34px;
+}
+.switch__slider::before{
+    content: "";
+    position: absolute;
+    cursor: pointer;
+    height: 26px;
+    width: 26px;
+    left: -6px;
+    bottom: -6px;
+    border-radius: 50%;
+    background-color: rgb(0, 0, 0);
+    transition: .5s;
+}
+.profile_photo{
+    margin: 30px 30px;
+    border-radius: 5%;
+    width: 310px;
+    height: 370px;
+}
+
+.profile_info{
+    padding-top: 70px;
+    width: 250px;
+    text-align: center;
+}
+
+.name{
+    font-size: 40px;
+    position: relative;
+}
+
+
+.level{
+    padding-top: 30px;
+}
+
+.level__label{    
+    color: #606060;
+    font-size: 24px;
+}
+
+
+ .travels{
+    position: relative;
+    margin-right: 400px;
+    padding-top: 10px;
+    width: 250px;
+    left: -10px;
+
+}
+
+.additional{
+    padding-top: 10px;
+    width: 280px;
+
+}
+.btn_save{
+    margin-top: 35px;
+    font-size: 36px;
+    width: 400px;
+    height: 50px;
+    background-color: #fff7d8;
+    cursor: pointer;
+}
+.btn_crt{
+    text-align: center;
+    margin-top: 35px;
+    font-size: 36px;
+    width: 400px;
+    height: 50px;
+    background-color: #FFA800;
+    cursor: pointer;
+}
+.btn_can{
+    text-align: center;
+    margin-top: 35px;
+    font-size: 36px;
+    width: 400px;
+    height: 50px;
+    background-color: #969696;
+    cursor: pointer;
+    color: white;
+    position: relative;
+    left: 245px;
+}
+.h2{
+    font-size: 32px;
+    float: left;
+    padding-left: 10px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.info{
+    line-height: 45px;
+    font-size: 25px;
+    padding-left: 20px;
+    background-color: #fff7d8;
+    width: 400px;
+}
+
+.info_main{
+    line-height: 45px;
+    font-size: 25px;
+    padding-left: 20px;
+    margin-left: 25px;
+    background-color: #fff7d8;
+    width: 400px;
+}
+.info_name{
+    line-height: 45px;
+    font-size: 25px;
+    padding-left: 20px;
+    margin-left: 25px;
+    background-color: #fff7d8;
+    width: 1270px;
+}
+.select{
+    height: 40px;
+    font-size: 25px;
+    padding-left: 20px;
+    margin-left: 25px;
+    width: 300px;
+    background-color: #fff7d8;
+    color:#606060
+}
+.avatar{
+    line-height: 45px;
+    font-size: 20px;
+    padding-left: 20px;
+    background-color: #fff7d8;
+    width: 300px;
+    position: absolute;
+    left: 335px;
+    bottom: 220px;
+}
+.btns{
+    margin-left: auto;
+    margin-right: 0px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+
+.last_header{
+    font-size: 40px;
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 20px;
+}
+.font__img{
+    position: absolute;
+    z-index: -1;
+}
