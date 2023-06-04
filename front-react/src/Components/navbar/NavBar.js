@@ -2,7 +2,7 @@ import"./styles.css"
 
 import logo from "./../../img/icon/logo.png"; 
 
-
+import {useNavigate} from 'react-router-dom';
 import React, {useEffect, useState} from "react";
 import axios from 'axios';
 
@@ -14,6 +14,19 @@ import search_glass from "./../../img/icon/glass_search.png";
 
 const  NavBar= () => {
 
+    const navigate = useNavigate();
+    const [searchText, setSearchText] = useState('');
+
+
+
+    const handleKeyDown = (event) => {
+  
+      if (event.key === 'Enter') {
+
+        navigate('/catalog');
+      }
+  
+    };
 
     const[user,setUser] = useState([]);
     var user_id = localStorage.getItem("login");
@@ -36,7 +49,17 @@ const  NavBar= () => {
                 <a href="/" className="logo"><img src={logo} alt="Link"/></a>
                 <div class ="search-box">
                      <a class="search-btn" href="#"><img className="icon_header" src={search_glass} alt="Link"/></a>
-                    <input class="search-tour" type ="text" name="" placeholder="Search tours"></input>
+
+
+                        <input
+                        className="search_tour"
+                        type="text"
+                        placeholder="Search tours"
+                        value={searchText}
+                        onChange={(event) => setSearchText(event.target.value)}
+                        onKeyDown={handleKeyDown}
+                    />
+
                 </div>
                    <ul className="nav-list">
                         <li className="nav-list__item"><a href="/about" className="nav-list__link"><img className="icon_header" src={about_us} alt="Link"/>About us</a></li>

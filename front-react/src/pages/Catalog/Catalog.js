@@ -23,7 +23,35 @@ import SwiperCore, { Pagination, Navigation, Autoplay } from 'swiper';
 import search_glass from "./../../img/icon/glass_search.png";
 const Catalog = () => {
 
+  const [searchText, setSearchText] = useState('');
 
+
+
+  const handleKeyDown = (event) => {
+
+    if (event.key === 'Enter') {
+
+      if(searchText==''){
+        axios.get("http://localhost:5000/api/Tours/get/allTours")
+        .then(data =>{
+        setTours(data.data);
+        })
+      }else{
+
+        event.preventDefault();
+        // Вызывайте метод GET здесь, используя полученные данные из поля ввода (searchText)
+        axios.get(`http://localhost:5000/api/Tours/get/searchTourByName/name=${searchText}`)
+        .then(data =>{
+        setTours(data.data);
+        })
+      }
+
+
+
+
+    }
+
+  };
 
     const[tour,setTours] = useState([]);
   
@@ -164,6 +192,12 @@ const Catalog = () => {
           setTours(data.data);
           })
         }
+
+
+
+
+
+
       }
 
       
@@ -205,7 +239,14 @@ const Catalog = () => {
                 <div className ={styles.search}>Search options</div>
                 <div className ={styles.search_box}>
                     <a className={styles.search_btn} href="#"><img className={styles.icon_header} src={search_glass} alt="Link"/></a>
-                <input className={styles.search_tour} type ="text" name="" placeholder="Search tours"></input>
+                    <input
+                    className={styles.search_tour}
+                    type="text"
+                    placeholder="Search tours"
+                    value={searchText}
+                    onChange={(event) => setSearchText(event.target.value)}
+                    onKeyDown={handleKeyDown}
+                  />
                 </div>
                 <div>
                     <ul className ={styles.name_filter}>
