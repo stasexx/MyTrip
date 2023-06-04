@@ -291,4 +291,33 @@ public class TourServices:ITourService
     {
         return await _context.Tours.Where(t => t.Category == category && t.Destination==country).ToListAsync();
     }
+
+    public async Task<List<OrgTour>> FilterForTourByPrice(double price1, double price2)
+    {
+        return await _context.OrgTours.Include(t=>t.Tour).Where(t => t.Price >= price1 && t.Price <= price2).ToListAsync();
+    }
+
+    public async Task<List<OrgTour>> FilterForTourByPriceAndCategory(double price1, double price2, string category)
+    {
+        return await _context.OrgTours.Include(t=>t.Tour).
+            Where(t => t.Price >= price1 && t.Price <= price2 && t.Tour.Category==category).ToListAsync();
+    }
+    
+    public async Task<List<OrgTour>> FilterForTourByPriceAndCountry(double price1, double price2, string country)
+    {
+        return await _context.OrgTours.Include(t=>t.Tour).
+            Where(t => t.Price >= price1 && t.Price <= price2 && t.Tour.Destination==country).ToListAsync();
+    }
+
+    public async Task<List<OrgTour>> FilterForTourByPriceAndCountryAndCategory(double price1, double price2, string country,
+        string category)
+    {
+        return await _context.OrgTours.Include(t=>t.Tour).
+            Where(t => t.Price >= price1 && t.Price <= price2 && t.Tour.Destination==country && t.Tour.Category==category).ToListAsync();
+    }
+
+    public async Task<List<Tour>> SearchByName(string name)
+    {
+        return await _context.Tours.Where(t => t.Name == name).ToListAsync();
+    }
 }

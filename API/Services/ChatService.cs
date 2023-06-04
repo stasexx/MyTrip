@@ -35,4 +35,16 @@ public class ChatService:IChatService
         }
         return chat;
     }
+
+    public async Task<bool> DeleteChat(int chatId)
+    {
+        var chat = _context.Chats.FirstOrDefault(c => c.ChatId == chatId);
+        if (chat!=null)
+        {
+            _context.Remove(chat);
+            _context.Chats.Remove(chat);
+            await _context.SaveChangesAsync();
+        }
+        return false;
+    }
 }
